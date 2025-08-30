@@ -66,34 +66,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     </head>
 <body data-theme="corporate">
-    <button id="hamburger-btn" class="hamburger-icon fixed top-5 right-5 z-50 h-10 w-10 p-2 space-y-1.5 bg-gray-800 rounded-md">
-        <span class="block w-full h-0.5 bg-white"></span>
-        <span class="block w-full h-0.5 bg-white"></span>
-        <span class="block w-full h-0.5 bg-white"></span>
-    </button>
-
-    <div id="settings-panel" class="fixed top-0 right-0 h-full w-72 bg-black border-l border-gray-800 shadow-xl z-40 p-6">
-        <h2 class="text-2xl font-bold mb-8">Interface</h2>
-        <div class="space-y-6">
-            <div>
-                <h3 class="text-lg font-semibold text-custom-orange mb-2">Thème Visuel</h3>
-                <fieldset class="space-y-2">
-                    <label class="flex items-center p-3 bg-gray-800 rounded-md cursor-pointer">
-                        <input type="radio" name="theme" value="corporate" class="mr-3">
-                        <span>Corporate</span>
-                    </label>
-                    <label class="flex items-center p-3 bg-gray-800 rounded-md cursor-pointer">
-                        <input type="radio" name="theme" value="cyberpunk" class="mr-3">
-                        <span>Cyberpunk</span>
-                    </label>
-                    <label class="flex items-center p-3 bg-gray-800 rounded-md cursor-pointer">
-                        <input type="radio" name="theme" value="light" class="mr-3">
-                        <span>Light</span>
-                    </label>
-                </fieldset>
-            </div>
-        </div>
-    </div>
     <!-- Particles Background -->
     <div id="particles" class="fixed inset-0 pointer-events-none"></div>
     
@@ -187,6 +159,34 @@
             </div>
         </div>
     </header>
+    <button id="hamburger-btn" class="hamburger-icon fixed top-5 right-5 z-50 h-10 w-10 p-2 space-y-1.5 bg-gray-800 rounded-md">
+        <span class="block w-full h-0.5 bg-white"></span>
+        <span class="block w-full h-0.5 bg-white"></span>
+        <span class="block w-full h-0.5 bg-white"></span>
+    </button>
+
+    <div id="settings-panel" class="fixed top-0 right-0 h-full w-72 bg-black border-l border-gray-800 shadow-xl z-40 p-6">
+        <h2 class="text-2xl font-bold mb-8">Interface</h2>
+        <div class="space-y-6">
+            <div>
+                <h3 class="text-lg font-semibold text-custom-orange mb-2">Thème Visuel</h3>
+                <fieldset class="space-y-2">
+                    <label class="flex items-center p-3 bg-gray-800 rounded-md cursor-pointer">
+                        <input type="radio" name="theme" value="corporate" class="mr-3">
+                        <span>Corporate</span>
+                    </label>
+                    <label class="flex items-center p-3 bg-gray-800 rounded-md cursor-pointer">
+                        <input type="radio" name="theme" value="cyberpunk" class="mr-3">
+                        <span>Cyberpunk</span>
+                    </label>
+                    <label class="flex items-center p-3 bg-gray-800 rounded-md cursor-pointer">
+                        <input type="radio" name="theme" value="light" class="mr-3">
+                        <span>Light</span>
+                    </label>
+                </fieldset>
+            </div>
+        </div>
+    </div>
     
     <!-- Hero Section - Mobile First -->
     <section id="home" class="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20">
