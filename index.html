@@ -153,15 +153,15 @@
                 <div class="mt-8 pt-8 border-t border-gray-800">
                     <p class="text-sm text-gray-500 mb-4">Me suivre</p>
                     <div class="flex space-x-4">
-                        <a href="https://www.linkedin.com/in/bertandfouquet1984/" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-orange-500 transition-colors">
+                        <a href="https://www.linkedin.com/in/bertandfouquet1984/" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-orange-500 transition-colors" aria-label="Profil LinkedIn">
                             <i class="fab fa-linkedin"></i>
                         </a>
-                        <a href="https://github.com/Bemps17" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-orange-500 transition-colors">
+                        <a href="https://github.com/Bemps17" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-orange-500 transition-colors" aria-label="Profil GitHub">
                             <i class="fab fa-github"></i>
                         </a>
-                        <a href="mailto:bertrandwebdesigner@proton.me" class="text-2xl hover:text-orange-500 transition-colors">
+                        <button onclick="showContact(this)" class="text-2xl hover:text-orange-500 transition-colors bg-transparent border-none p-0 cursor-pointer" aria-label="Envoyer un email">
                             <i class="fas fa-envelope"></i>
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -640,15 +640,15 @@
                         <h3 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Contactez-moi directement</h3>
                         
                         <div class="space-y-3 sm:space-y-4">
-                            <a href="mailto:bertrandwebdesigner@proton.me" class="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 glass-orange rounded-lg sm:rounded-xl hover:bg-orange-500/10 transition">
+                            <button onclick="showContact(this)" class="w-full text-left flex items-center gap-3 sm:gap-4 p-3 sm:p-4 glass-orange rounded-lg sm:rounded-xl hover:bg-orange-500/10 transition">
                                 <div class="w-10 h-10 sm:w-12 sm:h-12 gradient-bg rounded-lg flex items-center justify-center flex-shrink-0">
                                     <i class="fas fa-envelope text-white"></i>
                                 </div>
                                 <div class="min-w-0">
                                     <p class="text-xs sm:text-sm text-gray-400">Email</p>
-                                    <p class="font-semibold text-sm sm:text-base truncate">bertrandwebdesigner@proton.me</p>
+                                    <p class="font-semibold text-sm sm:text-base truncate">Envoyer un message</p>
                                 </div>
-                            </a>
+                            </button>
                             
                             <a href="https://www.linkedin.com/in/bertandfouquet1984/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 glass-orange rounded-lg sm:rounded-xl hover:bg-orange-500/10 transition">
                                 <div class="w-10 h-10 sm:w-12 sm:h-12 gradient-bg rounded-lg flex items-center justify-center flex-shrink-0">
@@ -812,15 +812,15 @@
                 
                 <!-- Social Links -->
                 <div class="flex gap-4 sm:gap-6">
-                    <a href="https://www.linkedin.com/in/bertandfouquet1984/" target="_blank" rel="noopener noreferrer" class="hover:text-orange-500 transition">
+                    <a href="https://www.linkedin.com/in/bertandfouquet1984/" target="_blank" rel="noopener noreferrer" class="hover:text-orange-500 transition" aria-label="Profil LinkedIn">
                         <i class="fab fa-linkedin text-xl sm:text-2xl"></i>
                     </a>
-                    <a href="https://github.com/Bemps17" target="_blank" rel="noopener noreferrer" class="hover:text-orange-500 transition">
+                    <a href="https://github.com/Bemps17" target="_blank" rel="noopener noreferrer" class="hover:text-orange-500 transition" aria-label="Profil GitHub">
                         <i class="fab fa-github text-xl sm:text-2xl"></i>
                     </a>
-                    <a href="mailto:bertrandwebdesigner@proton.me" class="hover:text-orange-500 transition">
+                    <button onclick="showContact(this)" class="hover:text-orange-500 transition bg-transparent border-none p-0 cursor-pointer" aria-label="Envoyer un email">
                         <i class="fas fa-envelope text-xl sm:text-2xl"></i>
-                    </a>
+                    </button>
                 </div>
                 
                 <!-- Copyright -->

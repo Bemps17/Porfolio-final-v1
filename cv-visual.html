@@ -117,6 +117,10 @@
         .contact a:hover { border-color: #f97316; }
 
         .edu-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.625rem; }
+        .reveal-btn { background: none; border: 1px dotted; color: inherit; cursor: pointer; margin-left: 8px; padding: 0 4px; border-radius: 4px; }
+        .reveal-btn:hover { border-style: solid; border-color: #f97316; }
+        .reveal-container { display: inline-flex; align-items: center; }
+
         .edu-list li { display: grid; gap: 0.375rem; padding-top: 0.625rem; padding-bottom: 0.625rem; border-bottom: 1px dashed #4b5563; grid-template-columns: 1fr auto; }
         .edu-list li:last-child { border-bottom: 0; }
         .edu-list .degree { font-weight: 600; }
@@ -163,8 +167,12 @@
           <section class="contact" aria-labelledby="contact-title">
             <h2 id="contact-title">Contact</h2>
             <ul>
-              <li><strong>Téléphone</strong><br /><a href="tel:+33666938235">06 66 93 82 35</a></li>
-              <li><strong>Email</strong><br /><a href="mailto:bertrandwebdesigner@proton.me">bertrandwebdesigner@proton.me</a></li>
+              <li><strong>Téléphone</strong><br />
+                <span class="reveal-container">06 66 •• •• ••<button onclick="revealPhone(this)" class="reveal-btn">Voir</button></span>
+              </li>
+              <li><strong>Email</strong><br />
+                <span class="reveal-container"><button onclick="revealEmail(this)" class="reveal-btn">Voir l'email</button></span>
+              </li>
               <li><strong>Âge</strong><br />40 ans</li>
               <li><strong>Adresse</strong><br />17138 Puilboreau</li>
             </ul>
@@ -277,6 +285,41 @@
                 });
             }
         });
+
+        /**
+         * Replaces an element with a clickable phone number link.
+         * @param {HTMLElement} element The button element that was clicked.
+         */
+        function revealPhone(element) {
+            const phone = '+33666938235';
+            const formattedPhone = '06 66 93 82 35';
+            
+            const telLink = document.createElement('a');
+            telLink.href = `tel:${phone}`;
+            telLink.textContent = formattedPhone;
+            
+            if (element.parentNode) {
+                element.parentNode.replaceWith(telLink);
+            }
+        }
+
+        /**
+         * Replaces an element with a clickable email link.
+         * @param {HTMLElement} element The button element that was clicked.
+         */
+        function revealEmail(element) {
+            const user = 'bertrandwebdesigner';
+            const domain = 'proton.me';
+            const email = `${user}@${domain}`;
+
+            const mailtoLink = document.createElement('a');
+            mailtoLink.href = `mailto:${email}`;
+            mailtoLink.textContent = email;
+
+            if (element.parentNode) {
+                element.parentNode.replaceWith(mailtoLink);
+            }
+        }
     </script>
 </body>
 </html>

@@ -1,3 +1,13 @@
+/**
+ * Opens the mail client without exposing the email address in the HTML.
+ * @param {HTMLElement} element The button element that was clicked.
+ */
+function showContact(element) {
+    const user = 'bertrandwebdesigner';
+    const domain = 'proton.me';
+    window.location.href = `mailto:${user}@${domain}`;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
             // Particle animation
             const particlesContainer = document.getElementById('particles');

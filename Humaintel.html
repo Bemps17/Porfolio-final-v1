@@ -333,9 +333,9 @@
              <h2 class="text-4xl font-extrabold mb-4" data-lang-corporate="Planifions un entretien" data-lang-cyberpunk="Initialiser le contact" data-lang-light="Planifions un entretien">Planifions un entretien</h2>
              <p class="text-300 max-w-2xl mx-auto mb-8 text-lg text-custom-orange " data-lang-corporate="Prêt à voir comment mon approche peut créer de la valeur pour votre équipe ? Discutons-en." data-lang-cyberpunk="Besoin d'un agent qui décode le business et encode la solution ? Ouvrons une connexion sécurisée." data-lang-light="Prêt à voir comment mon approche peut créer de la valeur pour votre équipe ? Discutons-en.">Prêt à voir comment mon approche peut créer de la valeur...</p>
              <div class="flex flex-col md:flex-row justify-center items-center gap-4">
-                <a href="mailto:bertrandwebdesigner@proton.me" class="w-full md:w-auto bg-custom-orange hover:opacity-90 transition-opacity duration-300 text-black py-4 px-8 rounded-lg text-lg font-bold">
+                <button onclick="showContact(this)" class="w-full md:w-auto bg-custom-orange hover:opacity-90 transition-opacity duration-300 text-black py-4 px-8 rounded-lg text-lg font-bold">
                     <i class="fas fa-envelope mr-2"></i> <span data-lang-corporate="Me contacter par email" data-lang-cyberpunk="Envoyer un message crypté" data-lang-light="Me contacter par email">Me contacter par email</span>
-                </a>
+                </button>
                 <a href="https://github.com/Bemps17" target="_blank" rel="noopener noreferrer" class="w-full md:w-auto bg-gray-800 hover:bg-gray-700 transition-colors duration-300 text-white py-4 px-8 rounded-lg font-bold">
                     <i class="fab fa-github mr-2"></i> <span data-lang-corporate="Voir mon GitHub" data-lang-cyberpunk="Accéder au Dépôt Source" data-lang-light="Voir mon GitHub">Voir mon GitHub</span>
                 </a>
@@ -350,6 +350,16 @@
             const hamburgerBtn = document.getElementById('hamburger-btn');
             const themeRadios = document.querySelectorAll('input[name="theme"]');
             const langElements = document.querySelectorAll('[data-lang-corporate], [data-text-corporate]');
+
+            /**
+             * Opens the mail client without exposing the email address in the HTML.
+             * @param {HTMLElement} element The button element that was clicked.
+             */
+            function showContact(element) {
+                const user = 'bertrandwebdesigner';
+                const domain = 'proton.me';
+                window.location.href = `mailto:${user}@${domain}`;
+            }
 
             // --- FONCTION POUR CHANGER LE TEXTE (LANGUE/TON) ---
             function applyLanguage(theme) {
