@@ -78,8 +78,8 @@
             <div class="flex justify-between items-center">
                 <!-- Logo -->
                 <div class="flex items-center space-x-2">
-                    <div class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center font-bold text-white p-1">
-                        <a href="#home"> <img src="icons\bfbg-orange.svg" alt="Logo"></a>
+                    <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center font-bold text-white">
+                        <a href="#home"><img src="icons/logoblanc.svg" alt="logoblanc"></a>
                     </div>
                     <span class="font-bold text-lg hidden sm:inline">Bertrand Fouquet</span>
                 </div>
@@ -102,7 +102,7 @@
                 </div>
                 
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="hamburger lg:hidden p-2 focus:outline-none relative z-[51]">
+                <button id="mobile-menu-btn" class="hamburger lg:hidden p-2 focus:outline-none">
                     <div class="space-y-1.5">
                         <span class="hamburger-line block w-6 h-0.5 bg-orange-500"></span>
                         <span class="hamburger-line block w-6 h-0.5 bg-orange-500"></span>
@@ -659,7 +659,7 @@
                                        class="w-full p-3 sm:p-4 glass rounded-lg sm:rounded-xl bg-white/5 focus:bg-white/10 outline-none transition text-sm sm:text-base">
                                 <textarea name="message" placeholder="Votre message" rows="4" required 
                                           class="w-full p-3 sm:p-4 glass rounded-lg sm:rounded-xl bg-white/5 focus:bg-white/10 outline-none transition text-sm sm:text-base"></textarea>
-                                <label id="file-input-label" class="w-full p-3 sm:p-4 glass rounded-lg sm:rounded-xl bg-white/5 focus-within:bg-white/10 outline-none transition text-sm sm:text-base flex items-center cursor-pointer text-gray-400 hidden">
+                                <label class="w-full p-3 sm:p-4 glass rounded-lg sm:rounded-xl bg-white/5 focus-within:bg-white/10 outline-none transition text-sm sm:text-base flex items-center cursor-pointer text-gray-400">
                                     <i class="fas fa-paperclip mr-3"></i>
                                     <span id="file-name" class="truncate">Joindre un fichier (optionnel)</span>
                                     <input type="file" name="file" id="file-input" class="hidden">
@@ -750,11 +750,11 @@
                     <i class="fas fa-database text-xl sm:text-3xl mb-1 sm:mb-2 text-red-500"></i>
                     <p class="text-xs sm:text-sm">CRM</p>
                 </div>
-                <div id="ia-tools-btn" class="glass rounded-lg sm:rounded-xl p-3 sm:p-4 text-center hover:scale-110 transition ">
+                <div id="ia-tools-btn" class="glass rounded-lg sm:rounded-xl p-3 sm:p-4 text-center hover:scale-110 transition cursor-pointer">
                     <i class="fas fa-robot text-xl sm:text-3xl mb-1 sm:mb-2 text-orange-500"></i>
                     <p class="text-xs sm:text-sm">IA Tools ✨</p>
                 </div>
-                <div id="linkedin-btn" class="glass rounded-lg sm:rounded-xl p-3 sm:p-4 text-center hover:scale-110 transition cursor-pointer">
+                <div class="glass rounded-lg sm:rounded-xl p-3 sm:p-4 text-center hover:scale-110 transition">
                     <i class="fab fa-linkedin text-xl sm:text-3xl mb-1 sm:mb-2 text-blue-700"></i>
                     <p class="text-xs sm:text-sm">LinkedIn</p>
                 </div>
@@ -772,8 +772,8 @@
             <div class="flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-6">
                 <!-- Logo & Name -->
                 <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center font-bold p-1">
-                      <img src="icons\bfbg-orange.svg" alt="Logo">
+                    <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center font-bold">
+                        BF
                     </div>
                     <div>
                         <p class="font-semibold">Bertrand Fouquet</p>
@@ -795,16 +795,9 @@
                 </div>
                 
                 <!-- Copyright -->
-                <div class="text-xs sm:text-sm text-gray-400 text-center sm:text-right flex items-center justify-center sm:justify-end gap-1">
-                    <span>©</span>
-                    <div class="flex">
-                        <span class="animate-digit" style="animation-delay: 0s;">2</span>
-                        <span class="animate-digit" style="animation-delay: 0.1s;">0</span>
-                        <span class="animate-digit" style="animation-delay: 0.2s;">2</span>
-                        <span class="animate-digit" style="animation-delay: 0.3s;">5</span>
-                    </div>
-                    <span>Fait avec le <i class="fas fa-heart text-orange-500 pl-1"></i></span>
-                </div>
+                <p class="text-xs sm:text-sm text-gray-400 text-center sm:text-right">
+                                                                                                                                                                                                                                                                                                                                                                                                © 2025 • Fait avec <i class="fas fa-heart text-red-500"></i>
+                </p>
             </div>
         </div>
     </footer>
