@@ -15,7 +15,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
+    <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#000000">
 
     <style>
@@ -341,6 +341,7 @@
         </section>
     </div>
 
+    <script src="js/save.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // --- SÉLECTEURS ---
@@ -370,7 +371,12 @@
                 const themeLabels = document.querySelectorAll('#settings-panel fieldset label');
 
                 document.body.setAttribute('data-theme', theme);
-                localStorage.setItem('portfolio-theme', theme);
+                // Use the new save function
+                if (typeof saveTheme === 'function') {
+                    saveTheme(theme);
+                } else {
+                    localStorage.setItem('portfolio-theme', theme);
+                }
                 applyLanguage(theme);
 
                 // Mettre à jour l'état du bouton radio
@@ -389,8 +395,14 @@
             themeRadios.forEach(radio => radio.addEventListener('change', (e) => applyTheme(e.target.value)));
             
             // --- INITIALISATION ---
-            const savedTheme = localStorage.getItem('portfolio-theme') || 'corporate';
-            applyTheme(savedTheme);
+            async function initializeTheme() {
+                if (typeof checkSaveState === 'function') {
+                    await checkSaveState();
+                }
+                const themeToLoad = (typeof loadTheme === 'function') ? await loadTheme() : (localStorage.getItem('portfolio-theme') || 'corporate');
+                applyTheme(themeToLoad);
+            }
+            initializeTheme();
             
             // --- LOGIQUE DE L'ACCORDÉON ---
             const accordionHeaders = document.querySelectorAll('.accordion-header');

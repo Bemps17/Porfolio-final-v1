@@ -1,0 +1,24 @@
+{
+  "name": "Bertrand Fouquet - Portfolio",
+  "short_name": "BF Portfolio",
+  "description": "Portfolio de Bertrand Fouquet, Web Designer Junior (UI/UX) et expert polyvalent digital.",
+  "icons": [
+    {
+      "src": "icons/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/mstile-150x150.png",
+      "sizes": "150x150",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#1a1a1a",
+  "theme_color": "#ff6600",
+  "scope": "/",
+  "lang": "fr"
+}

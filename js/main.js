@@ -290,7 +290,14 @@ document.addEventListener('DOMContentLoaded', () => {
             
             function applyTheme(theme) {
                 document.body.setAttribute('data-theme', theme);
-                localStorage.setItem('portfolio-theme', theme);
+                
+                // Use the new save function if it exists
+                if (typeof saveTheme === 'function') {
+                    saveTheme(theme);
+                } else {
+                    // Fallback to old method if save.js is not loaded
+                    localStorage.setItem('portfolio-theme', theme);
+                }
                 
                 // Mettre à jour l'état du bouton radio
                 const currentRadio = document.querySelector(`#settings-panel input[name="theme"][value="${theme}"]`);
@@ -309,6 +316,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 radio.addEventListener('change', (e) => applyTheme(e.target.value));
             });
 
-            const savedTheme = localStorage.getItem('portfolio-theme') || 'corporate';
-            applyTheme(savedTheme);
+            async function initializeTheme() {
+                // First, check the state for logging/debugging purposes
+                if (typeof checkSaveState === 'function') {
+                    await checkSaveState();
+                }
+                // Then, load the theme using our priority logic
+                const themeToLoad = (typeof loadTheme === 'function') ? await loadTheme() : (localStorage.getItem('portfolio-theme') || 'corporate');
+                applyTheme(themeToLoad);
+            }
+            initializeTheme();
+
+            // === SERVICE WORKER REGISTRATION ===
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/js/service-worker.js')
+                        .then(registration => {
+                            console.log('Service Worker enregistré ! Scope: ', registration.scope);
+                        })
+                        .catch(err => {
+                            console.error('Échec de l\'enregistrement du Service Worker: ', err);
+                        });
+                });
+            }
         });

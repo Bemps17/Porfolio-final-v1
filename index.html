@@ -22,7 +22,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
+    <link rel="manifest" href="manifest.json">
     <link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#ff6600">
     <meta name="msapplication-TileColor" content="#2d3748">
     <meta name="msapplication-config" content="icons/browserconfig.xml">
@@ -837,9 +837,11 @@
     </footer>
 
     <!-- Easter Egg Section for Objectives -->
-    <div id="objectifs-section" class="fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-4 sm:p-6 md:p-8 hidden" role="dialog" aria-modal="true" aria-labelledby="objectifs-title">
+    <div id="objectifs-section" class="fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-4 sm:p-6 md:p-8 hidden overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="objectifs-title">
         <div class="bg-[#1a1a1a] glass rounded-2xl shadow-2xl w-full max-w-3xl relative p-6 sm:p-8">
-            <button id="objectifs-close-btn" class="absolute top-4 right-4 text-gray-400 hover:text-white text-3xl leading-none font-bold">&times;</button>
+            <button id="objectifs-close-btn" class="absolute top-3 right-3 h-10 w-10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 rounded-full transition-colors" aria-label="Fermer la fenêtre">
+                <i class="fas fa-times text-xl"></i>
+            </button>
             <div class="text-center mb-6">
                 <h2 id="objectifs-title" class="text-3xl sm:text-4xl font-bold mb-3">
                     Mes <span class="text-gradient-orange">Objectifs</span>
@@ -906,6 +908,7 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.min.js"></script>
+    <script src="js/save.js" defer></script>
     <script src="js/main.js" defer></script>
 </body>
 </html>
