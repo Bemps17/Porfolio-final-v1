@@ -1,3 +1,13 @@
+// CODE TEMPORAIRE - À SUPPRIMER APRÈS FIX
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then(function(registrations) {
+        for(let registration of registrations) {
+            registration.unregister();
+            console.log('Service Worker désinstallé');
+        }
+    });
+}
+
 /**
  * Opens the mail client without exposing the email address in the HTML.
  * @param {HTMLElement} element The button element that was clicked.
@@ -338,6 +348,7 @@ document.addEventListener('DOMContentLoaded', () => {
             initializeTheme();
 
             // === SERVICE WORKER REGISTRATION ===
+            /*
             if ('serviceWorker' in navigator) {
                 window.addEventListener('load', () => {
                     // On charge le service worker depuis la racine pour que son scope par défaut soit '/'
@@ -346,8 +357,9 @@ document.addEventListener('DOMContentLoaded', () => {
                             console.log('Service Worker enregistré ! Scope: ', registration.scope);
                         })
                         .catch(err => {
-                            console.error('Échec de l\'enregistrement du Service Worker: ', err);
+                            console.error('Échec de l'enregistrement du Service Worker: ', err);
                         });
                 });
             }
+            */
         });
