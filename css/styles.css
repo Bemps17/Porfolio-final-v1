@@ -194,6 +194,18 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
+/* Animation for copyright year digits */
+.animate-digit {
+    display: inline-block;
+    animation: digit-float 2.5s ease-in-out infinite;
+}
+
+@keyframes digit-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}
+
   /* Badge générique */
 .project-badge {
   position: absolute;
@@ -223,4 +235,85 @@
                 font-size: 1.5rem;
             }
         }
-    
+
+        /* --- DÉFINITION DES 3 THÈMES --- */
+
+        /* THÈME 1 : CORPORATE (Sombre Orange) */
+        :root, body[data-theme="corporate"] {
+            --font-heading: ui-sans-serif, system-ui, sans-serif;
+            --font-body: ui-sans-serif, system-ui;
+            --color-bg: #000000;
+            --color-bg-secondary: #111111;
+            --color-surface: #000000;
+            --color-border: #2d2d2d;
+            --color-text-primary: #ffffff;
+            --color-text-secondary: #a0a0a0;
+            --color-accent: #ff6600;
+            --color-accent-text: #000000;
+        }
+
+        /* THÈME 2 : CYBERPUNK (Sombre Néon - AMÉLIORÉ) */
+        body[data-theme="cyberpunk"] {
+            --font-heading: 'Chakra Petch', sans-serif;
+            --font-body: 'Fira Code', monospace;
+            --color-bg: #0a041f;
+            --color-bg-secondary: #180d38;
+            --color-surface: rgba(26, 11, 68, 0.5);
+            --color-border: rgba(0, 246, 255, 0.3);
+            --color-text-primary: #e0e0e0;
+            --color-text-secondary: #9e9cb6;
+            --color-accent: #00f6ff;
+            --color-accent-text: #000000;
+        }
+
+        /* THÈME 3 : LIGHT (Clair Orange) */
+        body[data-theme="light"] {
+            --font-heading: ui-sans-serif, system-ui, sans-serif;
+            --font-body: ui-sans-serif, system-ui;
+            --color-bg: #f4f4f5;
+            --color-bg-secondary: #ffffff;
+            --color-surface: #ffffff;
+            --color-border: #e5e7eb;
+            --color-text-primary: #111827;
+            --color-text-secondary: #4b5563;
+            --color-accent: #ff6600;
+            --color-accent-text: #ffffff;
+        }
+
+        /* --- APPLICATION DES VARIABLES & STYLES DE BASE --- */
+        body { background-color: var(--color-bg); color: var(--color-text-primary); font-family: var(--font-body); transition: background-color 0.5s ease; }
+        h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--color-text-primary); }
+        p { color: var(--color-text-secondary); }
+        
+        .text-custom-orange { color: var(--color-accent) !important; transition: color 0.5s ease; }
+        .bg-custom-orange { background-color: var(--color-accent) !important; color: var(--color-accent-text) !important; transition: background-color 0.5s ease; }
+        .border-gray-800 { border-color: var(--color-border); }
+        .bg-black { background-color: var(--color-surface); }
+        .bg-gray-800, .bg-gray-900 { background-color: var(--color-bg-secondary); }
+        .hero-header { background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-secondary) 100%); transition: background 0.5s ease; }
+
+        /* --- STYLES SPÉCIFIQUES --- */
+        /* Cyberpunk Effects - AMÉLIORÉS POUR LA LISIBILITÉ */
+        body[data-theme="cyberpunk"] .text-custom-orange {
+            text-shadow: 0 0 5px var(--color-accent); /* Effet néon plus subtil */
+        }
+        body[data-theme="cyberpunk"] .cyberpunk-neon {
+             text-shadow: 0 0 5px var(--color-accent);
+        }
+        body[data-theme="cyberpunk"] .bg-black,
+        body[data-theme="cyberpunk"] #settings-panel { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-width: 1px; box-shadow: 0 0 15px rgba(0, 246, 255, 0.2); }
+        body[data-theme="cyberpunk"] .bg-custom-orange { box-shadow: 0 0 10px var(--color-accent), 0 0 20px var(--color-accent); }
+        
+        /* Light Mode Shadow for depth */
+        body[data-theme="light"] .bg-black,
+        body[data-theme="light"] .bg-gray-800,
+        body[data-theme="light"] .hero-header { box-shadow: 0 4px 15px -1px rgb(0 0 0 / 0.1); }
+        
+        /* --- MENU & ACCORDÉON --- */
+        #settings-panel, .hamburger-icon span, .accordion-content { transition: all 0.3s ease-in-out; }
+        #settings-panel { transform: translateX(100%); }
+        body.settings-open #settings-panel { transform: translateX(0); }
+        body.settings-open .hamburger-icon span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        body.settings-open .hamburger-icon span:nth-child(2) { opacity: 0; }
+        body.settings-open .hamburger-icon span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+        .accordion-content { max-height: 0; overflow: hidden; }
