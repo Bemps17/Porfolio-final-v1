@@ -84,6 +84,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 const formWrapper = document.getElementById('form-wrapper');
                 const successMessage = document.getElementById('success-message');
 
+                const fileInput = document.getElementById('file-input');
+                const fileNameSpan = document.getElementById('file-name');
+
+                if (fileInput && fileNameSpan) {
+                    fileInput.addEventListener('change', () => {
+                        if (fileInput.files.length > 0) {
+                            fileNameSpan.textContent = fileInput.files[0].name;
+                            fileNameSpan.classList.remove('text-gray-400');
+                            fileNameSpan.classList.add('text-white');
+                        } else {
+                            fileNameSpan.textContent = 'Joindre un fichier (optionnel)';
+                            fileNameSpan.classList.add('text-gray-400');
+                            fileNameSpan.classList.remove('text-white');
+                        }
+                    });
+                }
+
                 contactForm.addEventListener('submit', function (e) {
                     e.preventDefault();
                     
@@ -96,8 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     fetch("/", {
                         method: "POST",
-                        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                        body: new URLSearchParams(formData).toString()
+                        body: formData
                     })
                     .then(() => {
                         if (formWrapper && successMessage) {

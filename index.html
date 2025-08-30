@@ -648,14 +648,22 @@
                         <h3 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Ou envoyez un message</h3>
                         
                         <div id="form-wrapper">
-                            <form id="contact-form" name="contact" method="POST" data-netlify="true" class="space-y-3 sm:space-y-4">
+                            <form id="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" enctype="multipart/form-data" class="space-y-3 sm:space-y-4">
                                 <input type="hidden" name="form-name" value="contact" />
+                                <p class="hidden">
+                                    <label>Ne pas remplir: <input name="bot-field" /></label>
+                                </p>
                                 <input type="text" name="name" placeholder="Votre nom" required 
                                        class="w-full p-3 sm:p-4 glass rounded-lg sm:rounded-xl bg-white/5 focus:bg-white/10 outline-none transition text-sm sm:text-base">
                                 <input type="email" name="email" placeholder="Votre email" required 
                                        class="w-full p-3 sm:p-4 glass rounded-lg sm:rounded-xl bg-white/5 focus:bg-white/10 outline-none transition text-sm sm:text-base">
                                 <textarea name="message" placeholder="Votre message" rows="4" required 
                                           class="w-full p-3 sm:p-4 glass rounded-lg sm:rounded-xl bg-white/5 focus:bg-white/10 outline-none transition text-sm sm:text-base"></textarea>
+                                <label class="w-full p-3 sm:p-4 glass rounded-lg sm:rounded-xl bg-white/5 focus-within:bg-white/10 outline-none transition text-sm sm:text-base flex items-center cursor-pointer text-gray-400">
+                                    <i class="fas fa-paperclip mr-3"></i>
+                                    <span id="file-name" class="truncate">Joindre un fichier (optionnel)</span>
+                                    <input type="file" name="file" id="file-input" class="hidden">
+                                </label>
                                 <button type="submit" class="w-full p-3 sm:p-4 gradient-bg text-white rounded-lg sm:rounded-xl font-semibold hover:shadow-xl transition transform hover:scale-[1.02] text-sm sm:text-base">
                                     <i class="fas fa-paper-plane mr-2"></i>Envoyer le message
                                 </button>
