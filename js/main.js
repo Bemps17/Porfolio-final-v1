@@ -362,4 +362,89 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
             */
+
+            // Initialiser l'easter egg de la console
+            initConsoleEasterEgg();
         });
+
+// ========================================
+// 8. CONSOLE EASTER EGG
+// ========================================
+
+function initConsoleEasterEgg() {
+    const styles = {
+        title: 'font-size: 24px; font-weight: bold; background: linear-gradient(135deg, #ff6600 0%, #ff8833 100%); color: white; padding: 10px 20px; border-radius: 10px;',
+        subtitle: 'font-size: 14px; color: #999;',
+        highlight: 'font-size: 14px; color: #ff6600; font-weight: bold;',
+        success: 'font-size: 14px; color: #00ff00; font-weight: bold;'
+    };
+    
+    console.log('%c🚀 Salut, recruteur curieux !', styles.title);
+    console.log('%c👋 Si vous regardez ici, c\'est que vous aimez les détails...', styles.subtitle);
+    console.log('%c💡 J\'ai 10+ ans d\'expérience et 3 domaines d\'expertise.', styles.subtitle);
+    console.log('%c📧 Contactez-moi : bertrandwebdesigner@proton.me', styles.highlight);
+    console.log('%c🎯 Disponible immédiatement pour vos projets !', styles.success);
+    
+    // ASCII Art
+    console.log(`
+    %c
+    ╔══════════════════════════════════════╗
+    ║   BERTRAND FOUQUET - WEB DESIGNER   ║
+    ║     Commercial | Design | Logistique ║
+    ╚══════════════════════════════════════╝
+    `, 'color: #ff6600; font-family: monospace;');
+}
+
+// ========================================
+// FONCTIONS UTILITAIRES
+// ========================================
+
+/**
+ * Debounce function pour optimiser les performances
+ */
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+/**
+ * Throttle function pour limiter l'exécution
+ */
+function throttle(func, limit) {
+    let inThrottle;
+    return function(...args) {
+        if (!inThrottle) {
+            func.apply(this, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    };
+}
+
+/**
+ * Détection du type d'appareil
+ */
+function getDeviceType() {
+    const ua = navigator.userAgent;
+    if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
+        return 'tablet';
+    }
+    if (/Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(ua)) {
+        return 'mobile';
+    }
+    return 'desktop';
+}
+
+// Export pour utilisation externe si nécessaire
+window.portfolioUtils = {
+    debounce,
+    throttle,
+    getDeviceType
+};
