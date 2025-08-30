@@ -17,96 +17,139 @@
 
 /* Styles for Visual CV in Modal, based on cv.css - ORANGE THEME */
 #cv-modal-body .page {
-    --bg: #1a1a1a; /* Match modal background */
-    --text: #e7e7ea;
-    --muted: #b6b7c1;
-    --primary: #ff6600; /* ORANGE */
-    --primary-100: #2a2a2a; /* Darker sidebar bg */
-    --accent: #ff8833; /* LIGHT ORANGE */
-    --shadow: 0 6px 24px rgba(0,0,0,.45);
+    /* Tailwind classes for background, text color, and font */
+    background-color: #1a1a1a;
+    color: #e7e7ea;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 1rem;
+    line-height: 1.625;
     
-    background: var(--bg);
-    color: var(--text);
-    font: 16px/1.5 'Plus Jakarta Sans', system-ui, sans-serif;
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 1100px;
+    margin: 0 auto;
+    border-radius: 0.75rem; /* rounded-xl */
+    overflow: hidden; /* Ensures rounded corners are respected */
 }
 
 #cv-modal-body * { box-sizing: border-box; }
 
 /* Layout */
-#cv-modal-body .page {
-    display: grid;
-    grid-template-columns: 1fr;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
 #cv-modal-body .sidebar {
-    background: var(--primary-100);
-    padding: 24px;
-    display: grid;
-    align-content: start;
-    gap: 24px;
+    background-color: #2a2a2a;
+    padding: 1.5rem; /* p-6 */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* gap-6 */
 }
 
-#cv-modal-body .content { padding: 24px; }
+#cv-modal-body .content { 
+    padding: 1.5rem; /* p-6 */
+}
 
 @media (min-width: 900px) {
     #cv-modal-body .page { grid-template-columns: 320px 1fr; }
-    #cv-modal-body .content { padding: 40px 48px; }
+    #cv-modal-body .content { padding: 40px 48px; } /* Keep original larger padding for content on desktop */
 }
 
 /* Identity */
 #cv-modal-body .identity { text-align: left; }
 #cv-modal-body .avatar {
-    width: 88px; height: 88px; border-radius: 50%;
-    display: grid; place-items: center;
-    font-weight: 700; font-size: 28px;
-    background: linear-gradient(145deg, var(--primary), var(--accent));
-    color: white; box-shadow: var(--shadow); margin-bottom: 12px;
+    width: 6rem; /* w-24 */
+    height: 6rem; /* h-24 */
+    border-radius: 9999px; /* rounded-full */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.875rem; /* text-3xl */
+    color: #fff;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+    margin-bottom: 0.75rem; /* mb-3 */
+    background: linear-gradient(145deg, #ff6600, #ff8833); /* Gradient background */
 }
-#cv-modal-body .name { font-size: 28px; line-height: 1.1; margin: 0 0 6px 0; }
-#cv-modal-body .name span { color: var(--primary); }
-#cv-modal-body .tagline { margin: 0; color: var(--muted); font-weight: 500; }
+#cv-modal-body .name { font-size: 1.875rem; /* text-3xl */ line-height: 1.25; /* leading-tight */ margin-bottom: 0.25rem; /* mb-1 */ }
+#cv-modal-body .name span { color: #f97316; /* text-orange-500 */ }
+#cv-modal-body .tagline { margin: 0; color: #9ca3af; /* text-gray-400 */ font-weight: 500; }
 
 /* Sections */
-#cv-modal-body .section + .section { margin-top: 28px; }
+#cv-modal-body .section + .section { margin-top: 1.75rem; /* mt-7 */ } /* Adjusted margin-top */
 #cv-modal-body .section h2,
 #cv-modal-body .sidebar h2 {
-    font-size: 18px; margin: 0 0 12px 0; letter-spacing: .2px;
-    color: var(--primary); text-transform: uppercase;
+    font-size: 1.125rem; /* text-lg */
+    font-weight: 700;
+    margin-bottom: 0.75rem; /* mb-3 */
+    letter-spacing: 0.025em; /* tracking-wide */
+    color: #f97316; /* text-orange-500 */
+    text-transform: uppercase;
 }
-#cv-modal-body .section p { margin: 0; color: var(--text); }
+#cv-modal-body .section p { margin: 0; color: #d1d5db; /* text-gray-300 */ }
 
-#cv-modal-body .item { padding: 14px 0; border-bottom: 1px dashed rgba(255,255,255,.1); }
+#cv-modal-body .item { padding-top: 0.75rem; /* py-3 */ padding-bottom: 0.75rem; /* py-3 */ border-bottom: 1px dashed #4b5563; /* border-b border-dashed border-gray-700 */ }
 #cv-modal-body .item:last-child { border-bottom: 0; }
-#cv-modal-body .item h3 { font-size: 17px; margin: 0 0 6px 0; }
-#cv-modal-body .meta { display: flex; flex-wrap: wrap; gap: 12px; color: var(--muted); font-size: 14px; margin-bottom: 6px; }
+#cv-modal-body .item h3 { font-size: 1.125rem; /* text-lg */ font-weight: 600; margin-bottom: 0.25rem; /* mb-1 */ }
+#cv-modal-body .meta { display: flex; flex-wrap: wrap; gap: 0.75rem; /* gap-3 */ color: #9ca3af; /* text-gray-400 */ font-size: 0.875rem; /* text-sm */ margin-bottom: 0.25rem; /* mb-1 */ }
 #cv-modal-body .meta .org { font-weight: 600; }
 
 /* Lists */
-#cv-modal-body ul { padding-left: 18px; margin: 8px 0 0 0; }
-#cv-modal-body li { margin: 6px 0; }
+#cv-modal-body ul { padding-left: 1rem; /* pl-4 */ margin-top: 0.5rem; /* mt-2 */ margin-bottom: 0; }
+#cv-modal-body li { margin-top: 0.375rem; /* my-1.5 */ margin-bottom: 0.375rem; /* my-1.5 */ }
 
-#cv-modal-body .pill-list { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; margin: 0; }
-#cv-modal-body .pill-list li { padding: 6px 10px; border-radius: 999px; background: rgba(255,255,255,.08); color: var(--text); font-size: 14px; }
+#cv-modal-body .pill-list { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; /* gap-2 */ margin: 0; }
+#cv-modal-body .pill-list li { padding: 0.375rem 0.625rem; /* px-2.5 py-1.5 */ border-radius: 9999px; /* rounded-full */ background-color: rgba(255,255,255,0.1); /* bg-white/10 */ color: #e7e7ea; /* text-gray-200 */ font-size: 0.875rem; /* text-sm */ }
 
-#cv-modal-body .level-list { list-style: none; padding: 0; display: grid; gap: 10px; }
-#cv-modal-body .level-list li { display: grid; grid-template-columns: 120px 1fr; align-items: center; gap: 12px; }
-#cv-modal-body .level-list span { color: var(--text); }
-#cv-modal-body .level-list progress { width: 100%; height: 8px; accent-color: var(--primary); }
+#cv-modal-body .level-list { list-style: none; padding: 0; display: grid; gap: 0.625rem; /* gap-2.5 */ }
+#cv-modal-body .level-list li { display: grid; align-items: center; gap: 0.75rem; /* gap-3 */ grid-template-columns: 120px 1fr; } /* Grid, gap, template columns */
+#cv-modal-body .level-list span { color: #e7e7ea; /* text-gray-200 */ }
+#cv-modal-body .level-list progress { width: 100%; height: 0.5rem; /* h-2 */ border-radius: 9999px; /* rounded-full */ accent-color: #ff6600; } /* Width, height, rounded, accent color */
 
 #cv-modal-body .dot-list { margin: 0; }
 
-#cv-modal-body .contact ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
-#cv-modal-body .contact a { color: inherit; text-decoration: none; border-bottom: 1px dotted rgba(255,255,255,.25); }
+#cv-modal-body .contact ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.625rem; /* gap-2.5 */ }
+#cv-modal-body .contact a { color: inherit; text-decoration: none; border-bottom: 1px dotted #4b5563; /* border-b border-dotted border-gray-600 */ transition-property: color, background-color, border-color, text-decoration-color, fill, stroke; /* transition-colors */ transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
+#cv-modal-body .contact a:hover { border-color: #f97316; /* hover:border-orange-500 */ }
 
 /* Education */
-#cv-modal-body .edu-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
-#cv-modal-body .edu-list li { display: grid; grid-template-columns: 1fr auto; gap: 6px 12px; padding: 10px 0; border-bottom: 1px dashed rgba(255,255,255,.1); }
+#cv-modal-body .edu-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.625rem; /* gap-2.5 */ }
+#cv-modal-body .edu-list li { display: grid; gap: 0.375rem; /* gap-1.5 */ padding-top: 0.625rem; /* py-2.5 */ padding-bottom: 0.625rem; /* py-2.5 */ border-bottom: 1px dashed #4b5563; /* border-b border-dashed border-gray-700 */ grid-template-columns: 1fr auto; } /* Grid, gap, padding, border */
 #cv-modal-body .edu-list li:last-child { border-bottom: 0; }
 #cv-modal-body .edu-list .degree { font-weight: 600; }
-#cv-modal-body .edu-list .school { color: var(--muted); }
-#cv-modal-body .edu-list .date { color: var(--muted); }
+#cv-modal-body .edu-list .school { color: #9ca3af; /* text-gray-400 */ }
+#cv-modal-body .edu-list .date { color: #9ca3af; /* text-gray-400 */ }
+
+/* Print-specific styles */
+@media print {
+    @page { size: A4 portrait; margin: 0; }
+    body > *:not(#cv-modal) { display: none !important; }
+    #cv-modal {
+        position: static !important; display: block !important; background: none !important;
+        padding: 0 !important; overflow: visible !important; opacity: 1 !important; pointer-events: auto !important;
+    }
+    #cv-modal > div {
+        box-shadow: none !important; max-height: none !important; height: auto !important;
+        border-radius: 0 !important; background: #fff !important; display: block !important; transform: none !important;
+    }
+    #cv-modal > div > div:first-child { display: none !important; } /* Hide modal header */
+    #cv-modal-body { overflow: visible !important; padding: 0 !important; background: #fff !important; }
+    
+    #cv-modal-body .page {
+        --bg: #ffffff; --text: #222222; --muted: #555555;
+        --primary: #ff6600; --primary-100: #fff0e6; --accent: #ff8833; --shadow: none;
+        background: var(--bg) !important; color: var(--text) !important;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important; font-size: 10pt !important;
+        padding: 10mm !important; box-shadow: none !important; max-width: 210mm; min-height: 297mm;
+    }
+    #cv-modal-body .sidebar { background: var(--primary-100) !important; }
+    #cv-modal-body .name span, #cv-modal-body .section h2, #cv-modal-body .sidebar h2 { color: var(--primary) !important; }
+    #cv-modal-body .avatar {
+        background: linear-gradient(145deg, var(--primary), var(--accent)) !important;
+        -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    }
+    #cv-modal-body .item { border-bottom-color: rgba(0,0,0,.1) !important; }
+    #cv-modal-body .contact a { border-bottom-color: rgba(0,0,0,.25) !important; color: var(--text) !important; text-decoration: none !important; }
+    #cv-modal-body .pill-list li { background: rgba(0,0,0,.06) !important; }
+    #cv-modal-body progress { accent-color: var(--primary) !important; }
+}
 
 /* Print-specific styles */
 @media print {

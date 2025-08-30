@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>CV — Bertrand Fouquet</title>
+<link rel="stylesheet" href="/css/cv_interactive.css">
+</head>
+<body>
+<div class="toolbar">
+  <button id="printBtn" class="btn">🖨️ Imprimer / Export PDF</button>
+  <button id="togglePreview" class="btn ghost">Aperçu imprimable</button>
+</div>
+
+<main class="cv" id="cvRoot">
+  <aside class="left">
+    <div class="card identity">
+      <div class="avatar">BF</div>
+      <h1>BERTRAND <strong>FOUQUET</strong></h1>
+      <p class="role">Designer-Développeur Hybride | Créateur Digital Polyvalent</p>
+      <p class="meta">40 ans • RQTH</p>
+    </div>
+
+    <div class="card contact">
+      <h3>Contact</h3>
+      <p>📍 12 rue de Champagne, 17138 Puilboreau (La Rochelle)</p>
+      <p>📱 <a href="tel:+33666938235">06 66 93 82 35</a></p>
+      <p>✉️ <a href="mailto:bertrandwebdesigner@proton.me">bertrandwebdesigner@proton.me</a></p>
+      <p>🔗 Portfolio sur demande</p>
+    </div>
+
+    <div class="card skills">
+      <h3>Compétences</h3>
+      <ul>
+        <li><strong>Design</strong> : Suite Adobe, Figma, UI/UX</li>
+        <li><strong>Dev</strong> : HTML/CSS, JS, WordPress, PWA</li>
+        <li><strong>Commercial</strong> : Prospection, gestion client</li>
+        <li><strong>Méthodes</strong> : Agile, Git, prototypage</li>
+      </ul>
+    </div>
+
+    <div class="card interests">
+      <h3>Centres d'intérêt</h3>
+      <ul>
+        <li>🎱 Billard (black ball)</li>
+        <li>💻 PWA & projets perso</li>
+        <li>🤖 IA & expérimentation</li>
+        <li>🎬 Cinéma & musique</li>
+      </ul>
+    </div>
+  </aside>
+
+  <section class="right">
+    <div class="card section" data-section="profil">
+      <h2>Profil</h2>
+      <p>Designer-développeur avec 20 ans d'expérience transversale, je combine créativité visuelle, compétences techniques et sens commercial. Expert en prototypage rapide et création d'applications web assistée par IA ("vibe coding"), je recherche un poste où ma polyvalence sera un véritable atout pour votre équipe.</p>
+    </div>
+
+    <div class="card section" data-section="competences">
+      <h2>Compétences clés</h2>
+      <div class="grid-2">
+        <div>
+          <h4>Design & Création</h4>
+          <ul>
+            <li>Suite Adobe CC (Photoshop, Illustrator, InDesign)</li>
+            <li>UI/UX (Figma)</li>
+            <li>Identité visuelle, logos, print</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Développement & Technique</h4>
+          <ul>
+            <li>HTML5 / CSS3 / JS</li>
+            <li>WordPress, WooCommerce</li>
+            <li>PWA, IA assistée, Git</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card section" data-section="experiences">
+      <h2>Expériences</h2>
+
+      <article class="exp">
+        <h3>Commercial sédentaire BtoB — 2025 (en cours)</h3>
+        <p>Prospection téléphonique qualifiée, développement de portefeuille client. Compétences transférables : relation client, négociation, persévérance.</p>
+      </article>
+
+      <article class="exp">
+        <h3>Designer Web & Chargé de Projet Digital — Freelance & Missions (2023)</h3>
+        <p>Clients : La Casquette Distrale, Transports Hautier. Conception de sites e-commerce (WordPress/WooCommerce), design d'interfaces, déploiement et formation, documentation technique.</p>
+      </article>
+
+      <article class="exp">
+        <h3>Responsable de tournée — Couleur Marché (2017–2021)</h3>
+        <p>Management opérationnel d'une équipe de 4 personnes, optimisation des processus et reporting. Impact : +15% de productivité.</p>
+      </article>
+
+      <article class="exp">
+        <h3>Attaché commercial BtoB (2006–2012)</h3>
+        <p>Prospection grands comptes, négociation, suivi contractuel. Portfolio : 150+ clients actifs.</p>
+      </article>
+    </div>
+
+    <div class="card section" data-section="projets">
+      <h2>Projets personnels</h2>
+      <p><strong>Applications PWA personnelles (2023–2025)</strong> — développement d'apps pour billard, musique, cinéma. Utilisation d'IA pour accélérer le dev ("vibe coding").</p>
+      <p><strong>Veille technologique</strong> — low-code, IA générative, tendances UX/UI.</p>
+    </div>
+
+    <div class="card section" data-section="formation">
+      <h2>Formation</h2>
+      <ul class="edu">
+        <li><strong>2023</strong> — Infographiste Designer Web, AP Formation Toulouse</li>
+        <li><strong>2006–2007</strong> — Titre Professionnel Attaché Commercial, AFPA Poitiers</li>
+        <li><strong>2003</strong> — Baccalauréat Économique et Social</li>
+      </ul>
+    </div>
+
+    <div class="card section" data-section="why">
+      <h2>Pourquoi moi ?</h2>
+      <ul>
+        <li>Polyvalence prouvée — autonomie totale</li>
+        <li>Vision 360° : technique & business</li>
+        <li>Innovation & fiabilité</li>
+      </ul>
+      <p class="cta">Disponibilité : Immédiate • Mobilité : La Rochelle & agglo</p>
+    </div>
+  </section>
+</main>
+
+<!-- Print modal -->
+<div id="printModal" class="modal" aria-hidden="true">
+  <div class="modal-content" role="dialog" aria-modal="true" aria-label="Options d'impression">
+    <h3>Sélectionner les sections à imprimer</h3>
+    <form id="printForm">
+      <label><input type="checkbox" name="sections" value="profil" checked> Profil</label>
+      <label><input type="checkbox" name="sections" value="competences" checked> Compétences</label>
+      <label><input type="checkbox" name="sections" value="experiences" checked> Expériences</label>
+      <label><input type="checkbox" name="sections" value="projets" checked> Projets</label>
+      <label><input type="checkbox" name="sections" value="formation" checked> Formation</label>
+      <label><input type="checkbox" name="sections" value="why" checked> Pourquoi moi</label>
+      <label><input type="checkbox" id="includeSidebar" checked> Inclure la colonne gauche</label>
+
+      <div class="modal-actions">
+        <button type="button" id="cancelPrint" class="btn ghost">Annuler</button>
+        <button type="button" id="confirmPrint" class="btn primary">Imprimer</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="/js/cv_interactive.js" defer></script>
+</body>
+</html>

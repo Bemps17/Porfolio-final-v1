@@ -68,7 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.addEventListener('scroll', () => {
                     if (window.pageYOffset > 300) {
                         backToTop.classList.remove('opacity-0', 'pointer-events-none');
-                    } else {
+                    }
+                    else {
                         backToTop.classList.add('opacity-0', 'pointer-events-none');
                     }
                 });
@@ -80,10 +81,36 @@ document.addEventListener('DOMContentLoaded', () => {
             // Contact form
             const contactForm = document.getElementById('contact-form');
             if(contactForm) {
-                contactForm.addEventListener('submit', (e) => {
+                const formWrapper = document.getElementById('form-wrapper');
+                const successMessage = document.getElementById('success-message');
+
+                contactForm.addEventListener('submit', function (e) {
                     e.preventDefault();
-                    alert('Message envoyé ! Je vous recontacte rapidement.');
-                    e.target.reset();
+                    
+                    const formData = new FormData(this);
+                    const submitButton = this.querySelector('button[type="submit"]');
+                    const originalButtonHTML = submitButton.innerHTML;
+
+                    submitButton.disabled = true;
+                    submitButton.innerHTML = `<i class="fas fa-spinner fa-spin mr-2"></i>Envoi en cours...`;
+
+                    fetch("/", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                        body: new URLSearchParams(formData).toString()
+                    })
+                    .then(() => {
+                        if (formWrapper && successMessage) {
+                            formWrapper.classList.add('hidden');
+                            successMessage.classList.remove('hidden');
+                        }
+                    })
+                    .catch((error) => {
+                        alert("Désolé, une erreur est survenue. Votre message n'a pas pu être envoyé. Veuillez réessayer.");
+                        console.error(error);
+                        submitButton.disabled = false;
+                        submitButton.innerHTML = originalButtonHTML;
+                    });
                 });
             }
 
@@ -104,120 +131,37 @@ document.addEventListener('DOMContentLoaded', () => {
                 observer.observe(section);
             });
 
-            // === SCRIPT POUR LE CV VISUEL EN MODALE (VERSION ROBUSTE) ===
-            const visualCvButtons = document.querySelectorAll('.download-visual-cv-btn');
-            const cvModal = document.getElementById('cv-modal');
-            const cvModalBody = document.getElementById('cv-modal-body');
-            const cvModalClose = document.getElementById('cv-modal-close');
-            const cvModalPrint = document.getElementById('cv-modal-print');
-            let cvMarkdownCache = null; // Cache for the CV HTML
+            // === EASTER EGG FOR OBJECTIVES ===
+            const iaToolsBtn = document.getElementById('ia-tools-btn');
+            const objectifsSection = document.getElementById('objectifs-section');
+            const objectifsCloseBtn = document.getElementById('objectifs-close-btn');
 
-            const openCvModal = () => {
-                if (!cvModal) return;
-                // Make it part of the layout
-                cvModal.classList.remove('hidden');
-                cvModal.classList.add('flex');
-
-                // Use a tiny timeout to allow the browser to apply 'display: flex'
-                // before adding the 'is-open' class for the transition.
-                setTimeout(() => {
-                    cvModal.classList.add('is-open');
-                }, 10);
-
+            const openObjectives = () => {
+                if (!objectifsSection) return;
+                objectifsSection.classList.remove('hidden');
                 document.body.style.overflow = 'hidden';
             };
 
-            const closeCvModal = () => {
-                if (!cvModal) return;
-                cvModal.classList.remove('is-open');
-
-                // Wait for the transition to finish before setting display to none
-                setTimeout(() => {
-                    cvModal.classList.add('hidden');
-                    cvModal.classList.remove('flex');
-                }, 300); // Must match the transition duration in CSS (0.3s)
-
+            const closeObjectives = () => {
+                if (!objectifsSection) return;
+                objectifsSection.classList.add('hidden');
                 document.body.style.overflow = '';
             };
 
-            const showCv = async (event) => {
-                event.preventDefault();
-                
-                // If content is cached, just open the modal
-                if (cvMarkdownCache) {
-                    cvModalBody.innerHTML = cvMarkdownCache;
-                    openCvModal();
-                    return;
-                }
-
-                const button = event.currentTarget;
-                const originalContent = button.innerHTML;
-                button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Chargement...';
-                button.disabled = true;
-
-                try {
-                    const response = await fetch('assets/md/cv-hybride-larochelle.md');
-                    if (!response.ok) throw new Error('Fichier CV Markdown introuvable.');
-                    
-                    const markdownText = await response.text();
-                    const sections = markdownText.split(/\n---\n/g);
-
-                    const page = document.createElement('div');
-                    page.className = 'page';
-
-                    const sidebar = document.createElement('aside');
-                    sidebar.className = 'sidebar';
-
-                    const content = document.createElement('main');
-                    content.className = 'content';
-
-                    page.appendChild(sidebar);
-                    page.appendChild(content);
-
-                    const sidebarTitles = ['Compétences Clés', 'Formation', 'Pourquoi Moi', 'Ce que je Recherche', 'Centres d\'Intérêt'];
-                    
-                    const headerSection = document.createElement('header');
-                    headerSection.className = 'identity';
-                    headerSection.innerHTML = marked.parse(sections[0] || '');
-                    sidebar.appendChild(headerSection);
-                    
-                    sections.slice(1, sections.length - 1).forEach(sectionText => {
-                        const firstLine = sectionText.trim().split('\n')[0];
-                        const sectionWrapper = document.createElement('section');
-                        sectionWrapper.className = 'section';
-                        sectionWrapper.innerHTML = marked.parse(sectionText);
-
-                        if (sidebarTitles.some(title => firstLine.includes(title))) {
-                            sidebar.appendChild(sectionWrapper);
-                        } else {
-                            content.appendChild(sectionWrapper);
-                        }
-                    });
-
-                    const footerSection = document.createElement('footer');
-                    footerSection.className = 'section';
-                    footerSection.innerHTML = marked.parse(sections[sections.length - 1] || '');
-                    content.appendChild(footerSection);
-
-                    cvMarkdownCache = page.outerHTML;
-                    
-                    cvModalBody.innerHTML = cvMarkdownCache;
-                    openCvModal();
-
-                } catch (error) {
-                    console.error('Erreur CV:', error);
-                    alert('Une erreur est survenue lors du chargement du CV.');
-                } finally {
-                    button.innerHTML = originalContent;
-                    button.disabled = false;
-                }
-            };
-
-            if (cvModal) {
-                visualCvButtons.forEach(button => button.addEventListener('click', showCv));
-                cvModalClose.addEventListener('click', closeCvModal);
-                if (cvModalPrint) cvModalPrint.addEventListener('click', () => window.print());
-                cvModal.addEventListener('click', (e) => { if (e.target === cvModal) closeCvModal(); });
-                document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && cvModal.classList.contains('is-open')) closeCvModal(); });
+            if (iaToolsBtn && objectifsSection && objectifsCloseBtn) {
+                iaToolsBtn.addEventListener('click', openObjectives);
+                objectifsCloseBtn.addEventListener('click', closeObjectives);
+                // Close on outside click
+                objectifsSection.addEventListener('click', (e) => {
+                    if (e.target === objectifsSection) {
+                        closeObjectives();
+                    }
+                });
+                // Close with Escape key
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && !objectifsSection.classList.contains('hidden')) {
+                        closeObjectives();
+                    }
+                });
             }
         });

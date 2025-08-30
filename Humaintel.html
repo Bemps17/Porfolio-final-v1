@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bertrand Fouquet | Architecte Digital & Stratège</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- DÉFINITION DES 3 THÈMES --- */
+
+        /* THÈME 1 : CORPORATE (Sombre Orange) */
+        :root, body[data-theme="corporate"] {
+            --font-heading: ui-sans-serif, system-ui, sans-serif;
+            --font-body: ui-sans-serif, system-ui;
+            --color-bg: #000000;
+            --color-bg-secondary: #111111;
+            --color-surface: #000000;
+            --color-border: #2d2d2d;
+            --color-text-primary: #ffffff;
+            --color-text-secondary: #a0a0a0;
+            --color-accent: #ff6600;
+            --color-accent-text: #000000;
+        }
+
+        /* THÈME 2 : CYBERPUNK (Sombre Néon - AMÉLIORÉ) */
+        body[data-theme="cyberpunk"] {
+            --font-heading: 'Chakra Petch', sans-serif;
+            --font-body: 'Fira Code', monospace;
+            --color-bg: #0a041f;
+            --color-bg-secondary: #180d38;
+            --color-surface: rgba(26, 11, 68, 0.5);
+            --color-border: rgba(0, 246, 255, 0.3);
+            --color-text-primary: #e0e0e0;
+            --color-text-secondary: #9e9cb6;
+            --color-accent: #00f6ff;
+            --color-accent-text: #000000;
+        }
+
+        /* THÈME 3 : LIGHT (Clair Orange) */
+        body[data-theme="light"] {
+            --font-heading: ui-sans-serif, system-ui, sans-serif;
+            --font-body: ui-sans-serif, system-ui;
+            --color-bg: #f4f4f5;
+            --color-bg-secondary: #ffffff;
+            --color-surface: #ffffff;
+            --color-border: #e5e7eb;
+            --color-text-primary: #111827;
+            --color-text-secondary: #4b5563;
+            --color-accent: #ff6600;
+            --color-accent-text: #ffffff;
+        }
+
+        /* --- APPLICATION DES VARIABLES & STYLES DE BASE --- */
+        body { background-color: var(--color-bg); color: var(--color-text-primary); font-family: var(--font-body); transition: background-color 0.5s ease; }
+        h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--color-text-primary); }
+        p { color: var(--color-text-secondary); }
+        
+        .text-custom-orange { color: var(--color-accent) !important; transition: color 0.5s ease; }
+        .bg-custom-orange { background-color: var(--color-accent) !important; color: var(--color-accent-text) !important; transition: background-color 0.5s ease; }
+        .border-gray-800 { border-color: var(--color-border); }
+        .bg-black { background-color: var(--color-surface); }
+        .bg-gray-800, .bg-gray-900 { background-color: var(--color-bg-secondary); }
+        .hero-header { background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-secondary) 100%); transition: background 0.5s ease; }
+
+        /* --- STYLES SPÉCIFIQUES --- */
+        /* Cyberpunk Effects - AMÉLIORÉS POUR LA LISIBILITÉ */
+        body[data-theme="cyberpunk"] .text-custom-orange {
+            text-shadow: 0 0 5px var(--color-accent); /* Effet néon plus subtil */
+        }
+        body[data-theme="cyberpunk"] .cyberpunk-neon {
+             text-shadow: 0 0 5px var(--color-accent);
+        }
+        body[data-theme="cyberpunk"] .bg-black,
+        body[data-theme="cyberpunk"] #settings-panel { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-width: 1px; box-shadow: 0 0 15px rgba(0, 246, 255, 0.2); }
+        body[data-theme="cyberpunk"] .bg-custom-orange { box-shadow: 0 0 10px var(--color-accent), 0 0 20px var(--color-accent); }
+        
+        /* Light Mode Shadow for depth */
+        body[data-theme="light"] .bg-black,
+        body[data-theme="light"] .bg-gray-800,
+        body[data-theme="light"] .hero-header { box-shadow: 0 4px 15px -1px rgb(0 0 0 / 0.1); }
+        
+        /* --- MENU & ACCORDÉON --- */
+        #settings-panel, .hamburger-icon span, .accordion-content { transition: all 0.3s ease-in-out; }
+        #settings-panel { transform: translateX(100%); }
+        body.settings-open #settings-panel { transform: translateX(0); }
+        body.settings-open .hamburger-icon span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        body.settings-open .hamburger-icon span:nth-child(2) { opacity: 0; }
+        body.settings-open .hamburger-icon span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+        .accordion-content { max-height: 0; overflow: hidden; }
+    </style>
+</head>
+<body data-theme="corporate">
+
+    <button id="hamburger-btn" class="hamburger-icon fixed top-5 right-5 z-50 h-10 w-10 p-2 space-y-1.5 bg-gray-800 rounded-md">
+        <span class="block w-full h-0.5 bg-white"></span>
+        <span class="block w-full h-0.5 bg-white"></span>
+        <span class="block w-full h-0.5 bg-white"></span>
+    </button>
+
+    <div id="settings-panel" class="fixed top-0 right-0 h-full w-72 bg-black border-l border-gray-800 shadow-xl z-40 p-6">
+        <h2 class="text-2xl font-bold mb-8">Interface</h2>
+        <div class="space-y-6">
+            <div>
+                <h3 class="text-lg font-semibold text-custom-orange mb-2">Thème Visuel</h3>
+                <fieldset class="space-y-2">
+                    <label class="flex items-center p-3 bg-gray-800 rounded-md cursor-pointer">
+                        <input type="radio" name="theme" value="corporate" class="mr-3">
+                        <span data-lang-corporate="Corporate" data-lang-cyberpunk="Protocole Corpo" data-lang-light="Professionnel">Corporate</span>
+                    </label>
+                    <label class="flex items-center p-3 bg-gray-800 rounded-md cursor-pointer">
+                        <input type="radio" name="theme" value="cyberpunk" class="mr-3">
+                        <span data-lang-corporate="Créatif" data-lang-cyberpunk="Interface Cyberpunk" data-lang-light="Créatif">Créatif</span>
+                    </label>
+                    <label class="flex items-center p-3 bg-gray-800 rounded-md cursor-pointer">
+                        <input type="radio" name="theme" value="light" class="mr-3">
+                        <span data-lang-corporate="Clair" data-lang-cyberpunk="Interface Lumina" data-lang-light="Clair">Clair</span>
+                    </label>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mx-auto max-w-5xl px-4 py-8 md:py-12">
+        
+        <header class="text-center mb-16 py-12 hero-header rounded-lg">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-3 tracking-tight" 
+                data-text-corporate="Développeur Web & Stratège Commercial"
+                data-text-cyberpunk="Architecte Digital & Stratège Infiltré"
+                data-text-light="Développeur Web & Stratège Commercial">
+                Développeur Web & <span class="text-custom-orange">Stratège Commercial</span>
+            </h1>
+            <p class="text-lg md:text-xl max-w-3xl mx-auto"
+               data-lang-corporate="Mon approche unique : l'Intelligence Humaine au service de vos projets."
+               data-lang-cyberpunk="Mon OS : L'Intelligence Humaine. Un avantage 'wetware' pour vos projets digitaux."
+               data-lang-light="Mon approche unique : l'Intelligence Humaine au service de vos projets.">
+                Mon approche unique : l'Intelligence Humaine au service de vos projets.
+            </p>
+        </header>
+
+        <section id="about" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-10"
+                data-lang-corporate="Derrière le code, une vision business"
+                data-lang-cyberpunk="Transmission : Mon Background"
+                data-lang-light="Derrière le code, une vision business">
+                Derrière le code, une vision business
+            </h2>
+            <div class="bg-black border border-gray-800 p-8 rounded-lg shadow-lg text-center">
+                <p class="text-lg leading-relaxed"
+                   data-lang-corporate="Pendant 10 ans, mon univers a été le commerce : comprendre les clients, gérer les stocks et stimuler les ventes. En tant que responsable de stand sur les marchés, j'ai appris que le succès repose sur une excellente expérience utilisateur. Aujourd'hui, ma passion pour la technologie me permet d'appliquer ce sens des affaires sur une toile numérique. Je ne code pas seulement des fonctionnalités, je construis des solutions qui servent une stratégie et génèrent de la valeur."
+                   data-lang-cyberpunk="Mon background : 10 cycles dans les grilles corpo à décrypter les flux de clients. J'y ai appris le protocole maître : l'UX est la clé du système. Aujourd'hui, j'injecte cette data dans la matrice digitale. Je ne compile pas des features, je déploie des vecteurs de profit."
+                   data-lang-light="Pendant 10 ans, mon univers a été le commerce : comprendre les clients, gérer les stocks et stimuler les ventes. En tant que responsable de stand sur les marchés, j'ai appris que le succès repose sur une excellente expérience utilisateur. Aujourd'hui, ma passion pour la technologie me permet d'appliquer ce sens des affaires sur une toile numérique. Je ne code pas seulement des fonctionnalités, je construis des solutions qui servent une stratégie et génèrent de la valeur.">
+                    Pendant 10 ans, mon univers a été le commerce...
+                </p>
+            </div>
+        </section>
+
+        <section id="parcours" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-10"
+                data-lang-corporate="Ma Méthode : L'Intelligence Humaine (IH)"
+                data-lang-cyberpunk="Mon Protocole : IH"
+                data-lang-light="Ma Méthode : L'Intelligence Humaine (IH)">
+                Ma Méthode : L'Intelligence Humaine (IH)
+            </h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                 <div class="bg-black border border-gray-800 p-6 rounded-lg text-center shadow-lg transition-transform hover:scale-105 duration-300">
+                    <i class="fas fa-brain text-custom-orange text-4xl mb-4 cyberpunk-neon"></i>
+                    <h3 class="text-2xl font-semibold mb-2" data-lang-corporate="Cerveau Commercial" data-lang-cyberpunk="Interface Cognitive" data-lang-light="Cerveau Commercial">Cerveau Commercial</h3>
+                    <p class="text-gray-400" data-lang-corporate="10 ans sur le terrain pour analyser vos objectifs business avant de coder. Chaque fonctionnalité est pensée pour son ROI." data-lang-cyberpunk="10 ans d'input marché pour décrypter vos objectifs. Chaque module est compilé pour le ROI." data-lang-light="10 ans sur le terrain pour analyser vos objectifs business avant de coder. Chaque fonctionnalité est pensée pour son ROI.">10 ans sur le terrain...</p>
+                </div>
+                <div class="bg-black border border-gray-800 p-6 rounded-lg text-center shadow-lg transition-transform hover:scale-105 duration-300">
+                    <i class="fas fa-heart text-custom-orange text-4xl mb-4 cyberpunk-neon"></i>
+                    <h3 class="text-2xl font-semibold mb-2" data-lang-corporate="Cœur d'Entrepreneur" data-lang-cyberpunk="Noyau Opérationnel" data-lang-light="Cœur d'Entrepreneur">Cœur d'Entrepreneur</h3>
+                    <p class="text-gray-400" data-lang-corporate="5 ans de gérance pour penser rentabilité et satisfaction client. Un site web est un actif, pas un centre de coût." data-lang-cyberpunk="5 ans à patcher la rentabilité en direct. Un asset digital n'est pas une charge, c'est un script de profit." data-lang-light="5 ans de gérance pour penser rentabilité et satisfaction client. Un site web est un actif, pas un centre de coût.">5 ans de gérance...</p>
+                </div>
+                <div class="bg-black border border-gray-800 p-6 rounded-lg text-center shadow-lg transition-transform hover:scale-105 duration-300">
+                    <i class="fas fa-code text-custom-orange text-4xl mb-4 cyberpunk-neon"></i>
+                    <h3 class="text-2xl font-semibold mb-2" data-lang-corporate="Mains du Développeur" data-lang-cyberpunk="Implants Cybernétiques" data-lang-light="Mains du Développeur">Mains du Développeur</h3>
+                    <p class="text-gray-400" data-lang-corporate="Je traduis la stratégie en code performant avec les outils modernes pour délivrer une plateforme robuste." data-lang-cyberpunk="J'exécute la stratégie via une stack moderne pour builder des plateformes high-spec et sécurisées." data-lang-light="Je traduis la stratégie en code performant avec les outils modernes pour délivrer une plateforme robuste.">Je traduis la stratégie en code...</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="skills" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-10" data-lang-corporate="Compétences & Outils" data-lang-cyberpunk="Arsenal & Cyberware" data-lang-light="Compétences & Outils">Compétences & Outils</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-black border border-gray-800 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-3"><i class="fas fa-briefcase w-6 text-custom-orange mr-2 cyberpunk-neon"></i><span data-lang-corporate="Commerce & Stratégie" data-lang-cyberpunk="Protocoles Commerciaux" data-lang-light="Commerce & Stratégie">Commerce & Stratégie</span></h3>
+                    <ul class="text-gray-400 list-inside list-disc"><li>Analyse des Besoins Clients</li><li>Gestion de Projet (orientée ROI)</li><li>Stratégie de Vente & Acquisition</li></ul>
+                </div>
+                <div class="bg-black border border-gray-800 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-3"><i class="fas fa-palette w-6 text-custom-orange mr-2 cyberpunk-neon"></i><span data-lang-corporate="Design UI/UX" data-lang-cyberpunk="Ingénierie d'Interface" data-lang-light="Design UI/UX">Design UI/UX</span></h3>
+                    <ul class="text-gray-400 list-inside list-disc"><li>Wireframing & Prototypage</li><li>Outils : Figma, Suite Adobe</li></ul>
+                </div>
+                <div class="bg-black border border-gray-800 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-3"><i class="fas fa-laptop-code w-6 text-custom-orange mr-2 cyberpunk-neon"></i><span data-lang-corporate="Développement Front-End" data-lang-cyberpunk="Développement Front-End" data-lang-light="Développement Front-End">Développement Front-End</span></h3>
+                    <ul class="text-gray-400 list-inside list-disc"><li>HTML5, CSS3, JavaScript (ES6+)</li><li>Frameworks (React, Vue.js...)</li><li>Outils : VS Code, GitHub</li></ul>
+                </div>
+                <div class="bg-black border border-gray-800 p-6 rounded-lg">
+                     <h3 class="text-xl font-semibold mb-3"><i class="fas fa-cogs w-6 text-custom-orange mr-2 cyberpunk-neon"></i><span data-lang-corporate="En Apprentissage (Full-Stack)" data-lang-cyberpunk="Modules en Upgrade" data-lang-light="En Apprentissage (Full-Stack)">En Apprentissage (Full-Stack)</span></h3>
+                    <ul class="text-gray-400 list-inside list-disc"><li>Node.js & Express</li><li>Bases de données SQL & NoSQL</li></ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projets" class="mb-16">
+             <h2 class="text-3xl font-bold text-center mb-10" data-lang-corporate="Mes Projets en Action" data-lang-cyberpunk="Opérations Archivées" data-lang-light="Mes Projets en Action">Mes Projets en Action</h2>
+             <div id="portfolio-accordion" class="bg-black border border-gray-800 rounded-lg shadow-lg">
+                <div class="accordion-item border-b border-gray-800">
+                    <div class="accordion-header flex justify-between items-center py-5 px-6 cursor-pointer">
+                        <h3 class="text-lg md:text-xl font-semibold" data-lang-corporate="Site E-commerce pour Artisan" data-lang-cyberpunk="Plateforme de Commerce pour Artificier" data-lang-light="Site E-commerce pour Artisan">Site E-commerce pour Artisan</h3>
+                        <div class="flex items-center gap-2">
+                             <svg class="accordion-icon w-6 h-6 text-custom-orange transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="p-6 grid grid-cols-1 lg:grid-cols-2 gap-6 bg-gray-900">
+                            <img src="https://picsum.photos/seed/project1/800/600" alt="Screenshot" class="rounded-lg shadow-xl w-full h-auto object-cover">
+                            <div>
+                                <h4 class="font-bold text-custom-orange">Analyse de l'IH :</h4>
+                                <p class="text-gray-400 mb-4 italic">"Cible pressée et mobile. Besoin d'infos claires, preuves visuelles et contact rapide. La confiance est le levier de conversion."</p>
+                                <h4 class="font-bold text-custom-orange">Solution Déployée :</h4>
+                                <p class="text-gray-400 mb-4">Création d'un site 'mobile-first' ultra-rapide avec CTA proéminents et formulaire simplifié. Tunnel d'achat réduit à 3 étapes.</p>
+                                <a href="#" target="_blank" class="inline-block bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded transition-colors duration-300">Voir le projet</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header flex justify-between items-center py-5 px-6 cursor-pointer">
+                         <h3 class="text-lg md:text-xl font-semibold" data-lang-corporate="PWA de Gestion de Tâches" data-lang-cyberpunk="Unité PWA de gestion de Gigs" data-lang-light="PWA de Gestion de Tâches">PWA de Gestion de Tâches</h3>
+                        <div class="flex items-center gap-2">
+                            <svg class="accordion-icon w-6 h-6 text-custom-orange transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                    </div>
+                    <div class="accordion-content">
+                         <div class="p-6 grid grid-cols-1 lg:grid-cols-2 gap-6 bg-gray-900">
+                            <img src="https://picsum.photos/seed/project2/800/600" alt="Screenshot" class="rounded-lg shadow-xl w-full h-auto object-cover">
+                            <div>
+                                <h4 class="font-bold text-custom-orange">Analyse de l'IH :</h4>
+                                <p class="text-gray-400 mb-4 italic">"Les utilisateurs abandonnent si l'interface n'est pas intuitive à la première seconde. Objectif : réduire la charge cognitive au maximum."</p>
+                                <h4 class="font-bold text-custom-orange">Solution en cours :</h4>
+                                <p class="text-gray-400 mb-4">Développement d'une PWA avec Vue.js et Firebase, axée sur la rapidité d'exécution et une UX minimaliste. Priorité à la synchronisation offline.</p>
+                                <a href="#" target="_blank" class="inline-block bg-gray-600 cursor-not-allowed text-white font-bold py-2 px-4 rounded">Lien à venir</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </section>
+        
+        <section id="contact" class="text-center mt-16 pt-10 border-t border-gray-800">
+             <h2 class="text-4xl font-extrabold mb-4" data-lang-corporate="Planifions un entretien" data-lang-cyberpunk="Initialiser le contact" data-lang-light="Planifions un entretien">Planifions un entretien</h2>
+             <p class="text-gray-300 max-w-2xl mx-auto mb-8 text-lg" data-lang-corporate="Prêt à voir comment mon approche peut créer de la valeur pour votre équipe ? Discutons-en." data-lang-cyberpunk="Besoin d'un agent qui décode le business et encode la solution ? Ouvrons une connexion sécurisée." data-lang-light="Prêt à voir comment mon approche peut créer de la valeur pour votre équipe ? Discutons-en.">Prêt à voir comment mon approche peut créer de la valeur...</p>
+             <div class="flex flex-col md:flex-row justify-center items-center gap-4">
+                <a href="mailto:bertrandwebdesigner@proton.me" class="w-full md:w-auto bg-custom-orange hover:opacity-90 transition-opacity duration-300 text-black py-4 px-8 rounded-lg text-lg font-bold">
+                    <i class="fas fa-envelope mr-2"></i> <span data-lang-corporate="Me contacter par email" data-lang-cyberpunk="Envoyer un message crypté" data-lang-light="Me contacter par email">Me contacter par email</span>
+                </a>
+                <a href="https://github.com/Bemps17" target="_blank" rel="noopener noreferrer" class="w-full md:w-auto bg-gray-800 hover:bg-gray-700 transition-colors duration-300 text-white py-4 px-8 rounded-lg font-bold">
+                    <i class="fab fa-github mr-2"></i> <span data-lang-corporate="Voir mon GitHub" data-lang-cyberpunk="Accéder au Dépôt Source" data-lang-light="Voir mon GitHub">Voir mon GitHub</span>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- SÉLECTEURS ---
+            const hamburgerBtn = document.getElementById('hamburger-btn');
+            const themeRadios = document.querySelectorAll('input[name="theme"]');
+            const langElements = document.querySelectorAll('[data-lang-corporate], [data-text-corporate]');
+
+            // --- FONCTION POUR CHANGER LE TEXTE (LANGUE/TON) ---
+            function applyLanguage(theme) {
+                const langKey = `lang-${theme}`;
+                const h1Key = `text-${theme}`;
+
+                langElements.forEach(el => {
+                    let newContent = el.dataset[langKey] || el.dataset[h1Key];
+                    if (newContent) {
+                        if (el.tagName === 'H1') {
+                            const mainText = newContent.replace(/<span.*<\/span>/, '').trim();
+                            el.setAttribute('data-text', mainText);
+                        }
+                        el.innerHTML = newContent;
+                    }
+                });
+            }
+
+            // --- FONCTION POUR CHANGER LE THÈME VISUEL ---
+            function applyTheme(theme) {
+                document.body.setAttribute('data-theme', theme);
+                localStorage.setItem('portfolio-theme', theme);
+                applyLanguage(theme);
+                const currentRadio = document.querySelector(`input[name="theme"][value="${theme}"]`);
+                if (currentRadio) currentRadio.checked = true;
+            }
+            
+            // --- ÉVÉNEMENTS ---
+            hamburgerBtn.addEventListener('click', () => { document.body.classList.toggle('settings-open'); });
+            themeRadios.forEach(radio => radio.addEventListener('change', (e) => applyTheme(e.target.value)));
+            
+            // --- INITIALISATION ---
+            const savedTheme = localStorage.getItem('portfolio-theme') || 'corporate';
+            applyTheme(savedTheme);
+            
+            // --- LOGIQUE DE L'ACCORDÉON ---
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function () {
+                    const item = this.parentElement;
+                    const content = this.nextElementSibling;
+                    const icon = this.querySelector('.accordion-icon');
+                    const isOpen = item.classList.contains('is-open');
+
+                    document.querySelectorAll('.accordion-item.is-open').forEach(openItem => {
+                        if (openItem !== item) {
+                            const openContent = openItem.querySelector('.accordion-content');
+                            const openIcon = openItem.querySelector('.accordion-icon');
+                            gsap.to(openContent, { maxHeight: 0, duration: 0.4, ease: 'power2.inOut' });
+                            gsap.to(openIcon, { rotation: 0, duration: 0.3 });
+                            openItem.classList.remove('is-open');
+                        }
+                    });
+
+                    if (isOpen) {
+                        gsap.to(content, { maxHeight: 0, duration: 0.4, ease: 'power2.inOut' });
+                        gsap.to(icon, { rotation: 0, duration: 0.3 });
+                        item.classList.remove('is-open');
+                    } else {
+                        gsap.to(content, { maxHeight: content.scrollHeight, duration: 0.5, ease: 'power2.out' });
+                        gsap.to(icon, { rotation: 45, duration: 0.3 });
+                        item.classList.add('is-open');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
