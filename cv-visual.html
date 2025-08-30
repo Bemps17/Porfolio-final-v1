@@ -12,6 +12,8 @@
     <meta name="theme-color" content="#1a1a1a">
 
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
     <style>
         body {
             background-color: #1a1a1a;
@@ -145,6 +147,9 @@
     </style>
 </head>
 <body>
+    <a href="index.html" class="back-to-portfolio-btn" aria-label="Retour au portfolio">
+        <i class="fas fa-arrow-left"></i>
+    </a>
     <div class="page">
         <aside class="sidebar" aria-label="Informations rapides">
           <header class="identity">
@@ -258,5 +263,18 @@
           </section>
         </main>
       </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof Hammer !== 'undefined') {
+                const hammer = new Hammer(document.body);
+                // Écoute le geste de balayage vers la droite
+                hammer.on('swiperight', function(ev) {
+                    // Redirige vers la page d'accueil
+                    window.location.href = 'index.html';
+                });
+            }
+        });
+    </script>
 </body>
 </html>

@@ -44,23 +44,23 @@
             --color-surface: rgba(26, 11, 68, 0.5);
             --color-border: rgba(0, 246, 255, 0.3);
             --color-text-primary: #e0e0e0;
-            --color-text-secondary: #9e9cb6;
+            --color-text-secondary: #c0c0d0; /* Adjusted for better contrast */
             --color-accent: #00f6ff;
-            --color-accent-text: #000000;
+            --color-accent-text: #ffffff; /* Adjusted for better contrast */
         }
 
         /* THÈME 3 : LIGHT (Clair Orange) */
         body[data-theme="light"] {
             --font-heading: ui-sans-serif, system-ui, sans-serif;
             --font-body: ui-sans-serif, system-ui;
-            --color-bg: #f4f4f5;
+            --color-bg: #ffffff; /* Pure white for maximum contrast */
             --color-bg-secondary: #ffffff;
             --color-surface: #ffffff;
-            --color-border: #e5e7eb;
-            --color-text-primary: #111827;
-            --color-text-secondary: #4b5563;
-            --color-accent: #ff6600;
-            --color-accent-text: #ffffff;
+            --color-border: #999999; /* Darker gray for more visible borders */
+            --color-text-primary: #000000; /* Pure black for primary text */
+            --color-text-secondary: #333333; /* Darker gray for secondary text */
+            --color-accent: #e65c00; /* Darker orange for 4.5:1 contrast with white */
+            --color-accent-text: #000000;
         }
 
         /* --- APPLICATION DES VARIABLES & STYLES DE BASE --- */
@@ -92,6 +92,37 @@
         body[data-theme="light"] .bg-gray-800,
         body[data-theme="light"] .hero-header { box-shadow: 0 4px 15px -1px rgb(0 0 0 / 0.1); }
         
+        /* Amélioration contraste mode light pour les classes utilitaires */
+        body[data-theme="light"] .text-gray-400 {
+            color: var(--color-text-secondary);
+        }
+        /* Corrections de contraste pour le mode light */
+        body[data-theme="light"] .hamburger-icon span {
+            background-color: var(--color-text-primary);
+        }
+        body[data-theme="light"] .bg-gray-800.text-white {
+            color: var(--color-text-primary) !important;
+        }
+        body[data-theme="light"] .bg-gray-700 {
+            background-color: #444444; /* Darker gray for better contrast on buttons */
+        }
+        /* Correction pour le bouton "Lien à venir" qui devenait invisible */
+        body[data-theme="light"] .bg-gray-600 {
+            background-color: #555555; /* Dark gray for disabled-like state */
+            color: #ffffff; /* On s'assure que le texte reste blanc */
+        }
+        
+        /* Amélioration contraste et sélection du thème */
+        body[data-theme="light"] #settings-panel .bg-gray-800,
+        body[data-theme="light"] .hamburger-icon { /* Apply to hamburger icon as well */
+            background-color: #eeeeee; /* Light gray background for visibility */
+            border: 1px solid var(--color-border);
+        }
+        #settings-panel label.is-selected {
+            border-color: var(--color-accent) !important; /* !important to override light mode border */
+            box-shadow: 0 0 8px -1px var(--color-accent);
+        }
+        
         /* --- MENU & ACCORDÉON --- */
         #settings-panel, .hamburger-icon span, .accordion-content { transition: all 0.3s ease-in-out; }
         #settings-panel { transform: translateX(100%); }
@@ -100,10 +131,45 @@
         body.settings-open .hamburger-icon span:nth-child(2) { opacity: 0; }
         body.settings-open .hamburger-icon span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
         .accordion-content { max-height: 0; overflow: hidden; }
+
+        /* --- AMÉLIORATIONS CONTRASTE MODE LIGHT (Specific to Humaintel.html) --- */
+        /* These are added for consistency with styles.css and general accessibility */
+        body[data-theme="light"] .glass {
+            background-color: var(--color-surface);
+            border-color: var(--color-border);
+            backdrop-filter: none;
+        }
+        body[data-theme="light"] .glass-orange {
+            background-color: #ffe0b2;
+            border-color: #cc5200; /* Darker orange border for better contrast */
+            backdrop-filter: none;
+        }
+        body[data-theme="light"] .text-gradient-orange {
+            background: none;
+            -webkit-background-clip: unset;
+            -webkit-text-fill-color: unset;
+            background-clip: unset;
+            color: var(--color-text-primary);
+        }
+        body[data-theme="light"] input[type="text"],
+        body[data-theme="light"] input[type="email"],
+        body[data-theme="light"] textarea {
+            background-color: #ffffff;
+            border: 1px solid var(--color-border);
+            color: var(--color-text-primary);
+        }
+        body[data-theme="light"] input[type="text"]:focus,
+        body[data-theme="light"] input[type="email"]:focus,
+        body[data-theme="light"] textarea:focus {
+            border-color: var(--color-accent);
+        }
     </style>
 </head>
 <body data-theme="corporate">
 
+    <a href="index.html" class="back-to-portfolio-btn" aria-label="Retour au portfolio">
+        <i class="fas fa-arrow-left"></i>
+    </a>
     <button id="hamburger-btn" class="hamburger-icon fixed top-5 right-5 z-50 h-10 w-10 p-2 space-y-1.5 bg-gray-800 rounded-md">
         <span class="block w-full h-0.5 bg-white"></span>
         <span class="block w-full h-0.5 bg-white"></span>
@@ -116,15 +182,15 @@
             <div>
                 <h3 class="text-lg font-semibold text-custom-orange mb-2">Thème Visuel</h3>
                 <fieldset class="space-y-2">
-                    <label class="flex items-center p-3 bg-gray-800 rounded-md cursor-pointer">
+                    <label class="flex items-center p-3 bg-gray-800 rounded-md cursor-pointer border border-transparent transition-all duration-300">
                         <input type="radio" name="theme" value="corporate" class="mr-3">
                         <span data-lang-corporate="Corporate" data-lang-cyberpunk="Protocole Corpo" data-lang-light="Professionnel">Corporate</span>
                     </label>
-                    <label class="flex items-center p-3 bg-gray-800 rounded-md cursor-pointer">
+                    <label class="flex items-center p-3 bg-gray-800 rounded-md cursor-pointer border border-transparent transition-all duration-300">
                         <input type="radio" name="theme" value="cyberpunk" class="mr-3">
                         <span data-lang-corporate="Créatif" data-lang-cyberpunk="Interface Cyberpunk" data-lang-light="Créatif">Créatif</span>
                     </label>
-                    <label class="flex items-center p-3 bg-gray-800 rounded-md cursor-pointer">
+                    <label class="flex items-center p-3 bg-gray-800 rounded-md cursor-pointer border border-transparent transition-all duration-300">
                         <input type="radio" name="theme" value="light" class="mr-3">
                         <span data-lang-corporate="Clair" data-lang-cyberpunk="Interface Lumina" data-lang-light="Clair">Clair</span>
                     </label>
@@ -227,7 +293,7 @@
                     </div>
                     <div class="accordion-content">
                         <div class="p-6 grid grid-cols-1 lg:grid-cols-2 gap-6 bg-gray-900">
-                            <img src="https://picsum.photos/seed/project1/800/600" alt="Screenshot" class="rounded-lg shadow-xl w-full h-auto object-cover">
+                            <img src="https://picsum.photos/seed/project1/800/600" alt="Capture d'écran du site e-commerce pour un artisan local" class="rounded-lg shadow-xl w-full h-auto object-cover">
                             <div>
                                 <h4 class="font-bold text-custom-orange">Analyse de l'IH :</h4>
                                 <p class="text-gray-400 mb-4 italic">"Cible pressée et mobile. Besoin d'infos claires, preuves visuelles et contact rapide. La confiance est le levier de conversion."</p>
@@ -247,7 +313,7 @@
                     </div>
                     <div class="accordion-content">
                          <div class="p-6 grid grid-cols-1 lg:grid-cols-2 gap-6 bg-gray-900">
-                            <img src="https://picsum.photos/seed/project2/800/600" alt="Screenshot" class="rounded-lg shadow-xl w-full h-auto object-cover">
+                            <img src="https://picsum.photos/seed/project2/800/600" alt="Interface de l'application PWA de gestion de tâches" class="rounded-lg shadow-xl w-full h-auto object-cover">
                             <div>
                                 <h4 class="font-bold text-custom-orange">Analyse de l'IH :</h4>
                                 <p class="text-gray-400 mb-4 italic">"Les utilisateurs abandonnent si l'interface n'est pas intuitive à la première seconde. Objectif : réduire la charge cognitive au maximum."</p>
@@ -301,11 +367,21 @@
 
             // --- FONCTION POUR CHANGER LE THÈME VISUEL ---
             function applyTheme(theme) {
+                const themeLabels = document.querySelectorAll('#settings-panel fieldset label');
+
                 document.body.setAttribute('data-theme', theme);
                 localStorage.setItem('portfolio-theme', theme);
                 applyLanguage(theme);
+
+                // Mettre à jour l'état du bouton radio
                 const currentRadio = document.querySelector(`input[name="theme"][value="${theme}"]`);
                 if (currentRadio) currentRadio.checked = true;
+
+                // Mettre en évidence le label sélectionné
+                themeLabels.forEach(label => label.classList.remove('is-selected'));
+                if (currentRadio && currentRadio.parentElement.tagName === 'LABEL') {
+                    currentRadio.parentElement.classList.add('is-selected');
+                }
             }
             
             // --- ÉVÉNEMENTS ---

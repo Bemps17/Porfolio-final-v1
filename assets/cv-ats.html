@@ -9,6 +9,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../icons/favicon-16x16.png">
     <link rel="manifest" href="../site.webmanifest">
     <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
 
     <style>
         body { 
@@ -28,6 +30,9 @@
     </style>
 </head>
 <body>
+    <a href="../index.html" class="back-to-portfolio-btn" aria-label="Retour au portfolio">
+        <i class="fas fa-arrow-left"></i>
+    </a>
     <h1>BERTRAND FOUQUET</h1>
     <p><strong>Designer-Développeur Hybride | Créateur Digital Polyvalent</strong></p>
     <p>40 ans | RQTH</p>
@@ -141,4 +146,17 @@
         <li>Cinéma & Musique - Culture et inspiration</li>
     </ul>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof Hammer !== 'undefined') {
+            const hammer = new Hammer(document.body);
+            // Écoute le geste de balayage vers la droite
+            hammer.on('swiperight', function(ev) {
+                // Redirige vers la page d'accueil
+                window.location.href = '../index.html';
+            });
+        }
+    });
+</script>
 </html>

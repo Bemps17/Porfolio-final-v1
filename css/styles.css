@@ -270,14 +270,14 @@
         body[data-theme="light"] {
             --font-heading: ui-sans-serif, system-ui, sans-serif;
             --font-body: ui-sans-serif, system-ui;
-            --color-bg: #f4f4f5;
+            --color-bg: #ffffff; /* Pure white for maximum contrast */
             --color-bg-secondary: #ffffff;
             --color-surface: #ffffff;
-            --color-border: #e5e7eb;
-            --color-text-primary: #111827;
-            --color-text-secondary: #4b5563;
-            --color-accent: #ff6600;
-            --color-accent-text: #ffffff;
+            --color-border: #999999; /* Darker gray for more visible borders */
+            --color-text-primary: #000000; /* Pure black for primary text */
+            --color-text-secondary: #333333; /* Darker gray for secondary text */
+            --color-accent: #e65c00; /* Darker orange for 4.5:1 contrast with white */
+            --color-accent-text: #000000;
         }
 
         /* --- APPLICATION DES VARIABLES & STYLES DE BASE --- */
@@ -308,12 +308,147 @@
         body[data-theme="light"] .bg-black,
         body[data-theme="light"] .bg-gray-800,
         body[data-theme="light"] .hero-header { box-shadow: 0 4px 15px -1px rgb(0 0 0 / 0.1); }
+
+        /* --- AMÉLIORATIONS CONTRASTE MODE LIGHT --- */
+        body[data-theme="light"] .glass {
+            background-color: var(--color-surface);
+            border-color: var(--color-border);
+            backdrop-filter: none; /* On retire le flou en mode clair pour la lisibilité */
+        }
+        body[data-theme="light"] .glass-orange {
+            background-color: #ffe0b2; /* A light orange for glass-orange elements */
+            border-color: #cc5200; /* Darker orange border for better contrast */
+            backdrop-filter: none; /* On retire le flou en mode clair pour la lisibilité */
+        }
+        /* La règle agressive qui forçait le texte des éléments .glass en noir a été retirée.
+           Le texte hérite maintenant de la couleur du parent, ou utilise sa propre classe (ex: text-white),
+           ce qui est correct pour les fonds sombres (menu mobile) et les fonds clairs (page principale). */
+        body[data-theme="light"] .text-gray-200,
+        body[data-theme="light"] .text-gray-300,
+        body[data-theme="light"] .text-gray-400,
+        body[data-theme="light"] .text-gray-500 {
+            color: var(--color-text-secondary);
+        }
+
+        /* Correction du menu mobile : on le garde sombre avec du texte clair pour le contraste */
+        body[data-theme="light"] #mobile-menu {
+            color: #ffffff;
+        }
+        /* Removed: body[data-theme="light"] #mobile-menu .text-2xl { color: var(--color-text-secondary); } */
+        body[data-theme="light"] #mobile-menu .text-2xl:hover {
+            color: var(--color-accent);
+        }
+
+        /* Amélioration des boutons radio en mode light */
+        body[data-theme="light"] #settings-panel input[type="radio"] {
+            appearance: none; -webkit-appearance: none;
+            width: 1.15em; height: 1.15em;
+            border: 1px solid var(--color-border);
+            border-radius: 50%; cursor: pointer; position: relative;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+        body[data-theme="light"] #settings-panel input[type="radio"]:checked {
+            background-color: var(--color-accent); border-color: var(--color-accent);
+        }
+
+        /* Garder le texte blanc sur les fonds en dégradé */
+        body[data-theme="light"] .gradient-bg {
+            /* On passe le texte en noir pour un contraste suffisant sur le fond orange */
+            color: var(--color-accent-text) !important;
+        }
+        /* S'assurer que les icônes dans les boutons à gradient restent blanches */
+        body[data-theme="light"] .gradient-bg i {
+            /* Les icônes suivent la couleur du texte pour la cohérence */
+            color: var(--color-accent-text) !important;
+        }
+        /* S'assurer que l'icône du menu hamburger est visible */
+        body[data-theme="light"] .hamburger-line {
+            background-color: var(--color-accent);
+        }
+        body[data-theme="light"] #mobile-menu-btn .hamburger-line {
+            background-color: var(--color-accent);
+        }
         
-        /* --- MENU & ACCORDÉON --- */
-        #settings-panel, .hamburger-icon span, .accordion-content { transition: all 0.3s ease-in-out; }
-        #settings-panel { transform: translateX(100%); }
-        body.settings-open #settings-panel { transform: translateX(0); }
-        body.settings-open .hamburger-icon span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-        body.settings-open .hamburger-icon span:nth-child(2) { opacity: 0; }
-        body.settings-open .hamburger-icon span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
-        .accordion-content { max-height: 0; overflow: hidden; }
+        /* Corrections spécifiques pour les textes qui restent blancs à tort */
+        body[data-theme="light"] #settings-panel .text-white,
+        body[data-theme="light"] #home p .text-white,
+        body[data-theme="light"] #success-message .text-white,
+        body[data-theme="light"] #file-name.text-white {
+            color: var(--color-text-primary);
+        }
+
+        /* Couleur du placeholder pour les formulaires en mode light */
+        body[data-theme="light"] input::placeholder,
+        body[data-theme="light"] textarea::placeholder {
+            color: var(--color-text-secondary);
+            opacity: 0.8;
+        }
+        
+        /* Form input and textarea specific styles for light mode */
+        body[data-theme="light"] input[type="text"],
+        body[data-theme="light"] input[type="email"],
+        body[data-theme="light"] textarea {
+            background-color: #ffffff; /* White background */
+            border: 1px solid var(--color-border); /* Visible border */
+            color: var(--color-text-primary); /* Dark text */
+        }
+        body[data-theme="light"] input[type="text"]:focus,
+        body[data-theme="light"] input[type="email"]:focus,
+        body[data-theme="light"] textarea:focus {
+            border-color: var(--color-accent); /* Accent border on focus */
+        }
+
+        body[data-theme="light"] #settings-panel input[type="radio"]:checked::after {
+            content: ''; display: block; width: 0.45em; height: 0.45em;
+            border-radius: 50%; background: var(--color-accent-text);
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+        }
+
+        /* Override text-gradient-orange for light mode */
+        body[data-theme="light"] .text-gradient-orange {
+            background: none; /* Remove gradient background */
+            -webkit-background-clip: unset;
+            -webkit-text-fill-color: unset;
+            background-clip: unset;
+            color: var(--color-text-primary); /* Use solid primary text color */
+        }
+        
+        /* --- Style pour le thème sélectionné --- */
+        #settings-panel label.is-selected {
+            border-color: var(--color-accent);
+            box-shadow: 0 0 8px -1px var(--color-accent);
+        }
+
+        /* --- Settings Panel (Dropdown) --- */
+        #settings-panel {
+            transform: translateY(-20px);
+        }
+        #settings-panel.is-open {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+        [data-settings-toggle][aria-expanded="true"] > i {
+            transform: rotate(90deg);
+        }
+        [data-settings-toggle] > i { transition: transform 0.3s ease; }
+
+        /* --- Bouton Retour --- */
+        .back-to-portfolio-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            width: 44px;
+            height: 44px;
+            background-color: rgba(255, 102, 0, 0.8);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            text-decoration: none;
+        }
+        .back-to-portfolio-btn:hover { background-color: #ff6600; transform: scale(1.1); }

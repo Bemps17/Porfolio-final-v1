@@ -1,0 +1,6 @@
+# Autoriser tous les robots à explorer l'ensemble du site.
+User-agent: *
+Disallow:
+
+# Indiquer l'emplacement du sitemap.
+Sitemap: https://portfolio-bertrandfouquet.netlify.app/sitemap.xml
