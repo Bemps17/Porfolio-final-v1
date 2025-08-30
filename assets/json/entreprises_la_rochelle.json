@@ -1,0 +1,1162 @@
+{
+  "meta": {
+    "titre": "Entreprises recruteuses pour profil hybride - La Rochelle (17)",
+    "description": "Base de données complète des entreprises de la région de La Rochelle recherchant des profils polyvalents (développeur/designer/commercial/formateur)",
+    "total_entreprises": 47,
+    "date_creation": "2025-01-30",
+    "zone_geographique": ["La Rochelle", "Niort", "Périgny", "Puilboreau", "Les Sables-d'Olonne", "Rochefort"],
+    "profil_cible": {
+      "nom": "Bertrand Fouquet",
+      "competences_principales": [
+        "Développement web (PWA, HTML/CSS, WordPress)",
+        "Outils low-code/no-code",
+        "IA appliquée (vibe coding)",
+        "Suite Adobe (Photoshop, Illustrator, InDesign)",
+        "Figma",
+        "Compétences commerciales BtoB",
+        "Formation et support utilisateurs",
+        "Management d'équipe"
+      ]
+    }
+  },
+  "categories": [
+    {
+      "id": "agences_digitales",
+      "nom": "Agences digitales et web",
+      "nombre_entreprises": 10,
+      "description": "Agences web, marketing digital et communication",
+      "entreprises": [
+        {
+          "id": "latelier",
+          "nom": "LATELIER",
+          "priorite": "ABSOLUE",
+          "ville": "La Rochelle",
+          "adresse": null,
+          "secteur": "Agence digitale multi-expertise",
+          "specialites": ["UI/UX", "développement", "branding", "SEO/SEA"],
+          "taille_entreprise": "15-25 employés",
+          "structure": "4 équipes spécialisées",
+          "technologies": ["Symfony", "Laravel", "Node.js", "Vue.js", "WordPress", "PWA"],
+          "postes_types": ["Développeurs full-stack", "designers UI/UX", "consultants stratégie digitale"],
+          "site_web": "latelier-conceptionweb.com",
+          "contact": {
+            "site": "latelier-conceptionweb.com",
+            "email": null,
+            "telephone": null
+          },
+          "pourquoi_pertinent": "Équipe jeune et dynamique valorisant explicitement les profils polyvalents tech/design, forte croissance avec services diversifiés (développement spécifique, SaaS, branding). Culture collaborative et qualité vs quantité.",
+          "culture_entreprise": ["collaborative", "qualité vs quantité", "croissance", "innovation"],
+          "avantages": ["profils polyvalents valorisés", "services diversifiés", "équipe dynamique"],
+          "score_compatibilite": 95
+        },
+        {
+          "id": "zandko",
+          "nom": "Z&KO",
+          "priorite": "EXCELLENT",
+          "ville": "Les Sables-d'Olonne",
+          "adresse": null,
+          "secteur": "Agence communication 360°",
+          "specialites": ["marketing digital", "branding", "développement web"],
+          "taille_entreprise": "15-20 employés",
+          "structure": "développeurs, graphistes, consultants SEO, chefs de projet",
+          "technologies": ["WordPress", "React", "outils marketing digital", "SEO/SMO"],
+          "postes_types": ["Profils multi-compétents tech/marketing", "consultants digitaux"],
+          "site_web": "zandko.fr",
+          "contact": {
+            "site": "zandko.fr",
+            "email": null,
+            "telephone": null
+          },
+          "pourquoi_pertinent": "17 ans d'expérience, équipe passionnée avec approche 'ensemble on va plus loin'. Recherche explicitement des profils multi-compétents. Forte culture collaborative et croissance continue.",
+          "culture_entreprise": ["collaborative", "expérience", "passion", "croissance"],
+          "avantages": ["17 ans d'expérience", "multi-compétences recherchées", "équipe passionnée"],
+          "score_compatibilite": 90
+        },
+        {
+          "id": "naskigo",
+          "nom": "NASKIGO",
+          "priorite": "CULTURE_ALIGNEE",
+          "ville": "La Rochelle/Niort",
+          "adresse": null,
+          "secteur": "Agence web full-service",
+          "specialites": ["développement", "design", "webmarketing"],
+          "taille_entreprise": "8-12 employés",
+          "structure": null,
+          "technologies": ["WordPress", "applications mobiles/web", "UX/UI design"],
+          "postes_types": ["Développeurs full-stack", "designers polyvalents", "consultants stratégie"],
+          "site_web": "naskigo.fr",
+          "contact": {
+            "site": "naskigo.fr",
+            "email": null,
+            "telephone": null
+          },
+          "pourquoi_pertinent": "Relations long terme privilégiées, qualité vs quantité, engagement environnemental (dons Surfrider). Valorise explicitement les profils full-stack polyvalents.",
+          "culture_entreprise": ["relations long terme", "qualité", "engagement environnemental", "RSE"],
+          "avantages": ["profils full-stack valorisés", "engagement environnemental", "qualité privilégiée"],
+          "score_compatibilite": 88
+        },
+        {
+          "id": "niou",
+          "nom": "NIOU",
+          "priorite": "DIMENSION_PEDAGOGIQUE",
+          "ville": "La Rochelle",
+          "adresse": "6 Passage du drakkar, 17000 La Rochelle (quartier du Gabut)",
+          "secteur": "Agence web expérientielle",
+          "specialites": ["développement web", "applications mobiles", "accompagnement"],
+          "taille_entreprise": "5-8 employés",
+          "structure": null,
+          "technologies": ["WordPress", "React Native", "Laravel", "applications mobiles"],
+          "postes_types": ["profils techniques avec dimension pédagogique"],
+          "site_web": "niou.net",
+          "contact": {
+            "site": "niou.net",
+            "email": null,
+            "telephone": null
+          },
+          "pourquoi_pertinent": "Approche didactique forte, accompagnement personnalisé, éco-responsable (1% pour la planète). Recherche profils techniques avec dimension pédagogique. Bureaux avec vue sur le Vieux Port.",
+          "culture_entreprise": ["pédagogie", "accompagnement personnalisé", "éco-responsable", "cadre agréable"],
+          "avantages": ["dimension pédagogique", "éco-responsable", "vue sur le port", "accompagnement personnalisé"],
+          "score_compatibilite": 85
+        },
+        {
+          "id": "targetweb",
+          "nom": "TARGET WEB",
+          "priorite": "STANDARD",
+          "ville": "La Rochelle",
+          "adresse": null,
+          "secteur": "Agence marketing digital multi-sites",
+          "specialites": ["marketing digital", "SEO/SEA", "e-commerce"],
+          "taille_entreprise": "20-30 employés",
+          "structure": "La Rochelle, Bordeaux, Maisons-Laffitte",
+          "technologies": ["WordPress", "SEO/SEA", "e-commerce"],
+          "postes_types": ["développeurs", "webmarketeurs", "graphistes"],
+          "site_web": "targetweb.fr",
+          "contact": {
+            "site": "targetweb.fr",
+            "email": null,
+            "telephone": null
+          },
+          "pourquoi_pertinent": "Expansion multi-sites suggère forte croissance, équipe diversifiée (développeurs, webmarketeurs, graphistes), accompagnement 100% personnalisé.",
+          "culture_entreprise": ["croissance", "multi-sites", "personnalisation"],
+          "avantages": ["expansion multi-sites", "équipe diversifiée", "accompagnement personnalisé"],
+          "score_compatibilite": 75
+        },
+        {
+          "id": "deuxrien",
+          "nom": "DEUX RIEN",
+          "priorite": "STANDARD",
+          "ville": "La Rochelle",
+          "adresse": null,
+          "secteur": "Agence communication web créative",
+          "specialites": ["sites sur mesure", "SEO/SEA", "réseaux sociaux", "chartes graphiques"],
+          "taille_entreprise": "10-15 employés",
+          "structure": null,
+          "technologies": ["développement web", "design graphique", "SEO/SEA"],
+          "postes_types": ["profils créatifs avec compétences techniques et commerciales"],
+          "site_web": "deux-rien.fr",
+          "contact": {
+            "site": "deux-rien.fr",
+            "email": null,
+            "telephone": null
+          },
+          "pourquoi_pertinent": "Approche créative et innovante, engagement local fort, recherche profils créatifs avec compétences techniques et dimension commerciale.",
+          "culture_entreprise": ["créativité", "innovation", "engagement local"],
+          "avantages": ["approche créative", "engagement local", "profils hybrides recherchés"],
+          "score_compatibilite": 80
+        },
+        {
+          "id": "ocean_digital",
+          "nom": "OCÉAN DIGITAL",
+          "priorite": "PROMETTEUSE",
+          "ville": "La Rochelle",
+          "adresse": null,
+          "secteur": "Agence digitale",
+          "specialites": ["développement web", "marketing digital"],
+          "taille_entreprise": "8-12 employés",
+          "structure": null,
+          "technologies": null,
+          "postes_types": null,
+          "site_web": null,
+          "contact": {
+            "site": null,
+            "email": null,
+            "telephone": null
+          },
+          "pourquoi_pertinent": "+20% CA clients prouvé, orientation ROI",
+          "culture_entreprise": ["performance", "ROI", "croissance"],
+          "avantages": ["croissance CA prouvée", "orientation résultats"],
+          "score_compatibilite": 70
+        },
+        {
+          "id": "mxcom",
+          "nom": "MX/COM",
+          "priorite": "PROMETTEUSE",
+          "ville": "La Rochelle",
+          "adresse": null,
+          "secteur": "Agence digitale",
+          "specialites": ["marketing digital", "growth hacking"],
+          "taille_entreprise": "10-15 employés",
+          "structure": null,
+          "technologies": null,
+          "postes_types": null,
+          "site_web": null,
+          "contact": {
+            "site": null,
+            "email": null,
+            "telephone": null
+          },
+          "pourquoi_pertinent": "Certification Clutch, growth hacking",
+          "culture_entreprise": ["innovation", "growth hacking", "certifications"],
+          "avantages": ["certification Clutch", "expertise growth hacking"],
+          "score_compatibilite": 70
+        },
+        {
+          "id": "cyberscope",
+          "nom": "CYBERSCOPE",
+          "priorite": "PROMETTEUSE",
+          "ville": "Les Sables-d'Olonne",
+          "adresse": null,
+          "secteur": "Agence digitale",
+          "specialites": ["développement web", "solutions digitales"],
+          "taille_entreprise": "10-15 employés",
+          "structure": null,
+          "technologies": null,
+          "postes_types": null,
+          "site_web": null,
+          "contact": {
+            "site": null,
+            "email": null,
+            "telephone": null
+          },
+          "pourquoi_pertinent": "30 ans d'expérience",
+          "culture_entreprise": ["expérience", "stabilité"],
+          "avantages": ["30 ans d'expérience", "expertise établie"],
+          "score_compatibilite": 68
+        },
+        {
+          "id": "konverseo",
+          "nom": "KONVERSEO",
+          "priorite": "PROMETTEUSE",
+          "ville": "Niort",
+          "adresse": null,
+          "secteur": "Agence de communication digitale",
+          "specialites": ["communication digitale", "création web"],
+          "taille_entreprise": "8-12 employés",
+          "structure": null,
+          "technologies": null,
+          "postes_types": null,
+          "site_web": "konverseo.com",
+          "contact": {
+            "site": "konverseo.com",
+            "email": null,
+            "telephone": null
+          },
+          "pourquoi_pertinent": "Accompagnement personnalisé",
+          "culture_entreprise": ["accompagnement personnalisé", "proximité client"],
+          "avantages": ["approche personnalisée"],
+          "score_compatibilite": 72
+        }
+      ]
+    },
+    {
+      "id": "esn",
+      "nom": "ESN et entreprises de services numériques",
+      "nombre_entreprises": 8,
+      "description": "Entreprises de Services du Numérique et sociétés de conseil IT",
+      "entreprises": [
+        {
+          "id": "inetum",
+          "nom": "INETUM (ex-GFI)",
+          "priorite": "LEADER_REGIONAL",
+          "ville": "Niort",
+          "adresse": "10 Route De Chauray, 79000 Niort",
+          "secteur": "Transformation digitale, conseil IT, intégration solutions",
+          "specialites": ["transformation digitale", "conseil IT", "intégration solutions"],
+          "taille_entreprise": "250+ collaborateurs",
+          "structure": "1ère ESN du marché local",
+          "technologies": null,
+          "postes_types": ["profils techniques avec dimension conseil"],
+          "clients": ["3 assureurs mutualistes", "secteur public"],
+          "site_web": "inetum.com",
+          "contact": {
+            "site": "inetum.com",
+            "email": null,
+            "telephone": null
+          },
+          "pourquoi_pertinent": "Certification Top Employer Europe, 40 nouveaux talents prévus, télétravail possible, habilitation secret défense. Recherche profils techniques avec dimension conseil.",
+          "culture_entreprise": ["Top Employer", "recrutement actif", "télétravail", "sécurité"],
+          "avantages": ["certification Top Employer", "40 nouveaux postes", "télétravail", "habilitation défense"],
+          "certifications": ["Top Employer Europe", "habilitation secret défense"],
+          "score_compatibilite": 88
+        },
+        {
+          "id": "gft",
+          "nom": "GFT Technologies SE",
+          "priorite": "INTERNATIONAL",
+          "ville": "Niort",
+          "adresse": "18 Avenue Leo Lagrange, 79000 Niort",
+          "secteur": "Transformation digitale finance/assurance, IA, blockchain",
+          "specialites": ["transformation digitale", "IA", "blockchain", "finance", "assurance"],
+          "taille_entreprise": "~60 collaborateurs France",
+          "structure": "filiale groupe international",
+          "technologies": ["Java", "Guidewire", "AWS", "Angular", "React"],
+          "postes_types": ["Tech Lead", "développeurs", "profils techniques avec dimension commerciale/leadership"],
+          "clients": ["secteur financier", "assurances"],
+          "site_web": "gft.com",
+          "contact": {
+            "site": "gft.com",
+            "email": null,
+            "telephone": null
+          },
+          "pourquoi_pertinent": "Profils techniques avec dimension commerciale/leadership recherchés, télétravail partiel, mobilité internationale possible, méthodologies agiles.",
+          "culture_entreprise": ["international", "agilité", "leadership", "télétravail"],
+          "avantages": ["mobilité internationale", "télétravail partiel", "méthodologies agiles", "dimension leadership"],
+          "score_compatibilite": 85
+        },
+        {
+          "id": "conserto",
+          "nom": "CONSERTO",
+          "priorite": "SATISFACTION_EMPLOYES",
+          "ville": "Niort",
+          "adresse": null,
+          "secteur": "DevOps, Infrastructure, Digital, Agilité",
+          "specialites": ["DevOps", "Infrastructure", "Digital", "Agilité"],
+          "taille_entreprise": "~50 collaborateurs agence (450 au total)",
+          "structure": "agence locale d'un groupe plus large",
+          "technologies": ["Java", "React", "DevOps"],
+          "postes_types": ["développeurs", "consultants DevOps", "profils agiles"],
+          "clients": null,
+          "site_web": "conserto.pro",
+          "contact": {
+            "site": "conserto.pro",
+            "email": null,
+            "telephone": null
+          },
+          "pourquoi_pertinent": "90% satisfaction collaborateurs 2024, Conserto Academy (60% formés/an), certifications RSE Lucie et Ecovadis, télétravail partiel autorisé.",
+          "culture_entreprise": ["satisfaction employés", "formation continue", "RSE", "télétravail"],
+          "avantages": ["90% satisfaction", "Academy formation", "certifications RSE", "télétravail"],
+          "certifications": ["RSE Lucie", "Ecovadis"],
+          "statistiques": {
+            "satisfaction_collaborateurs": "90%",
+            "formation_annuelle": "60% des collaborateurs"
+          },
+          "score_compatibilite": 92
+        },
+        {
+          "id": "ais",
+          "nom": "AIS",
+          "priorite": "HAPPY_AT_WORK",
+          "ville": "Niort",
+          "adresse": "113 rue des marais, 79000 Niort",
+          "secteur": "Infrastructure, développement d'applications, support",
+          "specialites": ["infrastructure", "développement applications", "support"],
+          "taille_entreprise": "250 collaborateurs total",
+          "structure": null,
+          "technologies": null,
+          "postes_types": ["développeurs", "consultants infrastructure", "support"],
+          "clients": null,
+          "site_web": "groupeais.fr",
+          "contact": {
+            "site": "groupeais.fr",
+            "email": "cvicini@groupeais.fr",
+            "telephone": "05 17 10 82 31"
+          },
+          "pourquoi_pertinent": "86.2% satisfaction collaborateurs, binôme Manager technique/RH, Label Happy At Work 2024, formations et certifications.",
+          "culture_entreprise": ["satisfaction employés", "management bienveillant", "formation", "certifications"],
+          "avantages": ["86.2% satisfaction", "management binôme", "Label Happy At Work", "formations"],
+          "labels": ["Happy At Work 2024"],
+          "statistiques": {
+            "satisfaction_collaborateurs": "86.2%"
+          },
+          "score_compatibilite": 90
+        },
+        {
+          "id": "extia",
+          "nom": "EXTIA",
+          "priorite": "GREAT_PLACE_TO_WORK",
+          "ville": "Région",
+          "adresse": null,
+          "secteur": "Conseil IT et digital, ingénierie",
+          "specialites": ["conseil IT", "digital", "ingénierie"],
+          "taille_entreprise": "2 500 collaborateurs total",
+          "structure": "groupe national",
+          "technologies": null,
+          "postes_types": ["consultants IT", "ingénieurs", "profils digitaux"],
+          "clients": null,
+          "site_web": "extia-group.com",
+          "contact": {
+            "site": "extia-group.com",
+            "email": null,
+            "telephone": null
+          },
+          "pourquoi_pertinent": "Great Place to Work 1ère place France 2024, formation RUBIX (modèle 70/20/10), 1 jour télétravail/semaine, approche 'D'abord qui, ensuite quoi'.",
+          "culture_entreprise": ["Great Place to Work", "formation innovante", "télétravail", "approche humaine"],
+          "avantages": ["1ère place Great Place to Work", "formation RUBIX", "télétravail 1j/semaine", "approche humaine"],
+          "labels": ["Great Place to Work #1 France 2024"],
+          "score_compatibilite": 89
+        },
+        {
+          "id": "asi_niort",
+          "nom": "ASI Niort",
+          "priorite": "NOTABLE",
+          "ville": "Niort",
+          "adresse": null,
+          "secteur": "ESN",
+          "specialites": ["Full-Stack", "Data", "Microsoft 365", "RSE"],
+          "taille_entreprise": null,
+          "structure": null,
+          "technologies": ["Full-Stack", "Data", "Microsoft 365"],
+          "postes_types": ["développeurs full-stack", "consultants data"],
+          "clients": null,
+          "site_web": "asi.fr",
+          "contact": {
+            "site": "asi.fr/agences/niort",
+            "email": null,
+            "telephone": null
+          },
+          "pourquoi_pertinent": "Approche RSE",
+          "culture_entreprise": ["RSE", "développement durable"],
+          "avantages": ["approche RSE"],
+          "score_compatibilite": 75
+        },
+        {
+          "id": "spie_ics",
+          "nom": "SPIE ICS",
+          "priorite": "NOTABLE",
+          "ville": "Région",
+          "adresse": null,
+          "secteur": "ESN - Cybersécurité",
+          "specialites": ["Cybersécurité", "numérique responsable"],
+          "taille_entreprise": null,
+          "structure": null,
+          "technologies": ["cybersécurité"],
+          "postes_types": ["consultants cybersécurité"],
+          "clients": null,
+          "site_web": null,
+          "contact": {
+            "site": null,
+            "email": null,
+            "telephone": null
+          },
+          "pourquoi_pertinent": "Label Numérique Responsable niveau 2",
+          "culture_entreprise": ["cybersécurité", "numérique responsable"],
+          "avantages": ["label numérique responsable niveau 2"],
+          "labels": ["Numérique Responsable niveau 2"],
+          "score_compatibilite": 78
+        },
+        {
+          "id": "ss2i",
+          "nom": "SS2I Services",
+          "priorite": "NOTABLE",
+          "ville": "La Rochelle",
+          "adresse": null,
+          "secteur": "ESN - Solutions sur mesure",
+          "specialites": ["solutions sur mesure", "télécommunications"],
+          "taille_entreprise": null,
+          "structure": null,
+          "technologies": ["3CX"],
+          "postes_types": ["consultants solutions métiers"],
+          "clients": null,
+          "site_web": null,
+          "contact": {
+            "site": null,
+            "email": null,
+            "telephone": null
+          },
+          "pourquoi_pertinent": "Certifications 3CX",
+          "culture_entreprise": ["solutions sur mesure", "certifications"],
+          "avantages": ["certifications 3CX", "solutions personnalisées"],
+          "certifications": ["3CX"],
+          "score_compatibilite": 72
+        }
+      ]
+    },
+    {
+      "id": "startups",
+      "nom": "Startups et scale-ups tech",
+      "nombre_entreprises": 8,
+      "description": "Startups en croissance et scale-ups technologiques",
+      "entreprises": [
+        {
+          "id": "numa_health",
+          "nom": "NUMA HEALTH",
+          "priorite": "HEALTHTECH_CROISSANCE",
+          "ville": "La Rochelle",
+          "adresse": "1 rue de la Trinquette, La Rochelle",
+          "secteur": "Santé préventive/biotechnologie",
+          "specialites": ["santé préventive", "biotechnologie", "healthtech"],
+          "taille_entreprise": "11-50 employés",
+          "structure": null,
+          "technologies": null,
+          "postes_types": ["développeurs", "commerciaux BtoB", "profils hybrides tech/business"],
+          "clients": null,
+          "site_web": null,
+          "financement": {
+            "total_leve": "5.3M€",
+            "derniere_levee": "Série A 4M€ en 2023"
+          },
+          "dirigeants": ["Thomas Schmit (CEO)"],
+          "contact": {
+            "site": null,
+            "email": null,
+            "telephone": null,
+            "dirigeant": "Thomas Schmit (CEO)"
+          },
+          "pourquoi_pertinent": "Financement récent Série A, besoins développement + commercialisation BtoB, culture innovation scientifique, profils hybrides tech/business recherchés.",
+          "culture_entreprise": ["innovation scientifique", "croissance", "série A", "hybride tech/business"],
+          "avantages": ["série A récente", "besoins multiples", "innovation", "profils hybrides"],
+          "score_compatibilite": 92
+        },
+        {
+          "id": "emundus",
+          "nom": "EMUNDUS",
+          "priorite": "EDTECH_EXPANSION",
+          "ville": "La Rochelle",
+          "adresse": null,
+          "secteur": "EdTech - plateforme gestion candidatures",
+          "specialites": ["EdTech", "gestion candidatures", "éducation", "universités"],
+          "taille_entreprise": "30 employés (après acquisition 2023)",
+          "structure": null,
+          "technologies": null,
+          "postes_types": ["développeurs full-stack", "commerciaux", "customer success"],
+          "clients": ["250+ universités", "grandes écoles"],
+          "site_web": null,
+          "chiffre_affaires": {
+            "2023": "2M€",
+            "objectif": "10M€ d'ici 10 ans"
+          },
+          "dirigeants": ["Benjamin Rivalland (fondateur)"],
+          "expansion": ["Québec"],
+          "contact": {
+            "site": null,
+            "email": null,
+            "telephone": null,
+            "dirigeant": "Benjamin Rivalland (fondateur)"
+          },
+          "pourquoi_pertinent": "Croissance externe active, expansion internationale (Québec), personnalisation produit, besoins développeurs full-stack + commerciaux + customer success.",
+          "culture_entreprise": ["croissance externe", "expansion internationale", "personnalisation", "éducation"],
+          "avantages": ["acquisition 2023", "expansion Québec", "250+ clients", "croissance forte"],
+          "score_compatibilite": 90
+        },
+        {
+          "id": "shark_robotics",
+          "nom": "SHARK ROBOTICS",
+          "priorite": "SCALE_UP_MATURE",
+          "ville": "La Rochelle",
+          "adresse": null,
+          "secteur": "Robotique industrielle/sécurité civile",
+          "specialites": ["robotique", "sécurité civile", "défense", "innovation"],
+          "taille_entreprise": "45 collaborateurs",
+          "structure": null,
+          "technologies": ["robotique", "intelligence artificielle", "systèmes autonomes"],
+          "postes_types": ["ingénieurs", "commerciaux export", "profils techniques"],
+          "clients": ["Brigade pompiers Paris", "Gendarmerie", "clients internationaux"],
+          "site_web": "shark-robotics.com",
+          "financement": {
+            "total_leve": "12.3M$"
+          },
+          "contact": {
+            "site": "shark-robotics.com",
+            "email": null,
+            "telephone": null
+          },
+          "pourquoi_pertinent": "Excellence technique, innovation défense, croissance internationale, besoins probables ingénieurs + commerciaux export.",
+          "culture_entreprise": ["excellence technique", "innovation", "défense", "international"],
+          "avantages": ["12.3M$ levés", "clients prestigieux", "croissance internationale", "secteur porteur"],
+          "score_compatibilite": 88
+        },
+        {
+          "id": "ikomia",
+          "nom": "IKOMIA",
+          "priorite": "COMPUTER_VISION_IA",
+          "ville": "La Rochelle",
+          "adresse": null,
+          "secteur": "Intelligence artificielle/Computer Vision",
+          "specialites": ["IA", "Computer Vision", "open-source", "no-code"],
+          "taille_entreprise": null,
+          "structure": null,
+          "technologies": ["280+ algorithmes SOTA", "Python", "OpenCV", "YOLO"],
+          "postes_types": ["développeurs API", "profils commerciaux", "hybrides technique/business"],
+          "produits": ["API open-source", "plateforme no-code CV"],
+          "site_web": "ikomia.ai",
+          "contact": {
+            "site": "ikomia.ai",
+            "email": null,
+            "telephone": null
+          },
+          "pourquoi_pertinent": "Open-source + SaaS, communauté développeurs, besoins hybrides API technique + stratégie commerciale, impact positif.",
+          "culture_entreprise": ["open-source", "communauté", "IA", "impact positif"],
+          "avantages": ["280+ algorithmes", "communauté développeurs", "open-source + SaaS", "IA de pointe"],
+          "score_compatibilite": 87
+        },
+        {
+          "id": "valbiotis",
+          "nom": "VALBIOTIS",
+          "priorite": "STANDARD",
+          "ville": "Périgny/La Rochelle",
+          "adresse": null,
+          "secteur": "Biotechnologie/nutrition-santé",
+          "specialites": ["biotechnologie", "nutrition", "santé", "recherche"],
+          "taille_entreprise": null,
+          "structure": "société cotée (Euronext Growth Paris)",
+          "technologies": null,
+          "postes_types": ["regulatory affairs", "business development"],
+          "clients": null,
+          "site_web": null,
+          "financement": {
+            "total_leve": "40.2M€"
+          },
+          "contact": {
+            "site": null,
+            "email": null,
+            "telephone": null
+          },
+          "pourquoi_pertinent": "Certification LUCIE 26000, partenariats recherche, besoins regulatory affairs + business development.",
+          "culture_entreprise": ["biotechnologie", "recherche", "certification LUCIE", "cotée"],
+          "avantages": ["40.2M€ levés", "certification LUCIE 26000", "société cotée", "partenariats recherche"],
+          "certifications": ["LUCIE 26000"],
+          "score_compatibilite": 78
+        },
+        {
+          "id": "r2c_system",
+          "nom": "R2C System",
+          "priorite": "PROMETTEUSE",
+          "ville": "Niort",
+          "adresse": null,
+          "secteur": "Big Data",
+          "specialites": ["Big Data", "analytics", "données"],
+          "taille_entreprise": null,
+          "structure": null,
+          "technologies": ["Big Data", "analytics"],
+          "postes_types": ["data engineers", "développeurs"],
+          "clients": null,
+          "site_web": null,
+          "financement": {
+            "total_leve": "40.3M€"
+          },
+          "contact": {
+            "site": null,
+            "email": null,
+            "telephone": null
+          },
+          "pourquoi_pertinent": "Importante levée de fonds dans le Big Data",
+          "culture_entreprise": ["Big Data", "innovation", "croissance"],
+          "avantages": ["40.3M€ levés", "secteur Big Data porteur"],
+          "score_compatibilite": 75
+        },
+        {
+          "id": "yuto",
+          "nom": "YUTO",
+          "priorite": "PROMETTEUSE",
+          "ville": "Niort",
+          "adresse": null,
+          "secteur": "SaaS marketing",
+          "specialites": ["SaaS", "marketing", "automation"],
+          "taille_entreprise": null,
+          "structure": null,
+          "technologies": ["SaaS", "marketing automation"],
+          "postes_types": ["développeurs SaaS", "profils marketing"],
+          "clients": null,
+          "site_web": null,
+          "financement": {
+            "total_leve": "1.2M€"
+          },
+          "contact": {
+            "site": null,
+            "email": null,
+            "telephone": null
+          },
+          "pourquoi_pertinent": "SaaS marketing en croissance",
+          "culture_entreprise": ["SaaS", "marketing", "startup"],
+          "avantages": ["1.2M€ levé", "SaaS marketing"],
+          "score_compatibilite": 80
+        },
+        {
+          "id": "ublo",
+          "nom": "UBLO",
+          "priorite": "PROMETTEUSE",
+          "ville": "Niort",
+          "adresse": null,
+          "secteur": "PropTech/RetailTech",
+          "specialites": ["PropTech", "RetailTech", "immobilier", "retail"],
+          "taille_entreprise": null,
+          "structure": null,
+          "technologies": null,
+          "postes_types": ["développeurs", "profils business"],
+          "clients": null,
+          "site_web": null,
+          "financement": {
+            "total_leve": "600K€"
+          },
+          "contact": {
+            "site": null,
+            "email": null,
+            "telephone": null
+          },
+          "pourquoi_pertinent": "PropTech/RetailTech secteurs porteurs",
+          "culture_entreprise": ["PropTech", "RetailTech", "innovation"],
+          "avantages": ["secteurs porteurs", "600K€ levé"],
+          "score_compatibilite": 72
+        }
+      ]
+    },
+    {
+      "id": "grandes_entreprises",
+      "nom": "Grandes entreprises avec besoins digitaux",
+      "nombre_entreprises": 7,
+      "description": "Grandes entreprises ayant des besoins en transformation digitale",
+      "entreprises": [
+        {
+          "id": "solvay",
+          "nom": "SOLVAY LA ROCHELLE",
+          "priorite": "INDUSTRIE_4_0",
+          "ville": "La Rochelle",
+          "adresse": "Zone industrielle Chef de Baie, 40 hectares",
+          "secteur": "Chimie spécialisée, leader mondial terres rares",
+          "specialites": ["chimie", "terres rares", "industrie 4.0", "R&D"],
+          "taille_entreprise": "330 collaborateurs (y compris prestataires)",
+          "structure": "site industriel majeur",
+          "technologies": ["industrie 4.0", "processus industriels", "HSE numérique"],
+          "postes_types": ["formateurs sécurité digitale", "support utilisateurs", "accompagnement changement"],
+          "besoins_digitaux": ["Industrie 4.0", "transformation processus industriels", "formation HSE numérique"],
+          "site_web": "solvay.com/fr/france/la-rochelle",
+          "contact": {
+            "site": "solvay.com/fr/france/la-rochelle",
+            "email": null,
+            "telephone": null
+          },
+          "pourquoi_pertinent": "4000h formation/an, besoins formateurs sécurité digitale, support utilisateurs outils industriels, accompagnement changement. Investissements R&D, laboratoire innovation.",
+          "culture_entreprise": ["industrie", "sécurité", "formation continue", "R&D", "innovation"],
+          "avantages": ["4000h formation/an", "laboratoire innovation", "leader mondial", "investissements R&D"],
+          "statistiques": {
+            "formation_annuelle": "4000h"
+          },
+          "score_compatibilite": 85
+        },
+        {
+          "id": "lea_nature",
+          "nom": "LÉA NATURE / COMPAGNIE LÉA NATURE",
+          "priorite": "BIO_RSE",
+          "ville": "Périgny",
+          "adresse": "23 Avenue Paul Langevin, 17180 Périgny",
+          "secteur": "Fabricant produits bio (alimentation, santé, beauté, maison)",
+          "specialites": ["bio", "RSE", "société à mission", "e-commerce"],
+          "taille_entreprise": "1250 collaborateurs (groupe avec filiales)",
+          "structure": "groupe avec filiales",
+          "technologies": null,
+          "postes_types": ["support utilisateurs ERP", "formation digitale", "accompagnement transformation"],
+          "besoins_digitaux": ["E-commerce", "CRM", "digitalisation supply chain bio"],
+          "site_web": "compagnie-leanature.com",
+          "contact": {
+            "site": "compagnie-leanature.com",
+            "email": null,
+            "telephone": null
+          },
+          "pourquoi_pertinent": "Société à mission, RSE forte, besoins support utilisateurs ERP, formation digitale équipes, accompagnement transformation.",
+          "culture_entreprise": ["société à mission", "RSE", "bio", "transformation digitale"],
+          "avantages": ["société à mission", "1250 collaborateurs", "RSE forte", "secteur bio porteur"],
+          "score_compatibilite": 88
+        },
+        {
+          "id": "port_la_rochelle",
+          "nom": "GRAND PORT MARITIME DE LA ROCHELLE",
+          "priorite": "PORT_CONNECTE",
+          "ville": "La Rochelle",
+          "adresse": "141 Boulevard Emile Delmas, 17000 La Rochelle",
+          "secteur": "6ème grand port français, 8,5M tonnes/an",
+          "specialites": ["port maritime", "logistique", "digitalisation", "innovation portuaire"],
+          "taille_entreprise": "100 personnes",
+          "structure": "établissement public",
+          "technologies": null,
+          "postes_types": ["formation outils portuaires digitaux", "support systèmes"],
+          "besoins_digitaux": ["Port connecté", "digitalisation flux logistiques"],
+          "site_web": "larochelle.port.fr",
+          "contact": {
+            "site": "larochelle.port.fr",
+            "email": null,
+            "telephone": null
+          },
+          "pourquoi_pertinent": "Innovation portuaire, besoins formation outils portuaires digitaux, support systèmes sécurité, développement durable.",
+          "culture_entreprise": ["innovation portuaire", "développement durable", "public", "logistique"],
+          "avantages": ["6ème port français", "8.5M tonnes/an", "innovation", "développement durable"],
+          "statistiques": {
+            "tonnage_annuel": "8.5M tonnes"
+          },
+          "score_compatibilite": 80
+        },
+        {
+          "id": "ca_cm_ds",
+          "nom": "CRÉDIT AGRICOLE CM-DS",
+          "priorite": "BANCAIRE",
+          "ville": "La Rochelle",
+          "adresse": null,
+          "secteur": "Banque",
+          "specialites": ["banque", "digital banking", "formation"],
+          "taille_entreprise": null,
+          "structure": "8 agences La Rochelle",
+          "technologies": null,
+          "postes_types": ["formation digital banking", "accompagnement transformation"],
+          "besoins_digitaux": ["formation digital banking"],
+          "site_web": null,
+          "contact": {
+            "site": null,
+            "email": null,
+            "telephone": null
+          },
+          "pourquoi_pertinent": "Transformation digitale bancaire, formation équipes",
+          "culture_entreprise": ["banque", "transformation digitale", "formation"],
+          "avantages": ["8 agences", "secteur bancaire stable"],
+          "score_compatibilite": 70
+        },
+        {
+          "id": "bnp_paribas",
+          "nom": "BNP PARIBAS",
+          "priorite": "BANCAIRE",
+          "ville": "La Rochelle",
+          "adresse": null,
+          "secteur": "Banque",
+          "specialites": ["banque", "accompagnement changement digital"],
+          "taille_entreprise": null,
+          "structure": "5 agences",
+          "technologies": null,
+          "postes_types": ["accompagnement changement digital"],
+          "besoins_digitaux": ["accompagnement changement digital"],
+          "site_web": null,
+          "contact": {
+            "site": null,
+            "email": null,
+            "telephone": null
+          },
+          "pourquoi_pertinent": "Accompagnement changement digital",
+          "culture_entreprise": ["banque", "changement digital"],
+          "avantages": ["5 agences", "groupe international"],
+          "score_compatibilite": 68
+        },
+        {
+          "id": "societe_generale",
+          "nom": "SOCIÉTÉ GÉNÉRALE",
+          "priorite": "BANCAIRE",
+          "ville": "La Rochelle",
+          "adresse": null,
+          "secteur": "Banque",
+          "specialites": ["banque", "transformation digitale"],
+          "taille_entreprise": null,
+          "structure": null,
+          "technologies": null,
+          "postes_types": ["transformation digitale bancaire"],
+          "besoins_digitaux": ["transformation digitale bancaire"],
+          "site_web": null,
+          "contact": {
+            "site": null,
+            "email": null,
+            "telephone": null
+          },
+          "pourquoi_pertinent": "Transformation digitale bancaire",
+          "culture_entreprise": ["banque", "transformation digitale"],
+          "avantages": ["groupe international", "transformation digitale"],
+          "score_compatibilite": 68
+        },
+        {
+          "id": "banque_populaire",
+          "nom": "BANQUE POPULAIRE",
+          "priorite": "BANCAIRE",
+          "ville": "La Rochelle",
+          "adresse": null,
+          "secteur": "Banque",
+          "specialites": ["banque", "transformation digitale"],
+          "taille_entreprise": null,
+          "structure": null,
+          "technologies": null,
+          "postes_types": ["transformation digitale bancaire"],
+          "besoins_digitaux": ["transformation digitale bancaire"],
+          "site_web": null,
+          "contact": {
+            "site": null,
+            "email": null,
+            "telephone": null
+          },
+          "pourquoi_pertinent": "Transformation digitale bancaire",
+          "culture_entreprise": ["banque mutualiste", "transformation digitale"],
+          "avantages": ["banque mutualiste", "proximité"],
+          "score_compatibilite": 68
+        }
+      ]
+    },
+    {
+      "id": "formation_consulting",
+      "nom": "Organismes de formation et consulting",
+      "nombre_entreprises": 14,
+      "description": "Organismes de formation, centres de formation et sociétés de conseil",
+      "entreprises": [
+        {
+          "id": "univ_la_rochelle",
+          "nom": "LA ROCHELLE UNIVERSITÉ - Formation Continue",
+          "priorite": "NUMERIQUE_RESPONSABLE",
+          "ville": "La Rochelle",
+          "adresse": "Campus universitaire, 23 Avenue Albert Einstein",
+          "secteur": "Formation numérique responsable, sobriété numérique",
+          "specialites": ["numérique responsable", "sobriété numérique", "conception responsable"],
+          "taille_entreprise": null,
+          "structure": "université publique",
+          "technologies": null,
+          "postes_types": ["formateurs RSE numérique", "consultants transformation responsable"],
+          "labels": ["numérique responsable"],
+          "site_web": "univ-larochelle.fr/formation-continue",
+          "contact": {
+            "site": "univ-larochelle.fr/formation-continue",
+            "email": null,
+            "telephone": null,
+            "referent": "Vincent Courboulay"
+          },
+          "pourquoi_pertinent": "Pionnier français numérique responsable, besoins formateurs RSE numérique, consultants transformation responsable.",
+          "culture_entreprise": ["numérique responsable", "RSE", "pionnier", "université"],
+          "avantages": ["pionnier français", "label numérique responsable", "référent Vincent Courboulay"],
+          "score_compatibilite": 92
+        },
+        {
+          "id": "m2i_formation",
+          "nom": "M2I FORMATION LA ROCHELLE",
+          "priorite": "LEADER_FORMATION_IT",
+          "ville": "La Rochelle",
+          "adresse": null,
+          "secteur": "Formation IT, Digital, Management",
+          "specialites": ["formation IT", "digital", "management"],
+          "taille_entreprise": null,
+          "structure": "réseau national 35 centres",
+          "technologies": null,
+          "postes_types": ["formateurs techniques polyvalents", "consultants pédagogiques"],
+          "offre_formation": "2850 formations",
+          "certifications": ["Qualiopi"],
+          "experience": "35 ans",
+          "site_web": "m2iformation.fr",
+          "contact": {
+            "site": "m2iformation.fr/centre-de-formation/la-rochelle/15/",
+            "email": "larochelle@m2iformation.fr",
+            "telephone": "05 49 55 13 75"
+          },
+          "pourquoi_pertinent": "Innovation pédagogique, besoins formateurs techniques polyvalents, consultants pédagogiques.",
+          "culture_entreprise": ["formation", "innovation pédagogique", "certification Qualiopi", "expérience"],
+          "avantages": ["2850 formations", "35 ans expérience", "réseau national", "certification Qualiopi"],
+          "score_compatibilite": 90
+        },
+        {
+          "id": "digitall_conseil",
+          "nom": "DIGITALL CONSEIL",
+          "priorite": "TRANSFORMATION_DIGITALE",
+          "ville": "Région",
+          "adresse": null,
+          "secteur": "Conseil, conduite du changement, formations certifiées",
+          "specialites": ["transformation digitale", "conduite du changement", "formations certifiées", "usine du futur"],
+          "taille_entreprise": null,
+          "structure": null,
+          "technologies": null,
+          "postes_types": ["consultants transformation digitale", "formateurs certifiés"],
+          "experience": "10 ans",
+          "clients": "centaines d'entreprises accompagnées",
+          "site_web": "digitall-conseil.fr",
+          "contact": {
+            "site": "digitall-conseil.fr",
+            "email": null,
+            "telephone": null
+          },
+          "pourquoi_pertinent": "Consultants transformation digitale, formateurs certifiés, accompagnement industriels et PME.",
+          "culture_entreprise": ["transformation digitale", "accompagnement", "solutions sur-mesure"],
+          "avantages": ["10 ans expérience", "centaines de clients", "usine du futur", "formations certifiées"],
+          "score_compatibilite": 88
+        },
+        {
+          "id": "cci_charente_maritime",
+          "nom": "CCI CHARENTE-MARITIME",
+          "priorite": "STANDARD",
+          "ville": "La Rochelle",
+          "adresse": null,
+          "secteur": "Accompagnement transformation numérique TPE/PME",
+          "specialites": ["transformation numérique", "IA générative", "conseil numérique"],
+          "taille_entreprise": null,
+          "structure": "organisme consulaire",
+          "technologies": null,
+          "postes_types": ["conseillers numériques", "formateurs transformation digitale"],
+          "services": ["IA générative", "conseillers numériques"],
+          "site_web": "charente-maritime.cci.fr",
+          "contact": {
+            "site": "charente-maritime.cci.fr",
+            "email": null,
+            "telephone": "05 46 84 11 84"
+          },
+          "pourquoi_pertinent": "Besoins conseillers numériques, formateurs transformation digitale, proximité entreprises.",
+          "culture_entreprise": ["accompagnement TPE/PME", "transformation numérique", "proximité"],
+          "avantages": ["proximité entreprises", "IA générative", "conseillers numériques"],
+          "score_compatibilite": 82
+        }
+      ]
+    }
+  ],
+  "recommandations": {
+    "priorites_immediates": [
+      {
+        "rang": 1,
+        "entreprise": "LATELIER",
+        "raison": "Profil parfait agence dynamique valorisant polyvalence"
+      },
+      {
+        "rang": 2,
+        "entreprise": "NUMA HEALTH",
+        "raison": "Startup healthtech série A, besoins hybrides tech/business"
+      },
+      {
+        "rang": 3,
+        "entreprise": "Z&KO",
+        "raison": "Culture collaborative, 17 ans expérience, multi-compétences valorisées"
+      },
+      {
+        "rang": 4,
+        "entreprise": "NASKIGO",
+        "raison": "Relations long terme, full-stack, engagement environnemental"
+      },
+      {
+        "rang": 5,
+        "entreprise": "EMUNDUS",
+        "raison": "EdTech croissance, acquisition récente, expansion internationale"
+      }
+    ],
+    "cibles_excellentes": [
+      {
+        "rang": 6,
+        "entreprise": "NIOU",
+        "raison": "Dimension pédagogique forte, éco-responsable"
+      },
+      {
+        "rang": 7,
+        "entreprise": "INETUM Niort",
+        "raison": "Leader ESN régional, 250+ employés, Top Employer"
+      },
+      {
+        "rang": 8,
+        "entreprise": "CONSERTO",
+        "raison": "90% satisfaction employés, RSE, télétravail"
+      },
+      {
+        "rang": 9,
+        "entreprise": "SOLVAY",
+        "raison": "Industrie 4.0, 4000h formation/an, innovation"
+      },
+      {
+        "rang": 10,
+        "entreprise": "DIGITALL CONSEIL",
+        "raison": "Pure consulting transformation digitale"
+      }
+    ],
+    "secteurs_porteurs": [
+      {
+        "secteur": "Agences digitales polyvalentes",
+        "raison": "valorisent profils hybrides"
+      },
+      {
+        "secteur": "Startups/Scale-ups en croissance",
+        "raison": "besoins multiples compétences"
+      },
+      {
+        "secteur": "ESN avec culture employeur",
+        "raison": "télétravail, formation"
+      },
+      {
+        "secteur": "Formation/Consulting digital",
+        "raison": "compétences pédagogiques"
+      }
+    ],
+    "avantages_region": {
+      "ecosysteme": "550+ entreprises tech, soutien CCI/Technopole",
+      "qualite_vie": "Cadre littoral, taille humaine, coûts maîtrisés",
+      "innovation": "Clusters spécialisés, incubateurs actifs",
+      "proximite_paris": "3h TGV, télétravail facilité",
+      "specialisations": "Maritime, bio/santé, assurtech (Niort)"
+    }
+  },
+  "statistiques": {
+    "total_entreprises_analysees": 47,
+    "repartition_par_categorie": {
+      "agences_digitales": 10,
+      "esn": 8,
+      "startups": 8,
+      "grandes_entreprises": 7,
+      "formation_consulting": 14
+    },
+    "entreprises_priorite_absolue": 5,
+    "entreprises_excellentes": 10,
+    "score_compatibilite_moyen": 79.2,
+    "entreprises_avec_contact_direct": 8,
+    "entreprises_avec_financement_recent": 6,
+    "entreprises_certifiees_rse": 4
+  },
+  "actions_recommandees": {
+    "strategie_candidature": {
+      "phase_1": {
+        "duree": "Semaine 1-2",
+        "actions": [
+          "Candidature spontanée LATELIER (priorité absolue)",
+          "Contact direct NUMA HEALTH via Thomas Schmit (CEO)",
+          "Candidature Z&KO avec accent sur profil multi-compétent",
+          "Approche NASKIGO avec angle environnemental",
+          "Contact EMUNDUS via Benjamin Rivalland (fondateur)"
+        ]
+      },
+      "phase_2": {
+        "duree": "Semaine 3-4",
+        "actions": [
+          "Candidature NIOU avec focus dimension pédagogique",
+          "Contact INETUM Niort pour poste conseil IT",
+          "Approche CONSERTO (excellent taux satisfaction)",
+          "Contact SOLVAY pour formation industrielle",
+          "Candidature DIGITALL CONSEIL pour consulting"
+        ]
+      },
+      "phase_3": {
+        "duree": "Semaine 5-6",
+        "actions": [
+          "Candidatures agences secondaires (TARGET WEB, DEUX RIEN)",
+          "Contact ESN complémentaires (GFT, AIS, EXTIA)",
+          "Approche startups prometteuses (SHARK ROBOTICS, IKOMIA)",
+          "Contact organismes formation (M2I, Université La Rochelle)"
+        ]
+      }
+    },
+    "personnalisation_cv": {
+      "pour_agences": {
+        "mettre_en_avant": [
+          "Suite Adobe (Photoshop, Illustrator, InDesign)",
+          "Figma, WordPress, HTML/CSS",
+          "Compréhension client et dimension commerciale",
+          "Projets PWA personnels"
+        ],
+        "ton": "créatif et technique"
+      },
+      "pour_esn": {
+        "mettre_en_avant": [
+          "Adaptabilité et polyvalence",
+          "Compétences techniques + relation client",
+          "Capacité à comprendre besoins métiers",
+          "Experience management d'équipe"
+        ],
+        "ton": "professionnel et consultant"
+      },
+      "pour_startups": {
+        "mettre_en_avant": [
+          "Autonomie et débrouillardise",
+          "Polyvalence (couvrir plusieurs besoins)",
+          "Approche 'vibe coding' avec IA",
+          "Capacité d'adaptation rapide"
+        ],
+        "ton": "innovant et agile"
+      },
+      "pour_formation": {
+        "mettre_en_avant": [
+          "Compétences pédagogiques",
+          "Création de supports de formation",
+          "Accompagnement utilisateurs",
+          "Vulgarisation concepts techniques"
+        ],
+        "ton": "pédagogique et bienveillant"
+      }
+    }
+  }
+}

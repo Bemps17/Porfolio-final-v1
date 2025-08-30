@@ -1,0 +1,143 @@
+/* Modal Animation & Visibility */
+#cv-modal {
+    /* Base styles are handled by Tailwind, this is for state changes */
+    transition: opacity 0.3s ease-in-out;
+}
+#cv-modal > div { /* The content container */
+    transition: transform 0.3s ease-in-out;
+}
+
+#cv-modal.is-open {
+    opacity: 1 !important; /* Use !important to ensure override of Tailwind's opacity-0 */
+    pointer-events: auto !important;
+}
+#cv-modal.is-open > div {
+    transform: scale(1) !important;
+}
+
+/* Styles for Visual CV in Modal, based on cv.css - ORANGE THEME */
+#cv-modal-body .page {
+    --bg: #1a1a1a; /* Match modal background */
+    --text: #e7e7ea;
+    --muted: #b6b7c1;
+    --primary: #ff6600; /* ORANGE */
+    --primary-100: #2a2a2a; /* Darker sidebar bg */
+    --accent: #ff8833; /* LIGHT ORANGE */
+    --shadow: 0 6px 24px rgba(0,0,0,.45);
+    
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.5 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+#cv-modal-body * { box-sizing: border-box; }
+
+/* Layout */
+#cv-modal-body .page {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+#cv-modal-body .sidebar {
+    background: var(--primary-100);
+    padding: 24px;
+    display: grid;
+    align-content: start;
+    gap: 24px;
+}
+
+#cv-modal-body .content { padding: 24px; }
+
+@media (min-width: 900px) {
+    #cv-modal-body .page { grid-template-columns: 320px 1fr; }
+    #cv-modal-body .content { padding: 40px 48px; }
+}
+
+/* Identity */
+#cv-modal-body .identity { text-align: left; }
+#cv-modal-body .avatar {
+    width: 88px; height: 88px; border-radius: 50%;
+    display: grid; place-items: center;
+    font-weight: 700; font-size: 28px;
+    background: linear-gradient(145deg, var(--primary), var(--accent));
+    color: white; box-shadow: var(--shadow); margin-bottom: 12px;
+}
+#cv-modal-body .name { font-size: 28px; line-height: 1.1; margin: 0 0 6px 0; }
+#cv-modal-body .name span { color: var(--primary); }
+#cv-modal-body .tagline { margin: 0; color: var(--muted); font-weight: 500; }
+
+/* Sections */
+#cv-modal-body .section + .section { margin-top: 28px; }
+#cv-modal-body .section h2,
+#cv-modal-body .sidebar h2 {
+    font-size: 18px; margin: 0 0 12px 0; letter-spacing: .2px;
+    color: var(--primary); text-transform: uppercase;
+}
+#cv-modal-body .section p { margin: 0; color: var(--text); }
+
+#cv-modal-body .item { padding: 14px 0; border-bottom: 1px dashed rgba(255,255,255,.1); }
+#cv-modal-body .item:last-child { border-bottom: 0; }
+#cv-modal-body .item h3 { font-size: 17px; margin: 0 0 6px 0; }
+#cv-modal-body .meta { display: flex; flex-wrap: wrap; gap: 12px; color: var(--muted); font-size: 14px; margin-bottom: 6px; }
+#cv-modal-body .meta .org { font-weight: 600; }
+
+/* Lists */
+#cv-modal-body ul { padding-left: 18px; margin: 8px 0 0 0; }
+#cv-modal-body li { margin: 6px 0; }
+
+#cv-modal-body .pill-list { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; margin: 0; }
+#cv-modal-body .pill-list li { padding: 6px 10px; border-radius: 999px; background: rgba(255,255,255,.08); color: var(--text); font-size: 14px; }
+
+#cv-modal-body .level-list { list-style: none; padding: 0; display: grid; gap: 10px; }
+#cv-modal-body .level-list li { display: grid; grid-template-columns: 120px 1fr; align-items: center; gap: 12px; }
+#cv-modal-body .level-list span { color: var(--text); }
+#cv-modal-body .level-list progress { width: 100%; height: 8px; accent-color: var(--primary); }
+
+#cv-modal-body .dot-list { margin: 0; }
+
+#cv-modal-body .contact ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+#cv-modal-body .contact a { color: inherit; text-decoration: none; border-bottom: 1px dotted rgba(255,255,255,.25); }
+
+/* Education */
+#cv-modal-body .edu-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+#cv-modal-body .edu-list li { display: grid; grid-template-columns: 1fr auto; gap: 6px 12px; padding: 10px 0; border-bottom: 1px dashed rgba(255,255,255,.1); }
+#cv-modal-body .edu-list li:last-child { border-bottom: 0; }
+#cv-modal-body .edu-list .degree { font-weight: 600; }
+#cv-modal-body .edu-list .school { color: var(--muted); }
+#cv-modal-body .edu-list .date { color: var(--muted); }
+
+/* Print-specific styles */
+@media print {
+    @page { size: A4 portrait; margin: 0; }
+    body > *:not(#cv-modal) { display: none !important; }
+    #cv-modal {
+        position: static !important; display: block !important; background: none !important;
+        padding: 0 !important; overflow: visible !important; opacity: 1 !important; pointer-events: auto !important;
+    }
+    #cv-modal > div {
+        box-shadow: none !important; max-height: none !important; height: auto !important;
+        border-radius: 0 !important; background: #fff !important; display: block !important; transform: none !important;
+    }
+    #cv-modal > div > div:first-child { display: none !important; } /* Hide modal header */
+    #cv-modal-body { overflow: visible !important; padding: 0 !important; background: #fff !important; }
+    
+    #cv-modal-body .page {
+        --bg: #ffffff; --text: #222222; --muted: #555555;
+        --primary: #ff6600; --primary-100: #fff0e6; --accent: #ff8833; --shadow: none;
+        background: var(--bg) !important; color: var(--text) !important;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important; font-size: 10pt !important;
+        padding: 10mm !important; box-shadow: none !important; max-width: 210mm; min-height: 297mm;
+    }
+    #cv-modal-body .sidebar { background: var(--primary-100) !important; }
+    #cv-modal-body .name span, #cv-modal-body .section h2, #cv-modal-body .sidebar h2 { color: var(--primary) !important; }
+    #cv-modal-body .avatar {
+        background: linear-gradient(145deg, var(--primary), var(--accent)) !important;
+        -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    }
+    #cv-modal-body .item { border-bottom-color: rgba(0,0,0,.1) !important; }
+    #cv-modal-body .contact a { border-bottom-color: rgba(0,0,0,.25) !important; color: var(--text) !important; text-decoration: none !important; }
+    #cv-modal-body .pill-list li { background: rgba(0,0,0,.06) !important; }
+    #cv-modal-body progress { accent-color: var(--primary) !important; }
+}

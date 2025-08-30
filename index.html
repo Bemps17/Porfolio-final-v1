@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://portfolio-bertrandfouquet.netlify.app/">
+
+    <title>Bertrand Fouquet | Web Designer Junior (UI/UX) à La Rochelle</title>
+    <meta name="description" content="Web Designer Junior passionné par l'UI/UX, basé près de La Rochelle (Puilboreau). Je conçois et intègre des interfaces web intuitives en HTML/CSS. Recherche active d'un poste hybride.">
+    <meta name="author" content="Bertrand Fouquet">
+    <meta name="robots" content="index, follow"> <meta property="og:title" content="Bertrand Fouquet - Web Designer Junior | La Rochelle">
+    <meta property="og:description" content="Découvrez le portfolio d'un Web Designer créatif, spécialisé en intégration HTML/CSS et conception d'interfaces. Recherche d'opportunités hybrides.">
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://portfolio-bertrandfouquet.netlify.app/">
+    <meta property="og:image" content="https://portfolio-bertrandfouquet.netlify.app/og-image-designer.jpg">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bertrand Fouquet - Web Designer Junior | La Rochelle">
+    <meta name="twitter:description" content="Découvrez le portfolio d'un Web Designer créatif, spécialisé en intégration HTML/CSS et conception d'interfaces.">
+    <meta name="twitter:image" content="https://portfolio-bertrandfouquet.netlify.app/og-image-designer.jpg">
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <meta name="theme-color" content="#2D3748"> <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/modal.css">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Bertrand Fouquet",
+      "url": "https://portfolio-bertrandfouquet.netlify.app/",
+      "jobTitle": "Web Designer Junior",
+      "knowsAbout": ["UI Design", "UX Design", "Figma", "HTML5", "CSS3", "Responsive Design", "Intégration Web", "Tailwind CSS"],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Puilboreau",
+        "addressRegion": "Nouvelle-Aquitaine",
+        "addressCountry": "FR"
+      },
+      "workLocation": {
+        "@type": "City",
+        "name": "La Rochelle"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/bertandfouquet1984" 
+      ]
+    }
+    </script>
+
+  
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23ff6600'/><text x='50' y='65' font-size='45' text-anchor='middle' fill='white' font-weight='bold'>BF</text></svg>">
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+<body>
+    <!-- Particles Background -->
+    <div id="particles" class="fixed inset-0 pointer-events-none"></div>
+    
+    <!-- Mobile Menu Overlay -->
+    <div id="menu-overlay" class="menu-overlay fixed inset-0 bg-black/80 z-40"></div>
+    
+    <!-- Header Navigation - Mobile First -->
+    <header class="fixed top-0 w-full z-50 glass">
+        <nav class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center font-bold text-white">
+                        BF
+                    </div>
+                    <span class="font-bold text-lg hidden sm:inline">Bertrand Fouquet</span>
+                </div>
+                
+                <!-- Desktop Navigation (hidden on mobile) -->
+                <div class="hidden lg:flex items-center space-x-6 xl:space-x-8">
+                    <a href="#home" class="hover:text-orange-500 transition-colors">Accueil</a>
+                    <a href="#expertise" class="hover:text-orange-500 transition-colors">Expertise</a>
+                    <a href="#parcours" class="hover:text-orange-500 transition-colors">Parcours</a>
+                    <a href="#projets" class="hover:text-orange-500 transition-colors">Projets</a>
+                    <a href="#contact" class="hover:text-orange-500 transition-colors">Contact</a>
+                    <div class="flex items-center space-x-2">
+                        <button class="download-visual-cv-btn px-4 py-2 gradient-bg text-white rounded-full hover:shadow-lg transition-shadow text-sm">
+                            <i class="fas fa-eye mr-2"></i>CV Visuel
+                        </button>
+                        <a href="assets/cv-ats.html" download="CV_Bertrand_Fouquet_ATS.html" class="px-4 py-2 glass text-white rounded-full hover:bg-white/10 transition-all text-sm">
+                            <i class="fas fa-robot mr-2"></i>CV pour ATS
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="hamburger lg:hidden p-2 focus:outline-none">
+                    <div class="space-y-1.5">
+                        <span class="hamburger-line block w-6 h-0.5 bg-orange-500"></span>
+                        <span class="hamburger-line block w-6 h-0.5 bg-orange-500"></span>
+                        <span class="hamburger-line block w-6 h-0.5 bg-orange-500"></span>
+                    </div>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="lg:hidden fixed top-0 right-0 h-full w-72 bg-black-secondary transform translate-x-full transition-transform duration-300 z-50">
+            <div class="p-6 pt-20">
+                <nav class="space-y-4">
+                    <a href="#home" class="block py-3 px-4 text-lg hover:bg-orange-500/20 hover:text-orange-500 rounded-lg transition-colors">
+                        <i class="fas fa-home mr-3 w-5"></i>Accueil
+                    </a>
+                    <a href="#expertise" class="block py-3 px-4 text-lg hover:bg-orange-500/20 hover:text-orange-500 rounded-lg transition-colors">
+                        <i class="fas fa-star mr-3 w-5"></i>Expertise
+                    </a>
+                    <a href="#parcours" class="block py-3 px-4 text-lg hover:bg-orange-500/20 hover:text-orange-500 rounded-lg transition-colors">
+                        <i class="fas fa-road mr-3 w-5"></i>Parcours
+                    </a>
+                    <a href="#projets" class="block py-3 px-4 text-lg hover:bg-orange-500/20 hover:text-orange-500 rounded-lg transition-colors">
+                        <i class="fas fa-folder mr-3 w-5"></i>Projets
+                    </a>
+                    <a href="#contact" class="block py-3 px-4 text-lg hover:bg-orange-500/20 hover:text-orange-500 rounded-lg transition-colors">
+                        <i class="fas fa-envelope mr-3 w-5"></i>Contact
+                    </a>
+                    <div class="mt-6 space-y-3">
+                        <button class="download-visual-cv-btn block w-full py-3 px-4 gradient-bg text-white text-center rounded-lg font-semibold">
+                            <i class="fas fa-eye mr-2"></i>CV Visuel
+                        </button>
+                        <a href="assets/cv-ats.html" download="CV_Bertrand_Fouquet_ATS.html" class="block w-full py-3 px-4 glass text-white text-center rounded-lg font-semibold hover:bg-white/10">
+                            <i class="fas fa-robot mr-2"></i>CV pour ATS
+                        </a>
+                    </div>
+                </nav>
+                
+                <!-- Social Links in Mobile Menu -->
+                <div class="mt-8 pt-8 border-t border-gray-800">
+                    <p class="text-sm text-gray-500 mb-4">Me suivre</p>
+                    <div class="flex space-x-4">
+                        <a href="https://linkedin.com/in/bertrandfouquet" class="text-2xl hover:text-orange-500 transition-colors">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/bertrandfouquet" class="text-2xl hover:text-orange-500 transition-colors">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="mailto:bertrandwebdesigner@proton.me" class="text-2xl hover:text-orange-500 transition-colors">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section - Mobile First -->
+    <section id="home" class="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <!-- Text Content -->
+                <div class="text-center lg:text-left">
+                    <div class="inline-block px-3 py-1.5 sm:px-4 sm:py-2 glass-orange rounded-full mb-4 sm:mb-6">
+                        <span class="text-green-400">●</span> Disponible immédiatement
+                    </div>
+                    
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6">
+                        Je suis <span class="text-gradient-orange">Bertrand</span>,<br>
+                        <span class="typing block mt-2 lg:text-4xl xl:text-5xl">Votre Expert Polyvalent</span>
+                    </h1>
+                    
+                    <p class="text-base sm:text-lg md:text-xl text-gray-300 mb-6 sm:mb-8 leading-relaxed px-4 sm:px-0">
+                        <span class="font-semibold text-white">10+ ans d'expérience</span> unique alliant 
+                        <span class="text-orange-400">Commercial B2B</span>, 
+                        <span class="text-orange-300">Design Web</span> et 
+                        <span class="text-orange-500">Gestion Logistique</span>. 
+                        Je transforme les défis complexes en solutions élégantes.
+                    </p>
+                    
+                    <!-- Skills Tags - Responsive Grid -->
+                    <div class="grid grid-cols-2 sm:flex sm:flex-wrap gap-2 sm:gap-3 mb-6 sm:mb-8 px-4 sm:px-0">
+                        <span class="px-3 py-2 sm:px-4 glass rounded-full text-xs sm:text-sm text-center">🎯 Prospection</span>
+                        <span class="px-3 py-2 sm:px-4 glass rounded-full text-xs sm:text-sm text-center">🎨 Web Design</span>
+                        <span class="px-3 py-2 sm:px-4 glass rounded-full text-xs sm:text-sm text-center">📦 Logistique</span>
+                        <span class="px-3 py-2 sm:px-4 glass rounded-full text-xs sm:text-sm text-center">🤖 IA & Digital</span>
+                    </div>
+                    
+                    <!-- CTA Buttons - Stack on mobile -->
+                    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 px-4 sm:px-0">
+                        <a href="#contact" class="px-6 py-3 sm:px-8 gradient-bg text-white rounded-full font-semibold hover:shadow-xl transition-all transform hover:scale-105 text-center">
+                            <i class="fas fa-rocket mr-2"></i>Discutons de votre projet
+                        </a>
+                        <a href="#parcours" class="px-6 py-3 sm:px-8 glass rounded-full font-semibold hover:bg-white/10 transition-all text-center">
+                            En savoir plus
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Visual Element - Hidden on small mobile -->
+                <div class="relative hidden sm:block mt-8 lg:mt-0">
+                    <div class="float-animation">
+                        <div class="w-60 h-60 sm:w-72 sm:h-72 lg:w-80 lg:h-80 mx-auto relative">
+                            <div class="absolute inset-0 rounded-full gradient-bg opacity-50 blur-xl"></div>
+                            <div class="absolute inset-4 rounded-full glass flex items-center justify-center">
+                                <div class="text-center">
+                                    <div class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-2 sm:mb-4 text-orange-500">3</div>
+                                    <div class="text-sm sm:text-base lg:text-lg">Domaines d'expertise</div>
+                                    <div class="text-2xl sm:text-3xl font-bold mt-2 sm:mt-4 text-orange-400">10+</div>
+                                    <div class="text-xs sm:text-sm">Années d'expérience</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Expertise Section - Mobile First -->
+    <section id="expertise" class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">
+                    Mes <span class="text-gradient-orange">3 Expertises Clés</span>
+                </h2>
+                <p class="text-lg sm:text-xl text-gray-400 px-4 sm:px-0">Un profil unique qui connecte Business, Créativité et Organisation</p>
+            </div>
+            
+            <!-- Cards Grid - Stack on mobile -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Commercial Card -->
+                <div class="skill-card glass rounded-xl sm:rounded-2xl p-6 sm:p-8 text-center">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 sm:mb-6 gradient-bg rounded-xl sm:rounded-2xl flex items-center justify-center text-2xl sm:text-3xl">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Commercial & Prospection</h3>
+                    <ul class="text-gray-300 space-y-2 text-left text-sm sm:text-base">
+                        <li><i class="fas fa-check text-orange-400 mr-2"></i>Prospection B2B/B2C</li>
+                        <li><i class="fas fa-check text-orange-400 mr-2"></i>Négociation & closing</li>
+                        <li><i class="fas fa-check text-orange-400 mr-2"></i>Développement portefeuille</li>
+                        <li><i class="fas fa-check text-orange-400 mr-2"></i>Fidélisation client</li>
+                        <li><i class="fas fa-check text-orange-400 mr-2"></i>CRM & reporting</li>
+                    </ul>
+                    <div class="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-orange-500/20">
+                        <div class="text-2xl sm:text-3xl font-bold text-orange-400">500+</div>
+                        <div class="text-xs sm:text-sm text-gray-400">Clients gérés</div>
+                    </div>
+                </div>
+                
+                <!-- Design Card -->
+                <div class="skill-card glass rounded-xl sm:rounded-2xl p-6 sm:p-8 text-center">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 sm:mb-6 gradient-bg rounded-xl sm:rounded-2xl flex items-center justify-center text-2xl sm:text-3xl">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Design & Création Web</h3>
+                    <ul class="text-gray-300 space-y-2 text-left text-sm sm:text-base">
+                        <li><i class="fas fa-check text-orange-400 mr-2"></i>Maquettes UI/UX</li>
+                        <li><i class="fas fa-check text-orange-400 mr-2"></i>Identité visuelle</li>
+                        <li><i class="fas fa-check text-orange-400 mr-2"></i>Intégration responsive</li>
+                        <li><i class="fas fa-check text-orange-400 mr-2"></i>Suite Adobe</li>
+                        <li><i class="fas fa-check text-orange-400 mr-2"></i>HTML/CSS/JS</li>
+                    </ul>
+                    <div class="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-orange-500/20">
+                        <div class="text-2xl sm:text-3xl font-bold text-orange-400">20+</div>
+                        <div class="text-xs sm:text-sm text-gray-400">Projets créatifs</div>
+                    </div>
+                </div>
+                
+                <!-- Logistique Card -->
+                <div class="skill-card glass rounded-xl sm:rounded-2xl p-6 sm:p-8 text-center">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 sm:mb-6 gradient-bg rounded-xl sm:rounded-2xl flex items-center justify-center text-2xl sm:text-3xl">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Logistique & Gestion</h3>
+                    <ul class="text-gray-300 space-y-2 text-left text-sm sm:text-base">
+                        <li><i class="fas fa-check text-orange-400 mr-2"></i>Planification</li>
+                        <li><i class="fas fa-check text-orange-400 mr-2"></i>Gestion des flux</li>
+                        <li><i class="fas fa-check text-orange-400 mr-2"></i>Coordination équipes</li>
+                        <li><i class="fas fa-check text-orange-400 mr-2"></i>Process improvement</li>
+                        <li><i class="fas fa-check text-orange-400 mr-2"></i>Reporting & KPIs</li>
+                    </ul>
+                    <div class="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-orange-500/20">
+                        <div class="text-2xl sm:text-3xl font-bold text-orange-400">98%</div>
+                        <div class="text-xs sm:text-sm text-gray-400">Taux de satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+      <!-- Projects Section - Mobile First -->
+    <section id="projets" class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">
+                    Projets & <span class="text-gradient-orange">Réalisations</span>
+                </h2>
+                <p class="text-lg sm:text-xl text-gray-400">Applications web, design et solutions digitales</p>
+            </div>
+            
+            <!-- Projects Grid - Stack on mobile -->
+          
+          
+          
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- ToolPools -->
+                <div class="glass rounded-xl sm:rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform group">
+                    <div class="h-40 sm:h-48 gradient-bg flex items-center justify-center">
+                        <i class="fas fa-bowling-ball text-5xl text-white opacity-80 group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-bold mb-2">ToolPools</h3>
+                        <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base">Application complète pour joueurs et arbitres de billard anglais</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">JavaScript</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Game Logic</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">UI/UX</span>
+                        </div>
+                        <p class="text-xs text-orange-400 mt-3">📝 Détails à venir</p>
+                    </div>
+                </div>
+                
+                <!-- Pointeuse -->
+                <div class="glass rounded-xl sm:rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform group">
+                    <div class="h-40 sm:h-48 bg-gradient-to-r from-orange-600 to-orange-400 flex items-center justify-center">
+                        <i class="fas fa-clock text-5xl text-white opacity-80 group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-bold mb-2">Pointeuse Digitale</h3>
+                        <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base">Application de calcul et gestion du temps de travail</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">JavaScript</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">LocalStorage</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">PWA</span>
+                        </div>
+                        <p class="text-xs text-orange-400 mt-3">📝 Détails à venir</p>
+                    </div>
+                </div>
+                
+                <!-- Organisateur Pomodoro -->
+                <div class="glass rounded-xl sm:rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform group">
+                    <div class="h-40 sm:h-48 bg-gradient-to-r from-orange-500 to-red-500 flex items-center justify-center">
+                        <i class="fas fa-tasks text-5xl text-white opacity-80 group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-bold mb-2">Task Manager & Pomodoro</h3>
+                        <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base">Gestionnaire de priorités avec timer Pomodoro intégré</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">React</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Timer API</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Drag & Drop</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Planificateur Vacances -->
+                <div class="glass rounded-xl sm:rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform group">
+                    <div class="h-40 sm:h-48 bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center">
+                        <i class="fas fa-umbrella-beach text-5xl text-white opacity-80 group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-bold mb-2">Planificateur Vacances</h3>
+                        <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base">Organisateur avec API météo et suggestions d'activités</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">API Weather</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">JavaScript</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Maps API</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Site WordPress BTS -->
+                <div class="glass rounded-xl sm:rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform group">
+                    <div class="h-40 sm:h-48 bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
+                        <i class="fab fa-wordpress text-5xl text-white opacity-80 group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-bold mb-2">Site WordPress BTS</h3>
+                        <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base">Création complète d'un site pour examen BTS Blanc</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">WordPress</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Custom Theme</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">SEO</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Identité Visuelle Hangar 8 -->
+                <div class="glass rounded-xl sm:rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform group">
+                    <div class="h-40 sm:h-48 bg-gradient-to-r from-green-500 to-teal-500 flex items-center justify-center">
+                        <i class="fas fa-warehouse text-5xl text-white opacity-80 group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-bold mb-2">Identité Visuelle - Hangar 8</h3>
+                        <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base">Création complète de l'identité visuelle pour Le Hangar 8 à Puilboreau</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Logo Design</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Charte Graphique</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Illustrator</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Coming Soon -->
+            <div class="text-center mt-12">
+                <p class="text-lg text-gray-400 mb-4">
+                    <i class="fas fa-rocket mr-2 text-orange-500"></i>
+                    D'autres projets passionnants arrivent bientôt !
+                </p>
+                <a href="#contact" class="inline-flex items-center gap-2 text-orange-500 hover:text-orange-400 transition font-semibold">
+                    Discutons de votre projet 
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Timeline Section - Mobile Optimized -->
+    <section id="parcours" class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">
+                    Mon <span class="text-gradient-orange">Parcours</span>
+                </h2>
+                <p class="text-lg sm:text-xl text-gray-400 px-4 sm:px-0">Une évolution constante vers la polyvalence</p>
+            </div>
+            
+            <div class="relative">
+                <!-- Timeline line - Adjusted for mobile -->
+                <div class="absolute left-4 sm:left-8 top-0 bottom-0 w-0.5 timeline-line"></div>
+                
+                <!-- Timeline items - Mobile optimized -->
+                <div class="space-y-6 sm:space-y-8">
+                    <!-- Current Position -->
+                    <div class="flex gap-4 sm:gap-6 items-start">
+                        <div class="w-12 h-12 sm:w-16 sm:h-16 gradient-bg rounded-full flex items-center justify-center flex-shrink-0 pulse text-sm sm:text-base">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="glass rounded-lg sm:rounded-xl p-4 sm:p-6 flex-1">
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
+                                <h3 class="text-lg sm:text-xl font-bold">Téléprospecteur B2B</h3>
+                                <span class="text-xs sm:text-sm text-orange-400">Oct 2024 - Présent</span>
+                            </div>
+                            <p class="text-gray-400 mb-2 text-sm sm:text-base">GEIQ</p>
+                            <p class="text-gray-300 text-sm sm:text-base">Appels sortants • Qualification fichiers • Prise RDV • Suivi campagnes • Gestion CRM</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Assistant Logistique Sonotra -->
+                    <div class="flex gap-4 sm:gap-6 items-start">
+                        <div class="w-12 h-12 sm:w-16 sm:h-16 gradient-bg rounded-full flex items-center justify-center flex-shrink-0 text-sm sm:text-base">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <div class="glass rounded-lg sm:rounded-xl p-4 sm:p-6 flex-1">
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
+                                <h3 class="text-lg sm:text-xl font-bold">Assistant Logistique</h3>
+                                <span class="text-xs sm:text-sm text-gray-400">Juil - Oct 2024</span>
+                            </div>
+                            <p class="text-gray-400 mb-2 text-sm sm:text-base">Sonotra</p>
+                            <p class="text-gray-300 text-sm sm:text-base">Suivi tournées • Affectation chauffeurs • Traitement BL • Relation clients/transporteurs</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Assistant Logistique Paprec -->
+                    <div class="flex gap-4 sm:gap-6 items-start">
+                        <div class="w-12 h-12 sm:w-16 sm:h-16 gradient-bg rounded-full flex items-center justify-center flex-shrink-0 text-sm sm:text-base">
+                            <i class="fas fa-recycle"></i>
+                        </div>
+                        <div class="glass rounded-lg sm:rounded-xl p-4 sm:p-6 flex-1">
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
+                                <h3 class="text-lg sm:text-xl font-bold">Assistant Logistique</h3>
+                                <span class="text-xs sm:text-sm text-gray-400">Oct 2023 - Juin 2024</span>
+                            </div>
+                            <p class="text-gray-400 mb-2 text-sm sm:text-base">Paprec</p>
+                            <p class="text-gray-300 text-sm sm:text-base">Planification collectes • Saisie et suivi données • Interface exploitation</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Chargé de projet -->
+                    <div class="flex gap-4 sm:gap-6 items-start">
+                        <div class="w-12 h-12 sm:w-16 sm:h-16 gradient-bg rounded-full flex items-center justify-center flex-shrink-0 text-sm sm:text-base">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <div class="glass rounded-lg sm:rounded-xl p-4 sm:p-6 flex-1">
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
+                                <h3 class="text-lg sm:text-xl font-bold">Chargé de projet</h3>
+                                <span class="text-xs sm:text-sm text-gray-400">Juin - Sept 2023</span>
+                            </div>
+                            <p class="text-gray-400 mb-2 text-sm sm:text-base">Transports Hautier</p>
+                            <p class="text-gray-300 text-sm sm:text-base">Suivi projet interne • Optimisation process • Coordination services</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Formation Designer Web -->
+                    <div class="flex gap-4 sm:gap-6 items-start">
+                        <div class="w-12 h-12 sm:w-16 sm:h-16 gradient-bg rounded-full flex items-center justify-center flex-shrink-0 text-sm sm:text-base">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="glass rounded-lg sm:rounded-xl p-4 sm:p-6 flex-1">
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
+                                <h3 class="text-lg sm:text-xl font-bold">Formation Infographiste Designer Web</h3>
+                                <span class="text-xs sm:text-sm text-gray-400">2023</span>
+                            </div>
+                            <p class="text-gray-400 mb-2 text-sm sm:text-base">AP Formation, Toulouse</p>
+                            <p class="text-gray-300 text-sm sm:text-base">Titre professionnel Niveau 5 • Maquettes graphiques • Développement web • UX/UI Design</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Stage Infographiste -->
+                    <div class="flex gap-4 sm:gap-6 items-start">
+                        <div class="w-12 h-12 sm:w-16 sm:h-16 gradient-bg rounded-full flex items-center justify-center flex-shrink-0 text-sm sm:text-base">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <div class="glass rounded-lg sm:rounded-xl p-4 sm:p-6 flex-1">
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
+                                <h3 class="text-lg sm:text-xl font-bold">Infographiste Web (Stage)</h3>
+                                <span class="text-xs sm:text-sm text-gray-400">Mars 2023</span>
+                            </div>
+                            <p class="text-gray-400 mb-2 text-sm sm:text-base">La Casquette Digitale</p>
+                            <p class="text-gray-300 text-sm sm:text-base">Maquettes graphiques • Refonte de sites • Travail en autonomie</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Responsable de Tournée -->
+                    <div class="flex gap-4 sm:gap-6 items-start">
+                        <div class="w-12 h-12 sm:w-16 sm:h-16 gradient-bg rounded-full flex items-center justify-center flex-shrink-0 text-sm sm:text-base">
+                            <i class="fas fa-store"></i>
+                        </div>
+                        <div class="glass rounded-lg sm:rounded-xl p-4 sm:p-6 flex-1">
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
+                                <h3 class="text-lg sm:text-xl font-bold">Responsable de Tournée</h3>
+                                <span class="text-xs sm:text-sm text-gray-400">2017 - 2021</span>
+                            </div>
+                            <p class="text-gray-400 mb-2 text-sm sm:text-base">Couleur Marché</p>
+                            <p class="text-gray-300 text-sm sm:text-base">Gestion tournées marchés • Vente directe • Logistique stand • Management équipe</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Attaché Commercial -->
+                    <div class="flex gap-4 sm:gap-6 items-start">
+                        <div class="w-12 h-12 sm:w-16 sm:h-16 gradient-bg rounded-full flex items-center justify-center flex-shrink-0 text-sm sm:text-base">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="glass rounded-lg sm:rounded-xl p-4 sm:p-6 flex-1">
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
+                                <h3 class="text-lg sm:text-xl font-bold">Attaché Commercial Terrain</h3>
+                                <span class="text-xs sm:text-sm text-gray-400">2007 - 2012</span>
+                            </div>
+                            <p class="text-gray-400 mb-2 text-sm sm:text-base">Diverses entreprises</p>
+                            <p class="text-gray-300 text-sm sm:text-base">Prospection B2B • Négociation • Développement portefeuille • Fidélisation</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Formation Attaché Commercial -->
+                    <div class="flex gap-4 sm:gap-6 items-start">
+                        <div class="w-12 h-12 sm:w-16 sm:h-16 gradient-bg rounded-full flex items-center justify-center flex-shrink-0 text-sm sm:text-base">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="glass rounded-lg sm:rounded-xl p-4 sm:p-6 flex-1">
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
+                                <h3 class="text-lg sm:text-xl font-bold">Formation Attaché Commercial</h3>
+                                <span class="text-xs sm:text-sm text-gray-400">2007</span>
+                            </div>
+                            <p class="text-gray-400 mb-2 text-sm sm:text-base">AFPA</p>
+                            <p class="text-gray-300 text-sm sm:text-base">Titre professionnel Niveau 4 • Techniques de vente • Négociation</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Bac ES -->
+                    <div class="flex gap-4 sm:gap-6 items-start">
+                        <div class="w-12 h-12 sm:w-16 sm:h-16 gradient-bg rounded-full flex items-center justify-center flex-shrink-0 text-sm sm:text-base">
+                            <i class="fas fa-school"></i>
+                        </div>
+                        <div class="glass rounded-lg sm:rounded-xl p-4 sm:p-6 flex-1">
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
+                                <h3 class="text-lg sm:text-xl font-bold">Baccalauréat ES</h3>
+                                <span class="text-xs sm:text-sm text-gray-400">2003</span>
+                            </div>
+                            <p class="text-gray-400 mb-2 text-sm sm:text-base">Économique et Social</p>
+                            <p class="text-gray-300 text-sm sm:text-base">Formation générale • Économie • Sciences sociales</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects & Skills Sections remain the same structure but with responsive classes applied -->
+    <!-- ... (continuing with same responsive pattern) ... -->
+    
+    <!-- Contact Section - Mobile First -->
+    <section id="contact" class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">
+                    Prêt à <span class="text-gradient-orange">Collaborer ?</span>
+                </h2>
+                <p class="text-lg sm:text-xl text-gray-400">Je suis disponible immédiatement pour vos projets</p>
+            </div>
+            
+            <div class="glass rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-6 sm:mb-8">
+                    <!-- Contact Info -->
+                    <div>
+                        <h3 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Contactez-moi directement</h3>
+                        
+                        <div class="space-y-3 sm:space-y-4">
+                            <a href="mailto:bertrandwebdesigner@proton.me" class="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 glass-orange rounded-lg sm:rounded-xl hover:bg-orange-500/10 transition">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 gradient-bg rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-envelope text-white"></i>
+                                </div>
+                                <div class="min-w-0">
+                                    <p class="text-xs sm:text-sm text-gray-400">Email</p>
+                                    <p class="font-semibold text-sm sm:text-base truncate">bertrandwebdesigner@proton.me</p>
+                                </div>
+                            </a>
+                            
+                            <a href="https://linkedin.com/in/bertrandfouquet" target="_blank" class="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 glass-orange rounded-lg sm:rounded-xl hover:bg-orange-500/10 transition">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 gradient-bg rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fab fa-linkedin text-white"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs sm:text-sm text-gray-400">LinkedIn</p>
+                                    <p class="font-semibold text-sm sm:text-base">Bertrand Fouquet</p>
+                                </div>
+                            </a>
+                            
+                            <div class="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 glass-orange rounded-lg sm:rounded-xl">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 gradient-bg rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs sm:text-sm text-gray-400">Localisation</p>
+                                    <p class="font-semibold text-sm sm:text-base">La Rochelle</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Form -->
+                    <div>
+                        <h3 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Ou envoyez un message</h3>
+                        
+                        <form id="contact-form" class="space-y-3 sm:space-y-4">
+                            <input type="text" placeholder="Votre nom" required 
+                                   class="w-full p-3 sm:p-4 glass rounded-lg sm:rounded-xl bg-white/5 focus:bg-white/10 outline-none transition text-sm sm:text-base">
+                            <input type="email" placeholder="Votre email" required 
+                                   class="w-full p-3 sm:p-4 glass rounded-lg sm:rounded-xl bg-white/5 focus:bg-white/10 outline-none transition text-sm sm:text-base">
+                            <textarea placeholder="Votre message" rows="4" required 
+                                      class="w-full p-3 sm:p-4 glass rounded-lg sm:rounded-xl bg-white/5 focus:bg-white/10 outline-none transition text-sm sm:text-base"></textarea>
+                            <button type="submit" class="w-full p-3 sm:p-4 gradient-bg text-white rounded-lg sm:rounded-xl font-semibold hover:shadow-xl transition transform hover:scale-[1.02] text-sm sm:text-base">
+                                <i class="fas fa-paper-plane mr-2"></i>Envoyer le message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Additional Info - Responsive Grid -->
+                <div class="border-t border-orange-500/20 pt-6 sm:pt-8">
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 text-center">
+                        <div>
+                            <p class="text-xs sm:text-sm text-gray-400 mb-1">Statut</p>
+                            <p class="font-semibold text-orange-400 text-sm sm:text-base">RQTH - Dispo</p>
+                        </div>
+                        <div>
+                            <p class="text-xs sm:text-sm text-gray-400 mb-1">Mobilité</p>
+                            <p class="font-semibold text-sm sm:text-base">Permis B</p>
+                        </div>
+                        <div>
+                            <p class="text-xs sm:text-sm text-gray-400 mb-1">Contrats</p>
+                            <p class="font-semibold text-sm sm:text-base">CDI | CDD</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+  
+    <!-- Skills Grid - Mobile First -->
+    <section class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">
+                    Stack <span class="text-gradient-orange">Technique</span>
+                </h2>
+            </div>
+            
+            <!-- Skills Grid - Responsive -->
+            <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 sm:gap-4">
+                <div class="glass rounded-lg sm:rounded-xl p-3 sm:p-4 text-center hover:scale-110 transition">
+                    <i class="fab fa-html5 text-xl sm:text-3xl mb-1 sm:mb-2 text-orange-500"></i>
+                    <p class="text-xs sm:text-sm">HTML5</p>
+                </div>
+                <div class="glass rounded-lg sm:rounded-xl p-3 sm:p-4 text-center hover:scale-110 transition">
+                    <i class="fab fa-css3-alt text-xl sm:text-3xl mb-1 sm:mb-2 text-blue-500"></i>
+                    <p class="text-xs sm:text-sm">CSS3</p>
+                </div>
+                <div class="glass rounded-lg sm:rounded-xl p-3 sm:p-4 text-center hover:scale-110 transition">
+                    <i class="fab fa-js text-xl sm:text-3xl mb-1 sm:mb-2 text-yellow-500"></i>
+                    <p class="text-xs sm:text-sm">JavaScript</p>
+                </div>
+                <div class="glass rounded-lg sm:rounded-xl p-3 sm:p-4 text-center hover:scale-110 transition">
+                    <i class="fab fa-wordpress text-xl sm:text-3xl mb-1 sm:mb-2 text-blue-600"></i>
+                    <p class="text-xs sm:text-sm">WordPress</p>
+                </div>
+                <div class="glass rounded-lg sm:rounded-xl p-3 sm:p-4 text-center hover:scale-110 transition">
+                    <i class="fab fa-figma text-xl sm:text-3xl mb-1 sm:mb-2 text-purple-500"></i>
+                    <p class="text-xs sm:text-sm">Figma</p>
+                </div>
+                <div class="glass rounded-lg sm:rounded-xl p-3 sm:p-4 text-center hover:scale-110 transition">
+                    <i class="fas fa-palette text-xl sm:text-3xl mb-1 sm:mb-2 text-pink-500"></i>
+                    <p class="text-xs sm:text-sm">Photoshop</p>
+                </div>
+                <div class="glass rounded-lg sm:rounded-xl p-3 sm:p-4 text-center hover:scale-110 transition">
+                    <i class="fas fa-vector-square text-xl sm:text-3xl mb-1 sm:mb-2 text-orange-600"></i>
+                    <p class="text-xs sm:text-sm">Illustrator</p>
+                </div>
+                <div class="glass rounded-lg sm:rounded-xl p-3 sm:p-4 text-center hover:scale-110 transition">
+                    <i class="fas fa-file-excel text-xl sm:text-3xl mb-1 sm:mb-2 text-green-600"></i>
+                    <p class="text-xs sm:text-sm">Excel</p>
+                </div>
+                <div class="glass rounded-lg sm:rounded-xl p-3 sm:p-4 text-center hover:scale-110 transition">
+                    <i class="fas fa-database text-xl sm:text-3xl mb-1 sm:mb-2 text-red-500"></i>
+                    <p class="text-xs sm:text-sm">CRM</p>
+                </div>
+                <div class="glass rounded-lg sm:rounded-xl p-3 sm:p-4 text-center hover:scale-110 transition">
+                    <i class="fas fa-robot text-xl sm:text-3xl mb-1 sm:mb-2 text-orange-500"></i>
+                    <p class="text-xs sm:text-sm">IA Tools</p>
+                </div>
+                <div class="glass rounded-lg sm:rounded-xl p-3 sm:p-4 text-center hover:scale-110 transition">
+                    <i class="fab fa-linkedin text-xl sm:text-3xl mb-1 sm:mb-2 text-blue-700"></i>
+                    <p class="text-xs sm:text-sm">LinkedIn</p>
+                </div>
+                <div class="glass rounded-lg sm:rounded-xl p-3 sm:p-4 text-center hover:scale-110 transition">
+                    <i class="fas fa-code text-xl sm:text-3xl mb-1 sm:mb-2 text-orange-400"></i>
+                    <p class="text-xs sm:text-sm">Dev Web</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer - Mobile First -->
+    <footer class="py-8 sm:py-12 px-4 sm:px-6 border-t border-orange-500/20">
+        <div class="container mx-auto max-w-6xl">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-6">
+                <!-- Logo & Name -->
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center font-bold">
+                        BF
+                    </div>
+                    <div>
+                        <p class="font-semibold">Bertrand Fouquet</p>
+                        <p class="text-xs sm:text-sm text-gray-400">Expert Polyvalent Digital</p>
+                    </div>
+                </div>
+                
+                <!-- Social Links -->
+                <div class="flex gap-4 sm:gap-6">
+                    <a href="https://linkedin.com/in/bertrandfouquet" target="_blank" class="hover:text-orange-500 transition">
+                        <i class="fab fa-linkedin text-xl sm:text-2xl"></i>
+                    </a>
+                    <a href="https://github.com/bertrandfouquet" target="_blank" class="hover:text-orange-500 transition">
+                        <i class="fab fa-github text-xl sm:text-2xl"></i>
+                    </a>
+                    <a href="mailto:bertrandwebdesigner@proton.me" class="hover:text-orange-500 transition">
+                        <i class="fas fa-envelope text-xl sm:text-2xl"></i>
+                    </a>
+                </div>
+                
+                <!-- Copyright -->
+                <p class="text-xs sm:text-sm text-gray-400 text-center sm:text-right">
+                                                                                                                                                                                                                                                                                                                                                                                                © 2025 • Fait avec <i class="fas fa-heart text-red-500"></i>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CV Visual Modal -->
+    <div id="cv-modal" class="fixed inset-0 bg-black/80 z-[100] items-center justify-center p-4 sm:p-6 md:p-8 hidden" role="dialog" aria-modal="true" aria-labelledby="cv-modal-title">
+        <div class="bg-[#1a1a1a] rounded-lg shadow-2xl w-full max-w-4xl max-h-[90vh] flex flex-col">
+            <div class="flex justify-between items-center p-4 border-b border-gray-700">
+                <h2 id="cv-modal-title" class="text-xl font-bold text-white">CV Visuel - Bertrand Fouquet</h2>
+                <div>
+                    <button id="cv-modal-print" class="text-gray-300 hover:text-white text-xl px-3 py-1 rounded-md hover:bg-white/10 transition-colors" title="Imprimer le CV">
+                        <i class="fas fa-print"></i>
+                    </button>
+                    <button id="cv-modal-close" class="text-gray-300 hover:text-white text-3xl leading-none font-bold ml-2">&times;</button>
+                </div>
+            </div>
+            <div id="cv-modal-body" class="overflow-y-auto bg-[#1a1a1a]">
+                <!-- CV content will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top - Mobile Optimized -->
+    <button id="back-to-top" class="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 w-10 h-10 sm:w-12 sm:h-12 gradient-bg rounded-full flex items-center justify-center opacity-0 pointer-events-none transition hover:scale-110 shadow-lg">
+        <i class="fas fa-arrow-up text-white"></i>
+    </button>
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="js/main.js" defer></script>
+</body>
+</html>
