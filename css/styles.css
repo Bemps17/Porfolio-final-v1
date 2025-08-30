@@ -194,6 +194,18 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
+/* Animation for copyright year digits */
+.animate-digit {
+    display: inline-block;
+    animation: digit-float 2.5s ease-in-out infinite;
+}
+
+@keyframes digit-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}
+
   /* Badge générique */
 .project-badge {
   position: absolute;

@@ -83,6 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if(contactForm) {
                 const formWrapper = document.getElementById('form-wrapper');
                 const successMessage = document.getElementById('success-message');
+                const messageTextarea = contactForm.querySelector('textarea[name="message"]');
+                const fileInputLabel = document.getElementById('file-input-label');
 
                 const fileInput = document.getElementById('file-input');
                 const fileNameSpan = document.getElementById('file-name');
@@ -97,6 +99,27 @@ document.addEventListener('DOMContentLoaded', () => {
                             fileNameSpan.textContent = 'Joindre un fichier (optionnel)';
                             fileNameSpan.classList.add('text-gray-400');
                             fileNameSpan.classList.remove('text-white');
+                        }
+                    });
+                }
+
+                if (messageTextarea && fileInputLabel) {
+                    messageTextarea.addEventListener('input', () => {
+                        const triggerKeywords = [
+                            'pièce-jointe', 'piece-jointe',
+                            'pièce jointe', 'piece jointe',
+                            'pièces-jointes', 'pieces-jointes',
+                            'pièces jointes', 'pieces jointes',
+                            'pj'
+                        ];
+                        const currentValue = messageTextarea.value.toLowerCase();
+
+                        const found = triggerKeywords.some(keyword => currentValue.includes(keyword));
+
+                        if (found) {
+                            fileInputLabel.classList.remove('hidden');
+                        } else {
+                            fileInputLabel.classList.add('hidden');
                         }
                     });
                 }
@@ -178,6 +201,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (e.key === 'Escape' && !objectifsSection.classList.contains('hidden')) {
                         closeObjectives();
                     }
+                });
+            }
+
+            // === LINKEDIN BUTTON in skills ===
+            const linkedinBtn = document.getElementById('linkedin-btn');
+            if (linkedinBtn) {
+                linkedinBtn.addEventListener('click', () => {
+                    // Opens the LinkedIn profile in a new tab
+                    window.open('https://www.linkedin.com/in/bertandfouquet1984/', '_blank');
                 });
             }
         });
