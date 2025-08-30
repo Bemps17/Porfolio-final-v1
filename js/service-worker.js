@@ -1,4 +1,4 @@
-const CACHE_NAME = 'portfolio-cache-v2'; // Version up to clear old caches
+const CACHE_NAME = 'portfolio-cache-v1';
 const FILES_TO_CACHE = [
     '/',
     '/index.html',
@@ -12,7 +12,7 @@ const FILES_TO_CACHE = [
     '/icons/bfbg-orange.svg',
     '/icons/favicon-32x32.png',
     '/icons/favicon-16x16.png',
-    '/icons/apple-touch-icon.png',
+    '/icons/apple-touch-icon.png', // 180x180
     '/icons/android-chrome-192x192.png',
     '/icons/android-chrome-512x512.png'
 ];
@@ -46,22 +46,24 @@ self.addEventListener('activate', (event) => {
     self.clients.claim();
 });
 
-// Interception des requêtes réseau (stratégie "Cache, falling back to network" avec mise à jour dynamique)
+// Interception des requêtes réseau (stratégie "Cache, falling back to network")
 self.addEventListener('fetch', (event) => {
     if (event.request.method !== 'GET') return;
  
     event.respondWith(
-        caches.match(event.request).then(cachedResponse => {
-            const fetchPromise = fetch(event.request).then(networkResponse => {
-                if (networkResponse && networkResponse.status === 200) {
-                    const responseToCache = networkResponse.clone();
-                    caches.open(CACHE_NAME).then(cache => {
-                        cache.put(event.request, responseToCache);
-                    });
-                }
-                return networkResponse;
+        caches.open(CACHE_NAME).then((cache) => {
+            return cache.match(event.request).then((response) => {
+                // On crée une promesse pour la requête réseau
+                const fetchPromise = fetch(event.request).then((networkResponse) => {
+                    // Si la réponse est valide, on la met en cache pour la prochaine fois
+                    if (networkResponse && networkResponse.status === 200) {
+                        cache.put(event.request, networkResponse.clone());
+                    }
+                    return networkResponse;
+                });
+                // On retourne la réponse du cache si elle existe, sinon on attend la réponse réseau.
+                return response || fetchPromise;
             });
-            return cachedResponse || fetchPromise;
         })
     );
 });

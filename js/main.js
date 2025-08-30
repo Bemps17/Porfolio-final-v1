@@ -330,7 +330,8 @@ document.addEventListener('DOMContentLoaded', () => {
             // === SERVICE WORKER REGISTRATION ===
             if ('serviceWorker' in navigator) {
                 window.addEventListener('load', () => {
-                    navigator.serviceWorker.register('/js/service-worker.js')
+                    // On charge le service worker depuis la racine pour que son scope par défaut soit '/'
+                    navigator.serviceWorker.register('/service-worker.js')
                         .then(registration => {
                             console.log('Service Worker enregistré ! Scope: ', registration.scope);
                         })
