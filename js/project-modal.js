@@ -271,6 +271,10 @@ class ProjectModal {
                                     <h2 id="modalProjectName" class="text-3xl sm:text-4xl font-bold text-white mb-2"></h2>
                                     <p id="modalProjectDescription" class="text-gray-200 text-lg"></p>
                                 </div>
+                                <!-- Close button -->
+                                <button id="modalCloseButton" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full glass-orange flex items-center justify-center text-white hover:bg-orange-600 transition-colors">
+                                    <i class="fas fa-times"></i>
+                                </button>
                             </div>
                             
                             <!-- Content -->
@@ -293,10 +297,10 @@ class ProjectModal {
                                             </div>
                                         </div>
                                         <!-- Carousel controls -->
-                                        <button onclick="previousScreenshot()" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full glass-orange flex items-center justify-center text-white hover:bg-orange-600 transition-colors">
+                                        <button id="carouselPrevButton" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full glass-orange flex items-center justify-center text-white hover:bg-orange-600 transition-colors">
                                             <i class="fas fa-chevron-left"></i>
                                         </button>
-                                        <button onclick="nextScreenshot()" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full glass-orange flex items-center justify-center text-white hover:bg-orange-600 transition-colors">
+                                        <button id="carouselNextButton" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full glass-orange flex items-center justify-center text-white hover:bg-orange-600 transition-colors">
                                             <i class="fas fa-chevron-right"></i>
                                         </button>
                                     </div>
@@ -347,6 +351,30 @@ class ProjectModal {
                 this.close();
             }
         });
+
+        // Close button
+        const closeButton = document.getElementById('modalCloseButton');
+        if (closeButton) {
+            closeButton.addEventListener('click', () => {
+                this.close();
+            });
+        }
+
+        // Carousel controls
+        const prevButton = document.getElementById('carouselPrevButton');
+        const nextButton = document.getElementById('carouselNextButton');
+        
+        if (prevButton) {
+            prevButton.addEventListener('click', () => {
+                this.previousScreenshot();
+            });
+        }
+        
+        if (nextButton) {
+            nextButton.addEventListener('click', () => {
+                this.nextScreenshot();
+            });
+        }
     }
 
     open(projectId) {
@@ -406,10 +434,18 @@ class ProjectModal {
         `).join('');
 
         indicators.innerHTML = this.currentProject.screenshots.map((_, index) => `
-            <button onclick="goToScreenshot(${index})" class="w-2 h-2 rounded-full transition-colors ${
+            <button data-screenshot-index="${index}" class="w-2 h-2 rounded-full transition-colors ${
                 index === 0 ? 'bg-orange-500' : 'bg-gray-600 hover:bg-gray-500'
             }"></button>
         `).join('');
+
+        // Add click listeners to indicators
+        indicators.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', () => {
+                const index = parseInt(button.getAttribute('data-screenshot-index'));
+                this.goToScreenshot(index);
+            });
+        });
 
         this.updateCarouselPosition();
     }
@@ -483,24 +519,6 @@ function openProjectModal(projectId) {
 function closeProjectModal() {
     if (projectModal) {
         projectModal.close();
-    }
-}
-
-function nextScreenshot() {
-    if (projectModal) {
-        projectModal.nextScreenshot();
-    }
-}
-
-function previousScreenshot() {
-    if (projectModal) {
-        projectModal.previousScreenshot();
-    }
-}
-
-function goToScreenshot(index) {
-    if (projectModal) {
-        projectModal.goToScreenshot(index);
     }
 }
 
