@@ -8,7 +8,7 @@ class ExpertiseNavigation {
         this.setupExpertiseDropdown();
         this.setupMobileExpertiseToggle();
         this.setupMobileMenu();
-        this.setupSmoothScrolling();
+        // this.setupSmoothScrolling(); // Désactivé - utilise main.js à la place
         this.setupAccessibility();
     }
 
@@ -16,6 +16,13 @@ class ExpertiseNavigation {
         const dropdownButtons = document.querySelectorAll('.expertise-dropdown button');
         
         dropdownButtons.forEach(button => {
+            // Handle click for toggle functionality
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.toggleDesktopDropdown(button.parentElement);
+            });
+            
             // Handle keyboard navigation
             button.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
@@ -28,7 +35,7 @@ class ExpertiseNavigation {
                 }
             });
 
-            // Handle mouse enter/leave for desktop
+            // Handle mouse enter/leave for desktop only
             const dropdown = button.parentElement;
             
             dropdown.addEventListener('mouseenter', () => {
@@ -53,22 +60,8 @@ class ExpertiseNavigation {
     }
 
     setupMobileExpertiseToggle() {
-        // This function works with the onclick attribute in HTML
-        window.toggleMobileExpertise = function() {
-            const submenu = document.getElementById('mobile-expertise-submenu');
-            const chevron = document.getElementById('mobile-expertise-chevron');
-            const button = document.querySelector('.mobile-expertise-section button');
-            
-            if (submenu.classList.contains('hidden')) {
-                submenu.classList.remove('hidden');
-                chevron.style.transform = 'rotate(180deg)';
-                button.setAttribute('aria-expanded', 'true');
-            } else {
-                submenu.classList.add('hidden');
-                chevron.style.transform = 'rotate(0deg)';
-                button.setAttribute('aria-expanded', 'false');
-            }
-        };
+        // Plus nécessaire - le menu expertise mobile est maintenant statique
+        // Les liens sont affichés horizontalement sans logique de toggle
     }
 
     setupMobileMenu() {

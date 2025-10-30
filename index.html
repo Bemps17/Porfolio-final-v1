@@ -120,18 +120,19 @@
                             <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
                         </button>
                         <div class="expertise-dropdown-menu absolute top-full left-0 mt-2 w-48 glass rounded-lg shadow-xl opacity-0 invisible transform -translate-y-2 transition-all duration-300 z-50">
-                            <a href="#expertise" class="block px-4 py-3 text-sm hover:bg-orange-500/20 hover:text-orange-500 transition-colors rounded-t-lg">
+                            <a href="#expertise" class="block px-4 py-3 text-sm hover:bg-orange-500/20 hover:text-orange-500 transition-colors rounded-t-lg" onclick="closeMobileMenu()">
                                 <i class="fas fa-star mr-2"></i>Expertise Clés
                             </a>
-                            <a href="#skills" class="block px-4 py-3 text-sm hover:bg-orange-500/20 hover:text-orange-500 transition-colors">
+                            <a href="#savoir-faire" class="block px-4 py-3 text-sm hover:bg-orange-500/20 hover:text-orange-500 transition-colors">
                                 <i class="fas fa-tools mr-2"></i>Mon Savoir-Faire
                             </a>
-                            <a href="#parcours" class="block px-4 py-3 text-sm hover:bg-orange-500/20 hover:text-orange-500 transition-colors rounded-b-lg">
+                            <a href="#parcours" class="block px-4 py-3 text-sm hover:bg-orange-500/20 hover:text-orange-500 transition-colors rounded-b-lg" onclick="closeMobileMenu()">
                                 <i class="fas fa-graduation-cap mr-2"></i>Parcours
                             </a>
                         </div>
                     </div>
                     
+                    <a href="blog.html" target="_blank" rel="noopener noreferrer" class="hover:text-orange-500 transition-colors">Blog</a>
                     <a href="#projets" class="hover:text-orange-500 transition-colors">Projets</a>
                     <a href="#contact" class="hover:text-orange-500 transition-colors">Contact</a>
                     <div class="flex items-center space-x-2">
@@ -163,25 +164,27 @@
                         <i class="fas fa-home mr-3 w-5"></i>Accueil
                     </a>
                     
-                    <!-- Mobile Expertise Section -->
-                    <div class="mobile-expertise-section">
-                        <button class="w-full py-3 px-4 text-lg hover:bg-orange-500/20 hover:text-orange-500 rounded-lg transition-colors flex items-center justify-between" onclick="toggleMobileExpertise()">
-                            <span><i class="fas fa-star mr-3 w-5"></i>Expertise</span>
-                            <i class="fas fa-chevron-down text-xs transition-transform duration-300" id="mobile-expertise-chevron"></i>
-                        </button>
-                        <div class="mobile-expertise-submenu hidden pl-8 mt-2 space-y-2" id="mobile-expertise-submenu">
-                            <a href="#expertise" class="block py-2 px-4 text-sm hover:bg-orange-500/20 hover:text-orange-500 rounded-lg transition-colors">
+                    <!-- Mobile Expertise Links - Horizontal Display -->
+                    <div class="space-y-2">
+                        <div class="text-lg px-4 text-orange-500 font-semibold">
+                            <i class="fas fa-star mr-3 w-5"></i>Expertise
+                        </div>
+                        <div class="pl-8 space-y-1">
+                            <a href="#expertise" class="block py-2 px-4 text-sm hover:bg-orange-500/20 hover:text-orange-500 rounded-lg transition-colors" onclick="closeMobileMenu()">
                                 <i class="fas fa-star mr-2"></i>Expertise Clés
                             </a>
-                            <a href="#skills" class="block py-2 px-4 text-sm hover:bg-orange-500/20 hover:text-orange-500 rounded-lg transition-colors">
+                            <a href="#savoir-faire" class="block py-2 px-4 text-sm hover:bg-orange-500/20 hover:text-orange-500 rounded-lg transition-colors">
                                 <i class="fas fa-tools mr-2"></i>Mon Savoir-Faire
                             </a>
-                            <a href="#parcours" class="block py-2 px-4 text-sm hover:bg-orange-500/20 hover:text-orange-500 rounded-lg transition-colors">
+                            <a href="#parcours" class="block py-2 px-4 text-sm hover:bg-orange-500/20 hover:text-orange-500 rounded-lg transition-colors" onclick="closeMobileMenu()">
                                 <i class="fas fa-graduation-cap mr-2"></i>Parcours
                             </a>
                         </div>
                     </div>
                     
+                    <a href="blog.html" target="_blank" rel="noopener noreferrer" class="block py-3 px-4 text-lg hover:bg-orange-500/20 hover:text-orange-500 rounded-lg transition-colors">
+                        <i class="fas fa-rss mr-3 w-5"></i>Blog
+                    </a>
                     <a href="#projets" class="block py-3 px-4 text-lg hover:bg-orange-500/20 hover:text-orange-500 rounded-lg transition-colors">
                         <i class="fas fa-briefcase mr-3 w-5"></i>Projets
                     </a>
@@ -196,16 +199,40 @@
                         <a href="cv-visual.html" target="_blank" rel="noopener noreferrer" class="w-full px-4 py-3 gradient-bg text-white rounded-full hover:shadow-lg transition-shadow text-sm font-medium flex items-center justify-center">
                             <i class="fas fa-eye mr-2"></i>CV Visuel
                         </a>
-                        <a href="assets/cv-ats.html" download="CV_Bertrand_Fouquet_ATS.html" class="w-full px-4 py-3 glass text-white rounded-full hover:bg-white/10 transition-all text-sm font-medium flex items-center justify-center">
-                            <i class="fas fa-download mr-2"></i>Télécharger CV ATS
-                        </a>
+                        <button onclick="openMobileSettings()" class="w-full px-4 py-3 glass text-white rounded-full hover:bg-white/10 transition-all text-sm font-medium flex items-center justify-center" aria-label="Ouvrir les paramètres d'interface" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-cog mr-2"></i>Paramètres
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Mobile Settings Panel -->
+                <div id="mobile-settings-panel" class="hidden mt-4 p-4 glass rounded-lg">
+                    <div class="flex items-center justify-between mb-3">
+                        <h4 class="text-white font-semibold">Thème Visuel</h4>
+                        <button onclick="closeMobileSettings()" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="flex items-center p-3 bg-gray-800 rounded-md cursor-pointer border-2 border-transparent hover:border-orange-500 transition-colors">
+                            <input type="radio" name="mobile-theme" value="corporate" class="mr-3" onchange="changeTheme('corporate')">
+                            <span class="text-white">Corporate</span>
+                        </label>
+                        <label class="flex items-center p-3 bg-gray-800 rounded-md cursor-pointer border-2 border-transparent hover:border-orange-500 transition-colors">
+                            <input type="radio" name="mobile-theme" value="cyberpunk" class="mr-3" onchange="changeTheme('cyberpunk')">
+                            <span class="text-white">Cyberpunk</span>
+                        </label>
+                        <label class="flex items-center p-3 bg-gray-800 rounded-md cursor-pointer border-2 border-transparent hover:border-orange-500 transition-colors">
+                            <input type="radio" name="mobile-theme" value="light" class="mr-3" onchange="changeTheme('light')">
+                            <span class="text-white">Light</span>
+                        </label>
                     </div>
                 </div>
                 
                 <!-- Social Links in Mobile Menu -->
                 <div class="mt-8 pt-8 border-t border-gray-800">
                     <p class="text-sm text-gray-500 mb-4">Me suivre</p>
-                    <div class="flex space-x-4">
+                    <div class="flex space-x-4 items-center">
                         <a href="https://www.linkedin.com/in/bertandfouquet1984/" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-orange-500 transition-colors" aria-label="Profil LinkedIn">
                             <i class="fab fa-linkedin"></i>
                         </a>
@@ -305,7 +332,7 @@
     </section>
     
     <!-- Expertise Section - Mobile First -->
-    <section id="expertise" class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+    <section id="expertise" class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 scroll-mt-32">
         <div class="container mx-auto max-w-6xl">
             <div class="text-center mb-12 sm:mb-16">
                 <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
@@ -379,7 +406,7 @@
     <!-- Skills Grid - Mobile First -->
     <section class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div class="container mx-auto max-w-6xl">
-            <div id="skills" class="text-center mb-12 sm:mb-16">
+            <div id="savoir-faire" class="text-center mb-12 sm:mb-16 scroll-mt-32">
                 <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
                     Mon <span class="text-gradient-orange">Savoir-Faire</span>
                 </h2>
@@ -1168,7 +1195,7 @@
     </section>
     
       <!-- Projects Section - Mobile First -->
-    <section id="projets" class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+    <section id="projets" class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 scroll-mt-32">
         <div class="container mx-auto max-w-6xl">
             <div class="text-center mb-12 sm:mb-16">
                 <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
@@ -1505,7 +1532,7 @@
     </section>
     
     <!-- Timeline Section - Mobile Optimized -->
-    <section id="parcours" class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+    <section id="parcours" class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 scroll-mt-32">
         <div class="container mx-auto max-w-4xl">
             <div class="text-center mb-12 sm:mb-16">
                 <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
@@ -1678,7 +1705,7 @@
     <!-- ... (continuing with same responsive pattern) ... -->
     
     <!-- Contact Section - Mobile First -->
-    <section id="contact" class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+    <section id="contact" class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 scroll-mt-32">
         <div class="container mx-auto max-w-4xl">
             <div class="text-center mb-12 sm:mb-16">
                 <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
@@ -1846,5 +1873,114 @@
     <script src="js/tech-filter.js" defer></script>
     <script src="js/project-cards.js" defer></script>
     <script src="js/project-modal.js" defer></script>
+    
+    <script>
+        // Fonction pour le dropdown expertise (desktop uniquement)
+        function toggleExpertiseDropdown(event) {
+            // Ne fonctionne que sur desktop (lg et plus)
+            if (window.innerWidth < 1024) return;
+            
+            event.preventDefault();
+            event.stopPropagation();
+            const dropdown = event.target.closest('.expertise-dropdown');
+            const menu = dropdown.querySelector('.expertise-dropdown-menu');
+            const button = dropdown.querySelector('button');
+            const chevron = button.querySelector('.fa-chevron-down');
+            
+            const isOpen = !menu.classList.contains('opacity-0');
+            
+            // Fermer tous les autres dropdowns
+            document.querySelectorAll('.expertise-dropdown-menu').forEach(otherMenu => {
+                if (otherMenu !== menu) {
+                    otherMenu.classList.add('opacity-0', 'invisible', 'transform', '-translate-y-2');
+                    otherMenu.classList.remove('opacity-100', 'visible', 'translate-y-0');
+                }
+            });
+            
+            document.querySelectorAll('.expertise-dropdown .fa-chevron-down').forEach(otherChevron => {
+                if (otherChevron !== chevron) {
+                    otherChevron.style.transform = 'rotate(0deg)';
+                }
+            });
+            
+            if (isOpen) {
+                menu.classList.add('opacity-0', 'invisible', 'transform', '-translate-y-2');
+                menu.classList.remove('opacity-100', 'visible', 'translate-y-0');
+                chevron.style.transform = 'rotate(0deg)';
+                button.setAttribute('aria-expanded', 'false');
+            } else {
+                menu.classList.remove('opacity-0', 'invisible', 'transform', '-translate-y-2');
+                menu.classList.add('opacity-100', 'visible', 'translate-y-0');
+                chevron.style.transform = 'rotate(180deg)';
+                button.setAttribute('aria-expanded', 'true');
+            }
+        }
+        
+        // Fonction pour ouvrir les paramètres mobiles
+        function openMobileSettings() {
+            const panel = document.getElementById('mobile-settings-panel');
+            panel.classList.remove('hidden');
+            
+            // Mettre à jour les radio buttons avec le thème actuel
+            const currentTheme = document.body.getAttribute('data-theme') || 'corporate';
+            const radio = document.querySelector(`input[name="mobile-theme"][value="${currentTheme}"]`);
+            if (radio) {
+                radio.checked = true;
+            }
+        }
+        
+        // Fonction pour fermer les paramètres mobiles
+        function closeMobileSettings() {
+            const panel = document.getElementById('mobile-settings-panel');
+            panel.classList.add('hidden');
+        }
+        
+        // Fonction pour changer le thème
+        function changeTheme(theme) {
+            document.body.setAttribute('data-theme', theme);
+            localStorage.setItem('selectedTheme', theme);
+            
+            // Mettre à jour les radio buttons du panneau desktop aussi
+            const desktopRadio = document.querySelector(`input[name="theme"][value="${theme}"]`);
+            if (desktopRadio) {
+                desktopRadio.checked = true;
+            }
+        }
+        
+        // Fermer le dropdown en cliquant dehors (desktop uniquement)
+        document.addEventListener('click', function(event) {
+            if (window.innerWidth >= 1024 && !event.target.closest('.expertise-dropdown')) {
+                const dropdowns = document.querySelectorAll('.expertise-dropdown-menu');
+                dropdowns.forEach(menu => {
+                    menu.classList.add('opacity-0', 'invisible', 'transform', '-translate-y-2');
+                    menu.classList.remove('opacity-100', 'visible', 'translate-y-0');
+                });
+                const chevrons = document.querySelectorAll('.expertise-dropdown .fa-chevron-down');
+                chevrons.forEach(chevron => {
+                    chevron.style.transform = 'rotate(0deg)';
+                });
+                const buttons = document.querySelectorAll('.expertise-dropdown button');
+                buttons.forEach(button => {
+                    button.setAttribute('aria-expanded', 'false');
+                });
+            }
+        });
+        
+        // Fonction pour fermer le menu mobile
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const overlay = document.querySelector('.menu-overlay');
+            
+            if (mobileMenu) {
+                mobileMenu.classList.remove('mobile-menu-open');
+                mobileBtn.classList.remove('active');
+                if (overlay) {
+                    overlay.classList.remove('active');
+                }
+                document.body.style.overflow = '';
+            }
+        }
+    </script>
 </body>
 </html>

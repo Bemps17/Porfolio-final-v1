@@ -89,17 +89,141 @@ body[data-theme="light"] #settings-panel input[type="radio"]:checked::after {
     background: white !important;
 }
 
-/* Éléments glassmorphiques - Fond visible */
-body[data-theme="light"] .glass {
-    background-color: rgba(0, 0, 0, 0.03) !important;
-    border: 1px solid rgba(0, 0, 0, 0.15) !important;
-    backdrop-filter: none !important;
+/* Header Glassmorphique - Tous thèmes */
+header {
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
-body[data-theme="light"] .glass-orange {
-    background-color: rgba(179, 64, 0, 0.08) !important;
-    border: 1px solid rgba(179, 64, 0, 0.25) !important;
-    backdrop-filter: none !important;
+/* Light Mode Header - Glassmorphique avec contraste */
+body[data-theme="light"] header {
+    background-color: rgba(255, 255, 255, 0.7) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+body[data-theme="light"] header nav a,
+body[data-theme="light"] header button,
+body[data-theme="light"] header .font-bold {
+    color: #000000 !important;
+    font-weight: 600 !important;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8) !important;
+}
+
+body[data-theme="light"] header nav a:hover,
+body[data-theme="light"] header button:hover {
+    color: #E65C00 !important;
+}
+
+/* Cyberpunk Header */
+body[data-theme="cyberpunk"] header {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    border-bottom: 1px solid #FF6B35 !important;
+    box-shadow: 0 0 20px rgba(0, 246, 255, 0.4) !important;
+}
+
+body[data-theme="cyberpunk"] header nav a,
+body[data-theme="cyberpunk"] header button,
+body[data-theme="cyberpunk"] header .font-bold {
+    color: #00F6FF !important;
+    font-weight: 600 !important;
+    text-shadow: 0 0 8px rgba(0, 246, 255, 0.8) !important;
+}
+
+body[data-theme="cyberpunk"] header nav a:hover,
+body[data-theme="cyberpunk"] header button:hover {
+    color: #FF6B35 !important;
+    text-shadow: 0 0 12px rgba(255, 107, 53, 0.8) !important;
+}
+
+/* Corporate Header */
+body[data-theme="corporate"] header {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+body[data-theme="corporate"] header nav a,
+body[data-theme="corporate"] header button,
+body[data-theme="corporate"] header .font-bold {
+    color: #FFFFFF !important;
+    font-weight: 600 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8) !important;
+}
+
+body[data-theme="corporate"] header nav a:hover,
+body[data-theme="corporate"] header button:hover {
+    color: #FF6B35 !important;
+}
+
+/* Menu Mobile - Texte blanc pour tous thèmes */
+#mobile-menu {
+    color: #FFFFFF !important;
+}
+
+#mobile-menu .font-bold,
+#mobile-menu nav a,
+#mobile-menu button,
+#mobile-menu h4,
+#mobile-menu p {
+    color: #FFFFFF !important;
+}
+
+#mobile-menu nav a:hover,
+#mobile-menu button:hover {
+    color: #FF6B35 !important;
+}
+
+/* Dropdown Menu - Glassmorphique */
+.expertise-dropdown-menu {
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+}
+
+body[data-theme="light"] .expertise-dropdown-menu {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+body[data-theme="light"] .expertise-dropdown-menu a {
+    color: #000000 !important;
+    font-weight: 500 !important;
+}
+
+body[data-theme="light"] .expertise-dropdown-menu a:hover {
+    background-color: rgba(230, 92, 0, 0.1) !important;
+    color: #E65C00 !important;
+}
+
+body[data-theme="cyberpunk"] .expertise-dropdown-menu {
+    background-color: rgba(0, 0, 0, 0.9) !important;
+    border: 1px solid #FF6B35 !important;
+}
+
+body[data-theme="cyberpunk"] .expertise-dropdown-menu a {
+    color: #00F6FF !important;
+    font-weight: 500 !important;
+}
+
+body[data-theme="cyberpunk"] .expertise-dropdown-menu a:hover {
+    background-color: rgba(255, 107, 53, 0.2) !important;
+    color: #FF6B35 !important;
+}
+
+body[data-theme="corporate"] .expertise-dropdown-menu {
+    background-color: rgba(0, 0, 0, 0.9) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+body[data-theme="corporate"] .expertise-dropdown-menu a {
+    color: #FFFFFF !important;
+    font-weight: 500 !important;
+}
+
+body[data-theme="corporate"] .expertise-dropdown-menu a:hover {
+    background-color: rgba(255, 107, 53, 0.2) !important;
+    color: #FF6B35 !important;
 }
 
 /* Boutons secondaires - Contraste suffisant */

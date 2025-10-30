@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="corporate">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Veille Technologique | Bertrand Fouquet</title>
+    <meta name="description" content="Veille technologique quotidienne avec les dernières actualités tech, design UI/UX et développement web. Articles issus des meilleures sources TechCrunch, Wired, Smashing Magazine et plus.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="icons/bfbg-orange.svg">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/quick-accessibility-fix.css">
+    <link rel="stylesheet" href="css/blog.css">
+    
+    <!-- RSS Parser -->
+    <script src="https://cdn.jsdelivr.net/npm/rss-parser@3.13.0/dist/rss-parser.min.js"></script>
+    
+    <style>
+        /* Styles spécifiques au blog */
+        .blog-card {
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--color-accent);
+        }
+        
+        .category-badge {
+            transition: all 0.2s ease;
+        }
+        
+        .category-badge:hover {
+            transform: scale(1.05);
+        }
+        
+        .loading-skeleton {
+            background: linear-gradient(90deg, var(--color-surface) 25%, var(--color-bg-secondary) 50%, var(--color-surface) 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+        
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        
+        .filter-btn {
+            transition: all 0.2s ease;
+        }
+        
+        .filter-btn.active {
+            background-color: var(--color-accent);
+            color: var(--color-accent-text);
+        }
+        
+        .article-meta {
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+        
+        .source-icon {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo + Title -->
+                <div class="flex items-center space-x-3">
+                    <a href="index.html" target="_blank" class="flex items-center space-x-3">
+                        <img src="icons/bfbg-orange.svg" alt="Logo de Bertrand Fouquet" class="w-10 h-10">
+                        <div class="hidden sm:block">
+                            <span class="font-bold text-lg">Bertrand Fouquet</span>
+                            <span class="text-gray-400 text-sm ml-2">| Blog Tech</span>
+                        </div>
+                        <div class="sm:hidden">
+                            <span class="font-bold text-sm">Blog Tech</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Right Actions -->
+                <div class="flex items-center space-x-4">
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-lg hover:bg-orange-500/20 transition-colors" title="Changer le thème">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="pt-24 pb-16">
+        <!-- Hero Section -->
+        <section class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+            <div class="container mx-auto max-w-6xl text-center">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
+                    Veille <span class="text-gradient-orange">Technologique</span>
+                </h1>
+                <p class="text-xl sm:text-2xl text-gray-400 mb-8 max-w-3xl mx-auto">
+                    Les dernières actualités tech, tendances design et innovations développement. 
+                    Une sélection quotidienne des meilleures sources internationales.
+                </p>
+                
+                <!-- Stats -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-2xl mx-auto mb-12">
+                    <div class="text-center">
+                        <div class="text-2xl sm:text-3xl font-bold text-orange-400">50+</div>
+                        <div class="text-sm text-gray-400">Sources RSS</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl sm:text-3xl font-bold text-orange-400">24/7</div>
+                        <div class="text-sm text-gray-400">Mise à jour</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl sm:text-3xl font-bold text-orange-400">FR/EN</div>
+                        <div class="text-sm text-gray-400">Multilingue</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl sm:text-3xl font-bold text-orange-400">6</div>
+                        <div class="text-sm text-gray-400">Catégories</div>
+                    </div>
+                </div>
+                
+                <!-- Category Filters -->
+                <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8">
+                    <button class="filter-btn active px-4 py-2 rounded-full text-sm font-medium bg-gray-800 hover:bg-gray-700 transition-colors" data-category="all">
+                        <i class="fas fa-globe mr-2"></i>Toutes
+                    </button>
+                    <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-800 hover:bg-gray-700 transition-colors" data-category="tech">
+                        <i class="fas fa-microchip mr-2"></i>Tech
+                    </button>
+                    <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-800 hover:bg-gray-700 transition-colors" data-category="design">
+                        <i class="fas fa-palette mr-2"></i>Design
+                    </button>
+                    <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-800 hover:bg-gray-700 transition-colors" data-category="dev">
+                        <i class="fas fa-code mr-2"></i>Développement
+                    </button>
+                    <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-800 hover:bg-gray-700 transition-colors" data-category="social">
+                        <i class="fas fa-users mr-2"></i>Social
+                    </button>
+                    <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-800 hover:bg-gray-700 transition-colors" data-category="podcasts">
+                        <i class="fas fa-podcast mr-2"></i>Podcasts
+                    </button>
+                    <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-800 hover:bg-gray-700 transition-colors" data-category="fr">
+                        <i class="fas fa-flag mr-2"></i>Français
+                    </button>
+                </div>
+                
+                <!-- Refresh Button -->
+                <button id="refresh-btn" class="px-6 py-3 bg-orange-500 text-white rounded-full font-semibold hover:bg-orange-600 transition-colors">
+                    <i class="fas fa-sync-alt mr-2"></i>Actualiser les articles
+                </button>
+            </div>
+        </section>
+        
+        <!-- Sources Sections -->
+        <section class="px-4 sm:px-6 lg:px-8 mb-16">
+            <div class="container mx-auto max-w-6xl">
+                <h2 class="text-3xl font-bold text-center mb-12">
+                    Toutes les <span class="text-gradient-orange">Sources RSS</span>
+                </h2>
+                
+                <!-- Tech Sources -->
+                <div class="mb-12">
+                    <h3 class="text-xl font-semibold mb-6 flex items-center">
+                        <i class="fas fa-microchip mr-3 text-blue-500"></i>
+                        Actualités & Veille Tech
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="source-card bg-gray-900 rounded-lg p-4 hover:bg-gray-800 transition-colors">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-semibold">TechCrunch</h4>
+                                    <p class="text-sm text-gray-400">Actualités tech et startups</p>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <a href="https://techcrunch.com" target="_blank" class="text-blue-400 hover:text-blue-300">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="https://techcrunch.com/feed/" target="_blank" class="text-orange-400 hover:text-orange-300">
+                                        <i class="fas fa-rss"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="source-card bg-gray-900 rounded-lg p-4 hover:bg-gray-800 transition-colors">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-semibold">Wired</h4>
+                                    <p class="text-sm text-gray-400">Technologie et culture</p>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <a href="https://wired.com" target="_blank" class="text-blue-400 hover:text-blue-300">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="https://www.wired.com/feed/" target="_blank" class="text-orange-400 hover:text-orange-300">
+                                        <i class="fas fa-rss"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="source-card bg-gray-900 rounded-lg p-4 hover:bg-gray-800 transition-colors">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-semibold">The Verge</h4>
+                                    <p class="text-sm text-gray-400">Tech, science, art et culture</p>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <a href="https://www.theverge.com" target="_blank" class="text-blue-400 hover:text-blue-300">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="https://www.theverge.com/rss/index.xml" target="_blank" class="text-orange-400 hover:text-orange-300">
+                                        <i class="fas fa-rss"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="source-card bg-gray-900 rounded-lg p-4 hover:bg-gray-800 transition-colors">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-semibold">Ars Technica</h4>
+                                    <p class="text-sm text-gray-400">Actualités tech approfondies</p>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <a href="https://arstechnica.com" target="_blank" class="text-blue-400 hover:text-blue-300">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="https://arstechnica.com/feed/" target="_blank" class="text-orange-400 hover:text-orange-300">
+                                        <i class="fas fa-rss"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="source-card bg-gray-900 rounded-lg p-4 hover:bg-gray-800 transition-colors">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-semibold">Numerama <span class="text-xs text-blue-400">FR</span></h4>
+                                    <p class="text-sm text-gray-400">Actualités tech françaises</p>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <a href="https://numerama.com" target="_blank" class="text-blue-400 hover:text-blue-300">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="https://www.numerama.com/feed/" target="_blank" class="text-orange-400 hover:text-orange-300">
+                                        <i class="fas fa-rss"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="source-card bg-gray-900 rounded-lg p-4 hover:bg-gray-800 transition-colors">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-semibold">01net <span class="text-xs text-blue-400">FR</span></h4>
+                                    <p class="text-sm text-gray-400">High-tech et informatique</p>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <a href="https://01net.com" target="_blank" class="text-blue-400 hover:text-blue-300">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="https://www.01net.com/feed/rss/" target="_blank" class="text-orange-400 hover:text-orange-300">
+                                        <i class="fas fa-rss"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Design Sources -->
+                <div class="mb-12">
+                    <h3 class="text-xl font-semibold mb-6 flex items-center">
+                        <i class="fas fa-palette mr-3 text-purple-500"></i>
+                        Design, UI/UX & Inspiration
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="source-card bg-gray-900 rounded-lg p-4 hover:bg-gray-800 transition-colors">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-semibold">Smashing Magazine</h4>
+                                    <p class="text-sm text-gray-400">Web design et développement</p>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <a href="https://www.smashingmagazine.com" target="_blank" class="text-blue-400 hover:text-blue-300">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="https://www.smashingmagazine.com/feed/" target="_blank" class="text-orange-400 hover:text-orange-300">
+                                        <i class="fas fa-rss"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="source-card bg-gray-900 rounded-lg p-4 hover:bg-gray-800 transition-colors">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-semibold">CSS-Tricks</h4>
+                                    <p class="text-sm text-gray-400">CSS et web design</p>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <a href="https://css-tricks.com" target="_blank" class="text-blue-400 hover:text-blue-300">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="https://css-tricks.com/feed/" target="_blank" class="text-orange-400 hover:text-orange-300">
+                                        <i class="fas fa-rss"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="source-card bg-gray-900 rounded-lg p-4 hover:bg-gray-800 transition-colors">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-semibold">UX Design.cc</h4>
+                                    <p class="text-sm text-gray-400">Design UX et expérience utilisateur</p>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <a href="https://uxdesign.cc" target="_blank" class="text-blue-400 hover:text-blue-300">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="https://uxdesign.cc/feed" target="_blank" class="text-orange-400 hover:text-orange-300">
+                                        <i class="fas fa-rss"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="source-card bg-gray-900 rounded-lg p-4 hover:bg-gray-800 transition-colors">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-semibold">A List Apart</h4>
+                                    <p class="text-sm text-gray-400">Web design et standards</p>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <a href="https://alistapart.com" target="_blank" class="text-blue-400 hover:text-blue-300">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="https://alistapart.com/main/feed/" target="_blank" class="text-orange-400 hover:text-orange-300">
+                                        <i class="fas fa-rss"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="source-card bg-gray-900 rounded-lg p-4 hover:bg-gray-800 transition-colors">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-semibold">Creative Bloq</h4>
+                                    <p class="text-sm text-gray-400">Design créatif et inspiration</p>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <a href="https://creativebloq.com" target="_blank" class="text-blue-400 hover:text-blue-300">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="https://www.creativebloq.com/rss.xml" target="_blank" class="text-orange-400 hover:text-orange-300">
+                                        <i class="fas fa-rss"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="source-card bg-gray-900 rounded-lg p-4 hover:bg-gray-800 transition-colors">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-semibold">Graphiste.com <span class="text-xs text-blue-400">FR</span></h4>
+                                    <p class="text-sm text-gray-400">Blog design graphique</p>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <a href="https://graphiste.com/blog" target="_blank" class="text-blue-400 hover:text-blue-300">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="https://graphiste.com/blog/feed/" target="_blank" class="text-orange-400 hover:text-orange-300">
+                                        <i class="fas fa-rss"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Development Sources -->
+                <div class="mb-12">
+                    <h3 class="text-xl font-semibold mb-6 flex items-center">
+                        <i class="fas fa-code mr-3 text-green-500"></i>
+                        Développement & Documentation
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="source-card bg-gray-900 rounded-lg p-4 hover:bg-gray-800 transition-colors">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-semibold">MDN Web Docs</h4>
+                                    <p class="text-sm text-gray-400">Documentation web Mozilla</p>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <a href="https://developer.mozilla.org" target="_blank" class="text-blue-400 hover:text-blue-300">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="https://developer.mozilla.org/en-US/docs/Web/XML/RSS.atom" target="_blank" class="text-orange-400 hover:text-orange-300">
+                                        <i class="fas fa-rss"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="source-card bg-gray-900 rounded-lg p-4 hover:bg-gray-800 transition-colors">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-semibold">Stack Overflow Blog</h4>
+                                    <p class="text-sm text-gray-400">Blog des développeurs</p>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <a href="https://stackoverflow.blog" target="_blank" class="text-blue-400 hover:text-blue-300">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="https://stackoverflow.blog/feed/" target="_blank" class="text-orange-400 hover:text-orange-300">
+                                        <i class="fas fa-rss"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="source-card bg-gray-900 rounded-lg p-4 hover:bg-gray-800 transition-colors">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-semibold">freeCodeCamp</h4>
+                                    <p class="text-sm text-gray-400">Tutoriels et apprentissage</p>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <a href="https://www.freecodecamp.org/news" target="_blank" class="text-blue-400 hover:text-blue-300">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="https://www.freecodecamp.org/news/rss/" target="_blank" class="text-orange-400 hover:text-orange-300">
+                                        <i class="fas fa-rss"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="source-card bg-gray-900 rounded-lg p-4 hover:bg-gray-800 transition-colors">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-semibold">Developpez.com <span class="text-xs text-blue-400">FR</span></h4>
+                                    <p class="text-sm text-gray-400">Développement francophone</p>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <a href="https://developpez.com" target="_blank" class="text-blue-400 hover:text-blue-300">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="https://www.developpez.com/index/rss" target="_blank" class="text-orange-400 hover:text-orange-300">
+                                        <i class="fas fa-rss"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Social & Community Sources -->
+                <div class="mb-12">
+                    <h3 class="text-xl font-semibold mb-6 flex items-center">
+                        <i class="fas fa-users mr-3 text-pink-500"></i>
+                        Réseaux & Communautés
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="source-card bg-gray-900 rounded-lg p-4 hover:bg-gray-800 transition-colors">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-semibold">Dribbble</h4>
+                                    <p class="text-sm text-gray-400">Design et inspiration visuelle</p>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <a href="https://dribbble.com" target="_blank" class="text-blue-400 hover:text-blue-300">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="https://dribbble.com/shots/feed" target="_blank" class="text-orange-400 hover:text-orange-300">
+                                        <i class="fas fa-rss"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="source-card bg-gray-900 rounded-lg p-4 hover:bg-gray-800 transition-colors">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-semibold">Behance</h4>
+                                    <p class="text-sm text-gray-400">Portfolio et projets créatifs</p>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <a href="https://behance.net" target="_blank" class="text-blue-400 hover:text-blue-300">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="https://www.behance.net/rss" target="_blank" class="text-orange-400 hover:text-orange-300">
+                                        <i class="fas fa-rss"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="source-card bg-gray-900 rounded-lg p-4 hover:bg-gray-800 transition-colors">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-semibold">Product Hunt</h4>
+                                    <p class="text-sm text-gray-400">Nouveaux produits et startups</p>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <a href="https://producthunt.com" target="_blank" class="text-blue-400 hover:text-blue-300">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="https://www.producthunt.com/feed" target="_blank" class="text-orange-400 hover:text-orange-300">
+                                        <i class="fas fa-rss"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Podcasts Sources -->
+                <div class="mb-12">
+                    <h3 class="text-xl font-semibold mb-6 flex items-center">
+                        <i class="fas fa-podcast mr-3 text-yellow-500"></i>
+                        Podcasts & Audio
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="source-card bg-gray-900 rounded-lg p-4 hover:bg-gray-800 transition-colors">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-semibold">Design Matters</h4>
+                                    <p class="text-sm text-gray-400">Podcast design et créativité</p>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <a href="https://designmattersmedia.com" target="_blank" class="text-blue-400 hover:text-blue-300">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="https://designmattersmedia.com/feed/" target="_blank" class="text-orange-400 hover:text-orange-300">
+                                        <i class="fas fa-rss"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="source-card bg-gray-900 rounded-lg p-4 hover:bg-gray-800 transition-colors">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-semibold">99% Invisible</h4>
+                                    <p class="text-sm text-gray-400">Design et architecture</p>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <a href="https://99percentinvisible.org" target="_blank" class="text-blue-400 hover:text-blue-300">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="https://feeds.99percentinvisible.org/99percentinvisible" target="_blank" class="text-orange-400 hover:text-orange-300">
+                                        <i class="fas fa-rss"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Articles Grid -->
+        <section class="px-4 sm:px-6 lg:px-8">
+            <div class="container mx-auto max-w-6xl">
+                <h2 class="text-3xl font-bold text-center mb-12">
+                    Articles <span class="text-gradient-orange">Récents</span>
+                </h2>
+                
+                <!-- Source Status -->
+                <div id="source-status">
+                    <!-- Status will be displayed here -->
+                </div>
+                
+                <!-- Loading State -->
+                <div id="loading" class="text-center py-12">
+                    <div class="inline-flex items-center space-x-3">
+                        <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-orange-500"></div>
+                        <span class="text-lg">Chargement des articles...</span>
+                    </div>
+                </div>
+                
+                <!-- Error State -->
+                <div id="error" class="hidden text-center py-12">
+                    <div class="max-w-md mx-auto">
+                        <i class="fas fa-exclamation-triangle text-4xl text-yellow-500 mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2">Erreur de chargement</h3>
+                        <p class="text-gray-400 mb-6">Impossible de charger les articles. Veuillez réessayer.</p>
+                        <button id="retry-btn" class="px-6 py-3 bg-orange-500 text-white rounded-full font-semibold hover:bg-orange-600 transition-colors">
+                            <i class="fas fa-redo mr-2"></i>Réessayer
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Articles Grid -->
+                <div id="articles-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Articles will be loaded here -->
+                </div>
+                
+                <!-- Load More -->
+                <div id="load-more-container" class="text-center mt-12 hidden">
+                    <button id="load-more-btn" class="px-8 py-3 bg-gray-800 text-white rounded-full font-semibold hover:bg-gray-700 transition-colors">
+                        <i class="fas fa-plus mr-2"></i>Charger plus d'articles
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Simple Theme Panel -->
+    <div id="theme-panel" class="fixed top-16 right-4 w-48 glass rounded-xl shadow-xl p-3 z-40 hidden">
+        <div class="space-y-1">
+            <label class="flex items-center p-2 rounded-lg hover:bg-orange-500/20 cursor-pointer transition-colors text-sm">
+                <input type="radio" name="theme" value="dark" checked class="mr-2">
+                <span>🌙 Dark</span>
+            </label>
+            <label class="flex items-center p-2 rounded-lg hover:bg-orange-500/20 cursor-pointer transition-colors text-sm">
+                <input type="radio" name="theme" value="light" class="mr-2">
+                <span>☀️ Light</span>
+            </label>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="bg-black-secondary border-t border-gray-800 py-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <!-- About -->
+                <div class="text-center md:text-left mb-4 md:mb-0">
+                    <h3 class="text-lg font-semibold mb-2">Veille Technologique</h3>
+                    <p class="text-gray-400 text-sm">
+                        Blog de veille tech avec les meilleures sources internationales.
+                    </p>
+                </div>
+                
+                <!-- Contact -->
+                <div class="text-center">
+                    <button onclick="showContact(this)" class="px-6 py-2 bg-orange-500 text-white rounded-full font-semibold hover:bg-orange-600 transition-colors text-sm">
+                        <i class="fas fa-envelope mr-2"></i>Me Contacter
+                    </button>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-6 pt-6 text-center text-gray-400 text-sm">
+                <p>&copy; 2024 Bertrand Fouquet. Blog de veille technologique.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="js/blog-theme.js"></script>
+    <script src="js/blog.js"></script>
+</body>
+</html>

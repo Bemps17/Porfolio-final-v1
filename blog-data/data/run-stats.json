@@ -1,0 +1,357 @@
+{
+  "runs": [
+    {
+      "rss": {
+        "total": 42,
+        "successful": 36,
+        "failed": 6,
+        "errors": [
+          {
+            "feed": "MDN Web Docs",
+            "error": "RSS parsing failed for MDN Web Docs: Status code 404"
+          },
+          {
+            "feed": "Syntax FM",
+            "error": "RSS parsing failed for Syntax FM: Status code 404"
+          },
+          {
+            "feed": "Clubic",
+            "error": "RSS parsing failed for Clubic: Status code 404"
+          },
+          {
+            "feed": "Designmodo",
+            "error": "RSS parsing failed for Designmodo: Attribute without value\nLine: 14\nColumn: 73\nChar: >"
+          },
+          {
+            "feed": "CSS Tricks Podcast",
+            "error": "RSS parsing failed for CSS Tricks Podcast: Invalid character in entity name\nLine: 76\nColumn: 13\nChar:  "
+          },
+          {
+            "feed": "Dribbble Shots",
+            "error": "RSS parsing failed for Dribbble Shots: Unable to parse XML."
+          }
+        ]
+      },
+      "api": {
+        "total": 5,
+        "successful": 4,
+        "failed": 1,
+        "errors": [
+          {
+            "api": "Product Hunt",
+            "error": "Request failed with status code 401"
+          }
+        ]
+      },
+      "format": {
+        "saved": 0,
+        "skipped": 267,
+        "errors": []
+      },
+      "total": 267,
+      "timestamp": "2025-10-30T17:27:04.334Z",
+      "runNumber": 1
+    },
+    {
+      "rss": {
+        "total": 42,
+        "successful": 35,
+        "failed": 7,
+        "errors": [
+          {
+            "feed": "MDN Web Docs",
+            "error": "RSS parsing failed for MDN Web Docs: Status code 404"
+          },
+          {
+            "feed": "Syntax FM",
+            "error": "RSS parsing failed for Syntax FM: Status code 404"
+          },
+          {
+            "feed": "Clubic",
+            "error": "RSS parsing failed for Clubic: Status code 404"
+          },
+          {
+            "feed": "Designmodo",
+            "error": "RSS parsing failed for Designmodo: Attribute without value\nLine: 14\nColumn: 73\nChar: >"
+          },
+          {
+            "feed": "CSS Tricks Podcast",
+            "error": "RSS parsing failed for CSS Tricks Podcast: Invalid character in entity name\nLine: 76\nColumn: 13\nChar:  "
+          },
+          {
+            "feed": "Hacker News",
+            "error": "RSS parsing failed for Hacker News: Status code 429"
+          },
+          {
+            "feed": "Dribbble Shots",
+            "error": "RSS parsing failed for Dribbble Shots: Unable to parse XML."
+          }
+        ]
+      },
+      "api": {
+        "total": 5,
+        "successful": 4,
+        "failed": 1,
+        "errors": [
+          {
+            "api": "Product Hunt",
+            "error": "Request failed with status code 401"
+          }
+        ]
+      },
+      "format": {
+        "saved": 10,
+        "skipped": 257,
+        "errors": []
+      },
+      "total": 267,
+      "timestamp": "2025-10-30T17:25:21.824Z",
+      "runNumber": 1
+    },
+    {
+      "rss": {
+        "total": 42,
+        "successful": 35,
+        "failed": 7,
+        "errors": [
+          {
+            "feed": "MDN Web Docs",
+            "error": "RSS parsing failed for MDN Web Docs: Status code 404"
+          },
+          {
+            "feed": "Hacker News",
+            "error": "RSS parsing failed for Hacker News: Status code 429"
+          },
+          {
+            "feed": "Syntax FM",
+            "error": "RSS parsing failed for Syntax FM: Status code 404"
+          },
+          {
+            "feed": "Clubic",
+            "error": "RSS parsing failed for Clubic: Status code 404"
+          },
+          {
+            "feed": "Designmodo",
+            "error": "RSS parsing failed for Designmodo: Attribute without value\nLine: 14\nColumn: 73\nChar: >"
+          },
+          {
+            "feed": "CSS Tricks Podcast",
+            "error": "RSS parsing failed for CSS Tricks Podcast: Invalid character in entity name\nLine: 76\nColumn: 13\nChar:  "
+          },
+          {
+            "feed": "Dribbble Shots",
+            "error": "RSS parsing failed for Dribbble Shots: Unable to parse XML."
+          }
+        ]
+      },
+      "api": {
+        "total": 3,
+        "successful": 3,
+        "failed": 0,
+        "errors": []
+      },
+      "format": {
+        "saved": 1,
+        "skipped": 251,
+        "errors": []
+      },
+      "total": 252,
+      "timestamp": "2025-10-30T17:23:51.827Z",
+      "runNumber": 1
+    },
+    {
+      "rss": {
+        "total": 42,
+        "successful": 36,
+        "failed": 6,
+        "errors": [
+          {
+            "feed": "MDN Web Docs",
+            "error": "RSS parsing failed for MDN Web Docs: Status code 404"
+          },
+          {
+            "feed": "Syntax FM",
+            "error": "RSS parsing failed for Syntax FM: Status code 404"
+          },
+          {
+            "feed": "Clubic",
+            "error": "RSS parsing failed for Clubic: Status code 404"
+          },
+          {
+            "feed": "Designmodo",
+            "error": "RSS parsing failed for Designmodo: Attribute without value\nLine: 14\nColumn: 73\nChar: >"
+          },
+          {
+            "feed": "CSS Tricks Podcast",
+            "error": "RSS parsing failed for CSS Tricks Podcast: Invalid character in entity name\nLine: 76\nColumn: 13\nChar:  "
+          },
+          {
+            "feed": "Dribbble Shots",
+            "error": "RSS parsing failed for Dribbble Shots: Unable to parse XML."
+          }
+        ]
+      },
+      "api": {
+        "total": 3,
+        "successful": 3,
+        "failed": 0,
+        "errors": []
+      },
+      "format": {
+        "saved": 1,
+        "skipped": 250,
+        "errors": []
+      },
+      "total": 251,
+      "timestamp": "2025-10-30T17:22:56.555Z",
+      "runNumber": 1
+    },
+    {
+      "rss": {
+        "total": 42,
+        "successful": 36,
+        "failed": 6,
+        "errors": [
+          {
+            "feed": "MDN Web Docs",
+            "error": "RSS parsing failed for MDN Web Docs: Status code 404"
+          },
+          {
+            "feed": "Syntax FM",
+            "error": "RSS parsing failed for Syntax FM: Status code 404"
+          },
+          {
+            "feed": "Clubic",
+            "error": "RSS parsing failed for Clubic: Status code 404"
+          },
+          {
+            "feed": "Designmodo",
+            "error": "RSS parsing failed for Designmodo: Attribute without value\nLine: 14\nColumn: 73\nChar: >"
+          },
+          {
+            "feed": "CSS Tricks Podcast",
+            "error": "RSS parsing failed for CSS Tricks Podcast: Invalid character in entity name\nLine: 76\nColumn: 13\nChar:  "
+          },
+          {
+            "feed": "Dribbble Shots",
+            "error": "RSS parsing failed for Dribbble Shots: Unable to parse XML."
+          }
+        ]
+      },
+      "api": {
+        "total": 6,
+        "successful": 6,
+        "failed": 0,
+        "errors": []
+      },
+      "format": {
+        "saved": 7,
+        "skipped": 244,
+        "errors": []
+      },
+      "total": 251,
+      "timestamp": "2025-10-30T17:22:50.417Z",
+      "runNumber": 1
+    },
+    {
+      "rss": {
+        "total": 42,
+        "successful": 36,
+        "failed": 6,
+        "errors": [
+          {
+            "feed": "MDN Web Docs",
+            "error": "RSS parsing failed for MDN Web Docs: Status code 404"
+          },
+          {
+            "feed": "Syntax FM",
+            "error": "RSS parsing failed for Syntax FM: Status code 404"
+          },
+          {
+            "feed": "Clubic",
+            "error": "RSS parsing failed for Clubic: Status code 404"
+          },
+          {
+            "feed": "Designmodo",
+            "error": "RSS parsing failed for Designmodo: Attribute without value\nLine: 14\nColumn: 73\nChar: >"
+          },
+          {
+            "feed": "CSS Tricks Podcast",
+            "error": "RSS parsing failed for CSS Tricks Podcast: Invalid character in entity name\nLine: 76\nColumn: 13\nChar:  "
+          },
+          {
+            "feed": "Dribbble Shots",
+            "error": "RSS parsing failed for Dribbble Shots: Unable to parse XML."
+          }
+        ]
+      },
+      "api": {
+        "total": 6,
+        "successful": 6,
+        "failed": 0,
+        "errors": []
+      },
+      "format": {
+        "saved": 242,
+        "skipped": 10,
+        "errors": []
+      },
+      "total": 252,
+      "timestamp": "2025-10-30T17:19:25.649Z",
+      "runNumber": 1
+    }
+  ],
+  "lastRun": {
+    "rss": {
+      "total": 42,
+      "successful": 36,
+      "failed": 6,
+      "errors": [
+        {
+          "feed": "MDN Web Docs",
+          "error": "RSS parsing failed for MDN Web Docs: Status code 404"
+        },
+        {
+          "feed": "Syntax FM",
+          "error": "RSS parsing failed for Syntax FM: Status code 404"
+        },
+        {
+          "feed": "Clubic",
+          "error": "RSS parsing failed for Clubic: Status code 404"
+        },
+        {
+          "feed": "Designmodo",
+          "error": "RSS parsing failed for Designmodo: Attribute without value\nLine: 14\nColumn: 73\nChar: >"
+        },
+        {
+          "feed": "CSS Tricks Podcast",
+          "error": "RSS parsing failed for CSS Tricks Podcast: Invalid character in entity name\nLine: 76\nColumn: 13\nChar:  "
+        },
+        {
+          "feed": "Dribbble Shots",
+          "error": "RSS parsing failed for Dribbble Shots: Unable to parse XML."
+        }
+      ]
+    },
+    "api": {
+      "total": 5,
+      "successful": 4,
+      "failed": 1,
+      "errors": [
+        {
+          "api": "Product Hunt",
+          "error": "Request failed with status code 401"
+        }
+      ]
+    },
+    "format": {
+      "saved": 0,
+      "skipped": 267,
+      "errors": []
+    },
+    "total": 267,
+    "timestamp": "2025-10-30T17:27:04.334Z",
+    "runNumber": 1
+  },
+  "totalRuns": 1
+}

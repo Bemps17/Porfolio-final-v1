@@ -1,0 +1,39 @@
+{
+  "name": "blog-rss-importer",
+  "version": "1.0.0",
+  "description": "Automatic RSS and API articles importer for tech blog",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "node test.js",
+    "workflow": "node integration/workflow.js complete",
+    "workflow:quick": "node integration/workflow.js quick",
+    "workflow:status": "node integration/workflow.js status",
+    "workflow:schedule": "node integration/workflow.js schedule",
+    "sync": "node integration/blogSync.js sync",
+    "sync:status": "node integration/blogSync.js status",
+    "build": "node build-netlify.js",
+    "build:local": "npm run test && npm run workflow",
+    "deploy": "npm run build && netlify deploy --prod --dir=../"
+  },
+  "keywords": ["rss", "blog", "importer", "tech", "automation", "netlify"],
+  "author": "Bertrand Web Designer",
+  "license": "MIT",
+  "dependencies": {
+    "rss-parser": "^3.13.0",
+    "axios": "^1.6.0",
+    "node-cron": "^3.0.3",
+    "fs-extra": "^11.1.1",
+    "date-fns": "^2.30.0",
+    "cheerio": "^1.0.0-rc.12",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "netlify-cli": "^17.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

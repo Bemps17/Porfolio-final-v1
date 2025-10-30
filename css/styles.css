@@ -253,6 +253,22 @@
             /* Texte plus petit */
             .text-lg { font-size: 1rem; }
             .text-xl { font-size: 1.125rem; }
+            
+            /* Icônes sociales alignées */
+            .flex.space-x-4.items-center {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 1rem;
+            }
+            
+            .flex.space-x-4.items-center > * {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 2rem;
+                height: 2rem;
+            }
         }
 
         /* Très petits écrans */
@@ -353,6 +369,120 @@
         .bg-black { background-color: var(--color-surface); }
         .bg-gray-800, .bg-gray-900 { background-color: var(--color-bg-secondary); }
         .hero-header { background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-secondary) 100%); transition: background 0.5s ease; }
+        
+        /* Header - Accessibilité AAA (Contraste 7:1 minimum) */
+        header {
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+            z-index: 50;
+        }
+        
+        /* Corporate Theme - Noir pur sur fond noir */
+        body[data-theme="corporate"] header {
+            background-color: #000000 !important;
+            border-bottom: 1px solid #333333;
+        }
+        body[data-theme="corporate"] header nav a,
+        body[data-theme="corporate"] header button,
+        body[data-theme="corporate"] header .font-bold {
+            color: #FFFFFF !important;
+            font-weight: 600;
+        }
+        body[data-theme="corporate"] header nav a:hover,
+        body[data-theme="corporate"] header button:hover {
+            color: #FF6B35 !important;
+        }
+        
+        /* Cyberpunk Theme - Cyan sur fond noir */
+        body[data-theme="cyberpunk"] header {
+            background-color: #000000 !important;
+            border-bottom: 1px solid #FF6B35;
+            box-shadow: 0 0 15px rgba(0, 246, 255, 0.4);
+        }
+        body[data-theme="cyberpunk"] header nav a,
+        body[data-theme="cyberpunk"] header button,
+        body[data-theme="cyberpunk"] header .font-bold {
+            color: #00F6FF !important;
+            font-weight: 600;
+            text-shadow: 0 0 8px rgba(0, 246, 255, 0.8);
+        }
+        body[data-theme="cyberpunk"] header nav a:hover,
+        body[data-theme="cyberpunk"] header button:hover {
+            color: #FF6B35 !important;
+            text-shadow: 0 0 12px rgba(255, 107, 53, 0.8);
+        }
+        
+        /* Light Theme - Noir pur sur fond blanc */
+        body[data-theme="light"] header {
+            background-color: #FFFFFF !important;
+            border-bottom: 1px solid #666666;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        body[data-theme="light"] header nav a,
+        body[data-theme="light"] header button,
+        body[data-theme="light"] header .font-bold {
+            color: #000000 !important;
+            font-weight: 600;
+        }
+        body[data-theme="light"] header nav a:hover,
+        body[data-theme="light"] header button:hover {
+            color: #E65C00 !important;
+        }
+        
+        /* Dropdown Menu - Accessibilité AAA */
+        .expertise-dropdown-menu {
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+        
+        /* Corporate Dropdown */
+        body[data-theme="corporate"] .expertise-dropdown-menu {
+            background-color: #1A1A1A !important;
+            border: 1px solid #333333;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+        body[data-theme="corporate"] .expertise-dropdown-menu a {
+            color: #FFFFFF !important;
+            font-weight: 500;
+        }
+        body[data-theme="corporate"] .expertise-dropdown-menu a:hover {
+            background-color: #333333 !important;
+            color: #FF6B35 !important;
+        }
+        
+        /* Cyberpunk Dropdown */
+        body[data-theme="cyberpunk"] .expertise-dropdown-menu {
+            background-color: #0A0A0A !important;
+            border: 1px solid #FF6B35;
+            box-shadow: 0 0 20px rgba(0, 246, 255, 0.5);
+        }
+        body[data-theme="cyberpunk"] .expertise-dropdown-menu a {
+            color: #00F6FF !important;
+            font-weight: 500;
+            text-shadow: 0 0 6px rgba(0, 246, 255, 0.6);
+        }
+        body[data-theme="cyberpunk"] .expertise-dropdown-menu a:hover {
+            background-color: #1A1A2E !important;
+            color: #FF6B35 !important;
+            text-shadow: 0 0 10px rgba(255, 107, 53, 0.8);
+        }
+        
+        /* Light Dropdown */
+        body[data-theme="light"] .expertise-dropdown-menu {
+            background-color: #FFFFFF !important;
+            border: 1px solid #666666;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+        body[data-theme="light"] .expertise-dropdown-menu a {
+            color: #000000 !important;
+            font-weight: 500;
+        }
+        body[data-theme="light"] .expertise-dropdown-menu a:hover {
+            background-color: #F5F5F5 !important;
+            color: #E65C00 !important;
+        }
 
         /* --- STYLES SPÉCIFIQUES --- */
         /* Cyberpunk Effects - AMÉLIORÉS POUR LA LISIBILITÉ */
@@ -371,17 +501,8 @@
         body[data-theme="light"] .bg-gray-800,
         body[data-theme="light"] .hero-header { box-shadow: 0 4px 15px -1px rgb(0 0 0 / 0.1); }
 
-        /* --- AMÉLIORATIONS CONTRASTE MODE LIGHT --- */
-        body[data-theme="light"] .glass {
-            background-color: var(--color-surface);
-            border-color: var(--color-border);
-            backdrop-filter: none; /* On retire le flou en mode clair pour la lisibilité */
-        }
-        body[data-theme="light"] .glass-orange {
-            background-color: #ffe0b2; /* A light orange for glass-orange elements */
-            border-color: #cc5200; /* Darker orange border for better contrast */
-            backdrop-filter: none; /* On retire le flou en mode clair pour la lisibilité */
-        }
+        /* Styles spécifiques nettoyés - Remplacés par les normes AAA ci-dessus */
+        
         /* La règle agressive qui forçait le texte des éléments .glass en noir a été retirée.
            Le texte hérite maintenant de la couleur du parent, ou utilise sa propre classe (ex: text-white),
            ce qui est correct pour les fonds sombres (menu mobile) et les fonds clairs (page principale). */
@@ -401,16 +522,101 @@
             color: var(--color-accent);
         }
 
-        /* Amélioration des boutons radio en mode light */
+        /* Panneau de Thème - Accessibilité AAA */
+        #settings-panel {
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+        
+        /* Corporate Settings Panel */
+        body[data-theme="corporate"] #settings-panel {
+            background-color: #1A1A1A !important;
+            border: 1px solid #333333;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+        body[data-theme="corporate"] #settings-panel h3 {
+            color: #FFFFFF !important;
+            font-weight: 600;
+        }
+        body[data-theme="corporate"] #settings-panel label {
+            color: #FFFFFF !important;
+            background-color: #2A2A2A !important;
+            border: 2px solid #444444;
+        }
+        body[data-theme="corporate"] #settings-panel label:hover {
+            background-color: #333333 !important;
+            border-color: #FF6B35;
+        }
+        
+        /* Cyberpunk Settings Panel */
+        body[data-theme="cyberpunk"] #settings-panel {
+            background-color: #0A0A0A !important;
+            border: 1px solid #FF6B35;
+            box-shadow: 0 0 20px rgba(0, 246, 255, 0.5);
+        }
+        body[data-theme="cyberpunk"] #settings-panel h3 {
+            color: #00F6FF !important;
+            font-weight: 600;
+            text-shadow: 0 0 8px rgba(0, 246, 255, 0.8);
+        }
+        body[data-theme="cyberpunk"] #settings-panel label {
+            color: #00F6FF !important;
+            background-color: #1A1A2E !important;
+            border: 2px solid #FF6B35;
+            text-shadow: 0 0 6px rgba(0, 246, 255, 0.6);
+        }
+        body[data-theme="cyberpunk"] #settings-panel label:hover {
+            background-color: #2A2A3E !important;
+            text-shadow: 0 0 10px rgba(255, 107, 53, 0.8);
+        }
+        
+        /* Light Settings Panel */
+        body[data-theme="light"] #settings-panel {
+            background-color: #FFFFFF !important;
+            border: 1px solid #666666;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+        body[data-theme="light"] #settings-panel h3 {
+            color: #000000 !important;
+            font-weight: 600;
+        }
+        body[data-theme="light"] #settings-panel label {
+            color: #000000 !important;
+            background-color: #F5F5F5 !important;
+            border: 2px solid #666666;
+        }
+        body[data-theme="light"] #settings-panel label:hover {
+            background-color: #E5E5E5 !important;
+            border-color: #E65C00;
+        }
+        
+        /* Radio Buttons - Accessibilité AAA */
+        body[data-theme="corporate"] #settings-panel input[type="radio"] {
+            border: 2px solid #666666;
+            background-color: #2A2A2A;
+        }
+        body[data-theme="corporate"] #settings-panel input[type="radio"]:checked {
+            background-color: #FF6B35;
+            border-color: #FF6B35;
+        }
+        
+        body[data-theme="cyberpunk"] #settings-panel input[type="radio"] {
+            border: 2px solid #00F6FF;
+            background-color: #1A1A2E;
+        }
+        body[data-theme="cyberpunk"] #settings-panel input[type="radio"]:checked {
+            background-color: #FF6B35;
+            border-color: #FF6B35;
+        }
+        
         body[data-theme="light"] #settings-panel input[type="radio"] {
-            appearance: none; -webkit-appearance: none;
-            width: 1.15em; height: 1.15em;
-            border: 1px solid var(--color-border);
-            border-radius: 50%; cursor: pointer; position: relative;
-            transition: background-color 0.2s, border-color 0.2s;
+            border: 2px solid #333333;
+            background-color: #FFFFFF;
         }
         body[data-theme="light"] #settings-panel input[type="radio"]:checked {
-            background-color: var(--color-accent); border-color: var(--color-accent);
+            background-color: #E65C00;
+            border-color: #E65C00;
         }
 
         /* Garder le texte blanc sur les fonds en dégradé */
