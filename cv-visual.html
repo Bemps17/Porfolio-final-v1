@@ -126,9 +126,58 @@
         .contact a:hover { border-color: #f97316; }
 
         .edu-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.625rem; }
-        .reveal-btn { background: none; border: 1px dotted; color: inherit; cursor: pointer; margin-left: 8px; padding: 0 4px; border-radius: 4px; }
-        .reveal-btn:hover { border-style: solid; border-color: #f97316; }
-        .reveal-container { display: inline-flex; align-items: center; }
+        .reveal-btn { 
+            background: none; 
+            border: 1px dotted #666; 
+            color: #f97316; 
+            cursor: pointer; 
+            margin-left: 8px; 
+            padding: 2px 6px; 
+            border-radius: 4px; 
+            font-size: 0.9em;
+            transition: all 0.2s ease;
+        }
+        .reveal-btn:hover { 
+            border-style: solid; 
+            border-color: #f97316; 
+            background-color: rgba(249, 115, 22, 0.1);
+            transform: scale(1.05);
+        }
+        .reveal-container { 
+            display: inline-flex; 
+            align-items: center; 
+        }
+        
+        /* Styles pour les liens révélés */
+        .reveal-container a {
+            color: #f97316 !important;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .reveal-container a:hover {
+            text-decoration: underline;
+            transform: scale(1.02);
+        }
+        
+        .revealed-contact {
+            color: #f97316 !important;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .revealed-contact:hover {
+            text-decoration: underline;
+            transform: scale(1.05);
+        }
+        
+        /* Animation du conteneur pendant la révélation */
+        .reveal-container {
+            transition: all 0.2s ease;
+        }
 
         .edu-list li { display: grid; gap: 0.375rem; padding-top: 0.625rem; padding-bottom: 0.625rem; border-bottom: 1px dashed #4b5563; grid-template-columns: 1fr auto; }
         .edu-list li:last-child { border-bottom: 0; }
@@ -303,13 +352,30 @@
             const phone = '+33666938235';
             const formattedPhone = '06 66 93 82 35';
             
-            const telLink = document.createElement('a');
-            telLink.href = `tel:${phone}`;
-            telLink.textContent = formattedPhone;
+            // Ajouter un effet de transition
+            const container = element.parentNode;
+            container.style.opacity = '0.7';
+            container.style.transform = 'scale(0.98)';
             
-            if (element.parentNode) {
-                element.parentNode.replaceWith(telLink);
-            }
+            setTimeout(() => {
+                const telLink = document.createElement('a');
+                telLink.href = `tel:${phone}`;
+                telLink.textContent = formattedPhone;
+                telLink.className = 'revealed-contact';
+                
+                // Remplacer le span conteneur entier par le lien
+                if (container && container.parentNode) {
+                    container.parentNode.replaceChild(telLink, container);
+                    
+                    // Animation d'apparition
+                    telLink.style.opacity = '0';
+                    telLink.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        telLink.style.opacity = '1';
+                        telLink.style.transform = 'scale(1)';
+                    }, 50);
+                }
+            }, 200);
         }
 
         /**
@@ -321,13 +387,30 @@
             const domain = 'proton.me';
             const email = `${user}@${domain}`;
 
-            const mailtoLink = document.createElement('a');
-            mailtoLink.href = `mailto:${email}`;
-            mailtoLink.textContent = email;
+            // Ajouter un effet de transition
+            const container = element.parentNode;
+            container.style.opacity = '0.7';
+            container.style.transform = 'scale(0.98)';
+            
+            setTimeout(() => {
+                const mailtoLink = document.createElement('a');
+                mailtoLink.href = `mailto:${email}`;
+                mailtoLink.textContent = email;
+                mailtoLink.className = 'revealed-contact';
 
-            if (element.parentNode) {
-                element.parentNode.replaceWith(mailtoLink);
-            }
+                // Remplacer le span conteneur entier par le lien
+                if (container && container.parentNode) {
+                    container.parentNode.replaceChild(mailtoLink, container);
+                    
+                    // Animation d'apparition
+                    mailtoLink.style.opacity = '0';
+                    mailtoLink.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        mailtoLink.style.opacity = '1';
+                        mailtoLink.style.transform = 'scale(1)';
+                    }, 50);
+                }
+            }, 200);
         }
     </script>
 </body>

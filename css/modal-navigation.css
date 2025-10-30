@@ -31,3 +31,123 @@
 #projectModal #nextProjectBtn {
     z-index: 51;
 }
+
+/* Expertise Dropdown Styles */
+.expertise-dropdown:hover .expertise-dropdown-menu,
+.expertise-dropdown:focus-within .expertise-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.expertise-dropdown:hover button i,
+.expertise-dropdown:focus-within button i {
+    transform: rotate(180deg);
+}
+
+.expertise-dropdown-menu {
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(249, 115, 22, 0.2);
+}
+
+.expertise-dropdown-menu a {
+    position: relative;
+    overflow: hidden;
+}
+
+.expertise-dropdown-menu a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background: linear-gradient(180deg, #f97316 0%, transparent 100%);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.expertise-dropdown-menu a:hover::before {
+    transform: translateX(0);
+}
+
+/* Mobile Expertise Toggle */
+.mobile-expertise-submenu {
+    transition: all 0.3s ease;
+    max-height: 0;
+    overflow: hidden;
+}
+
+.mobile-expertise-submenu:not(.hidden) {
+    max-height: 200px;
+}
+
+.mobile-expertise-section button[aria-expanded="true"] i {
+    transform: rotate(180deg);
+}
+
+/* Mobile Menu Overlay */
+.menu-overlay {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Mobile Menu */
+#mobile-menu {
+    transition: transform 0.3s ease;
+}
+
+#mobile-menu.active {
+    transform: translateX(0);
+}
+
+/* Hamburger Animation */
+.hamburger.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.hamburger-line {
+    transition: all 0.3s ease;
+}
+
+/* Responsive Navigation */
+@media (max-width: 1024px) {
+    .expertise-dropdown-menu {
+        display: none;
+    }
+    
+    .expertise-dropdown button {
+        pointer-events: none;
+    }
+}
+
+/* Focus States for Accessibility */
+.expertise-dropdown button:focus,
+.expertise-dropdown-menu a:focus {
+    outline: 2px solid #f97316;
+    outline-offset: 2px;
+}
+
+/* Smooth scroll for anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Hide dropdown when menu is closed */
+#mobile-menu:not(.active) .mobile-expertise-submenu {
+    display: none;
+}
