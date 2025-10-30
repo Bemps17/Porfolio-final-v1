@@ -3,8 +3,10 @@ class ProjectModal {
     constructor() {
         this.modal = null;
         this.currentProject = null;
-        this.projects = {
-            coursfull: {
+        this.currentProjectIndex = 0;
+        this.projects = [
+            {
+                id: 'coursfull',
                 name: 'CoursFull',
                 url: 'https://coursfull.netlify.app/',
                 description: 'Plateforme d\'apprentissage en ligne avec gestion complète des cours et des étudiants.',
@@ -18,7 +20,8 @@ class ProjectModal {
                 technologies: ['HTML5', 'CSS3', 'JavaScript', 'Design responsive', 'Interface utilisateur moderne'],
                 screenshots: ['home', 'dashboard', 'courses']
             },
-            snippetbank: {
+            {
+                id: 'snippetbank',
                 name: 'SnippetBank',
                 url: 'https://snippetbank.netlify.app/',
                 description: 'Banque de snippets de code pour développeurs avec recherche et organisation.',
@@ -33,7 +36,8 @@ class ProjectModal {
                 technologies: ['HTML5', 'CSS3', 'JavaScript', 'Syntax highlighting library', 'LocalStorage'],
                 screenshots: ['home', 'editor', 'search']
             },
-            ahistory: {
+            {
+                id: 'ahistory',
                 name: 'AHistory',
                 url: 'https://ahistory.netlify.app/',
                 description: 'Application interactive de visualisation historique avec timeline.',
@@ -48,7 +52,8 @@ class ProjectModal {
                 technologies: ['HTML5', 'CSS3', 'JavaScript', 'Visualisation libraries', 'API cartographiques'],
                 screenshots: ['timeline', 'map', 'event']
             },
-            pooltimer: {
+            {
+                id: 'pooltimer',
                 name: 'PoolTimer',
                 url: 'https://pooltimer.netlify.app/',
                 description: 'Chronomètre professionnel pour joueurs de billard anglais.',
@@ -63,7 +68,8 @@ class ProjectModal {
                 technologies: ['HTML5', 'CSS3', 'JavaScript', 'Web Audio API', 'LocalStorage'],
                 screenshots: ['timer', 'stats', 'history']
             },
-            pooltools: {
+            {
+                id: 'pooltools',
                 name: 'PoolTools',
                 url: 'https://pooltools.netlify.app/',
                 description: 'Suite complète d\'outils pour passionnés de billard anglais.',
@@ -78,7 +84,8 @@ class ProjectModal {
                 technologies: ['HTML5 Canvas', 'JavaScript avancé', 'CSS3 animations', 'Algorithmes de physique'],
                 screenshots: ['simulator', 'tournament', 'techniques']
             },
-            poolscore: {
+            {
+                id: 'poolscore',
                 name: 'PoolScore',
                 url: 'https://poolscore.netlify.app/',
                 description: 'Système de notation et suivi pour compétitions de billard.',
@@ -93,7 +100,8 @@ class ProjectModal {
                 technologies: ['HTML5', 'CSS3', 'JavaScript', 'WebSocket', 'Chart.js'],
                 screenshots: ['scoreboard', 'ranking', 'tournament']
             },
-            mapointeuse: {
+            {
+                id: 'mapointeuse',
                 name: 'MaPointeuse',
                 url: 'https://mapointeuse.netlify.app/',
                 description: 'Application de pointeuse digitale pour gestion du temps de travail.',
@@ -108,7 +116,8 @@ class ProjectModal {
                 technologies: ['HTML5', 'CSS3', 'JavaScript', 'PWA', 'API de génération PDF'],
                 screenshots: ['clock', 'reports', 'dashboard']
             },
-            juriaide: {
+            {
+                id: 'juriaide',
                 name: 'JuriAide',
                 url: 'https://juriaide.netlify.app/',
                 description: 'Assistant juridique numérique pour particuliers et professionnels.',
@@ -123,7 +132,8 @@ class ProjectModal {
                 technologies: ['HTML5', 'CSS3', 'JavaScript', 'Base de données structurée', 'Système de recherche'],
                 screenshots: ['home', 'documents', 'assistance']
             },
-            vacanceslr: {
+            {
+                id: 'vacanceslr',
                 name: 'VacancesLR',
                 url: 'https://vacanceslr.netlify.app/',
                 description: 'Planificateur intelligent de vacances avec intégration météo et activités.',
@@ -138,7 +148,8 @@ class ProjectModal {
                 technologies: ['HTML5', 'CSS3', 'JavaScript', 'APIs météo et cartographiques', 'Algorithmes de recommandation'],
                 screenshots: ['planning', 'weather', 'activities']
             },
-            workfloow: {
+            {
+                id: 'workfloow',
                 name: 'WorkFloow',
                 url: 'https://workfloow.netlify.app/',
                 description: 'Plateforme de gestion de flux de travail et collaboration d\'équipe.',
@@ -153,7 +164,8 @@ class ProjectModal {
                 technologies: ['HTML5', 'CSS3', 'JavaScript', 'Drag & Drop', 'WebSocket', 'Chart.js'],
                 screenshots: ['kanban', 'dashboard', 'team']
             },
-            chronorganizer: {
+            {
+                id: 'chronorganizer',
                 name: 'ChronOrganizer',
                 url: 'https://chronorganizer.netlify.app/',
                 description: 'Organisateur temporel avancé avec système Pomodoro intégré.',
@@ -168,7 +180,8 @@ class ProjectModal {
                 technologies: ['HTML5', 'CSS3', 'JavaScript', 'Web Audio API', 'Notifications push'],
                 screenshots: ['timer', 'tasks', 'stats']
             },
-            eisenhowermatrixv1: {
+            {
+                id: 'eisenhowermatrixv1',
                 name: 'Eisenhower Matrix V1',
                 url: 'https://eisenhowermatrixv1.netlify.app/',
                 description: 'Application de gestion des priorités selon la matrice d\'Eisenhower.',
@@ -183,7 +196,8 @@ class ProjectModal {
                 technologies: ['HTML5', 'CSS3', 'JavaScript', 'Drag & Drop API', 'Animations CSS'],
                 screenshots: ['matrix', 'tasks', 'analytics']
             },
-            suivijardin: {
+            {
+                id: 'suivijardin',
                 name: 'SuiviJardin',
                 url: 'https://suivijardin.netlify.app/',
                 description: 'Application de suivi et gestion pour passionnés de jardinage.',
@@ -198,7 +212,8 @@ class ProjectModal {
                 technologies: ['HTML5', 'CSS3', 'JavaScript', 'APIs météo et botaniques', 'Camera API'],
                 screenshots: ['garden', 'plants', 'calendar']
             },
-            guidestream: {
+            {
+                id: 'guidestream',
                 name: 'GuideStream',
                 url: 'https://guidestream.netlify.app/',
                 description: 'Plateforme de streaming et guides multimédias interactifs.',
@@ -213,7 +228,8 @@ class ProjectModal {
                 technologies: ['HTML5 Video API', 'JavaScript moderne', 'WebRTC', 'Design cinématographique'],
                 screenshots: ['player', 'guides', 'library']
             },
-            flutterisation: {
+            {
+                id: 'flutterisation',
                 name: 'Flutterisation',
                 url: 'https://flutterisation.netlify.app/',
                 description: 'Outils et ressources pour développement Flutter et applications multiplateformes.',
@@ -228,7 +244,8 @@ class ProjectModal {
                 technologies: ['Flutter/Dart', 'Web technologies', 'Code generation', 'Material Design'],
                 screenshots: ['editor', 'templates', 'preview']
             },
-            'seo-checking': {
+            {
+                id: 'seo-checking',
                 name: 'SEO Checking',
                 url: 'https://seo-checking.netlify.app/',
                 description: 'Outil complet d\'analyse et optimisation SEO pour sites web.',
@@ -243,26 +260,31 @@ class ProjectModal {
                 technologies: ['HTML5', 'CSS3', 'JavaScript', 'APIs d\'analyse SEO', 'Visualisation de données'],
                 screenshots: ['dashboard', 'audit', 'keywords']
             }
-        };
+        ];
         this.init();
     }
 
     init() {
         this.createModal();
         this.addEventListeners();
+        console.log('✅ Project Modal initialized');
     }
 
     createModal() {
+        console.log('🔨 Creating modal...');
         const modalHTML = `
             <div id="projectModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300">
+                <!-- Project Navigation Arrows - Outside Modal -->
+                <button id="prevProjectBtn" class="fixed left-8 top-1/2 -translate-y-1/2 z-50 w-16 h-16 rounded-full border-4 border-orange-500 flex items-center justify-center text-orange-500 hover:bg-orange-500 hover:text-white transition-all duration-300 shadow-2xl hover:scale-110 hidden sm:flex">
+                    <i class="fas fa-angle-double-left text-2xl"></i>
+                </button>
+                <button id="nextProjectBtn" class="fixed right-8 top-1/2 -translate-y-1/2 z-50 w-16 h-16 rounded-full border-4 border-orange-500 flex items-center justify-center text-orange-500 hover:bg-orange-500 hover:text-white transition-all duration-300 shadow-2xl hover:scale-110 hidden sm:flex">
+                    <i class="fas fa-angle-double-right text-2xl"></i>
+                </button>
+                
                 <div class="flex items-center justify-center min-h-screen p-4">
-                    <div class="glass rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto transform scale-95 transition-transform duration-300">
+                    <div class="glass rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto transform scale-95 transition-transform duration-300 relative">
                         <div class="relative">
-                            <!-- Close button -->
-                            <button onclick="closeProjectModal()" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full glass-orange flex items-center justify-center text-white hover:bg-orange-600 transition-colors">
-                                <i class="fas fa-times"></i>
-                            </button>
-                            
                             <!-- Header with cover image -->
                             <div class="relative h-64 sm:h-80 overflow-hidden rounded-t-2xl">
                                 <img id="modalCoverImage" src="" alt="" class="w-full h-full object-cover">
@@ -270,6 +292,8 @@ class ProjectModal {
                                 <div class="absolute bottom-6 left-6 right-6">
                                     <h2 id="modalProjectName" class="text-3xl sm:text-4xl font-bold text-white mb-2"></h2>
                                     <p id="modalProjectDescription" class="text-gray-200 text-lg"></p>
+                                    <!-- Project counter -->
+                                    <p id="projectCounter" class="text-gray-300 text-sm mt-2"></p>
                                 </div>
                                 <!-- Close button -->
                                 <button id="modalCloseButton" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full glass-orange flex items-center justify-center text-white hover:bg-orange-600 transition-colors">
@@ -335,6 +359,7 @@ class ProjectModal {
         document.body.insertAdjacentHTML('beforeend', modalHTML);
         this.modal = document.getElementById('projectModal');
         this.currentScreenshotIndex = 0;
+        console.log('✅ Modal created and added to DOM');
     }
 
     addEventListeners() {
@@ -350,6 +375,14 @@ class ProjectModal {
             if (e.key === 'Escape' && !this.modal.classList.contains('hidden')) {
                 this.close();
             }
+            // Arrow keys for project navigation
+            if (!this.modal.classList.contains('hidden')) {
+                if (e.key === 'ArrowLeft') {
+                    this.previousProject();
+                } else if (e.key === 'ArrowRight') {
+                    this.nextProject();
+                }
+            }
         });
 
         // Close button
@@ -357,6 +390,22 @@ class ProjectModal {
         if (closeButton) {
             closeButton.addEventListener('click', () => {
                 this.close();
+            });
+        }
+
+        // Project navigation buttons
+        const prevBtn = document.getElementById('prevProjectBtn');
+        const nextBtn = document.getElementById('nextProjectBtn');
+        
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                this.previousProject();
+            });
+        }
+        
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                this.nextProject();
             });
         }
 
@@ -375,13 +424,25 @@ class ProjectModal {
                 this.nextScreenshot();
             });
         }
+
+        // Add swipe support for mobile
+        this.addSwipeSupport();
     }
 
     open(projectId) {
-        this.currentProject = this.projects[projectId];
-        if (!this.currentProject) return;
-
+        console.log(`📂 Opening modal for project: ${projectId}`);
+        
+        // Find project by ID in the array
+        this.currentProjectIndex = this.projects.findIndex(p => p.id === projectId);
+        if (this.currentProjectIndex === -1) {
+            console.error(`❌ Project ${projectId} not found`);
+            return;
+        }
+        
+        this.currentProject = this.projects[this.currentProjectIndex];
         this.currentScreenshotIndex = 0;
+        console.log(`✅ Found project at index ${this.currentProjectIndex}: ${this.currentProject.name}`);
+        
         this.populateModal();
         this.showModal();
     }
@@ -391,20 +452,25 @@ class ProjectModal {
     }
 
     populateModal() {
-        // Basic info
+        // Update project counter
+        const counter = document.getElementById('projectCounter');
+        if (counter) {
+            counter.textContent = `Projet ${this.currentProjectIndex + 1} / ${this.projects.length}`;
+        }
+
+        // Populate project details
         document.getElementById('modalProjectName').textContent = this.currentProject.name;
         document.getElementById('modalProjectDescription').textContent = this.currentProject.description;
         document.getElementById('modalProjectUrl').href = this.currentProject.url;
-        
-        // Cover image
-        const coverImagePath = `assets/projects/${this.getProjectId()}/screenshots/cover.jpg`;
-        document.getElementById('modalCoverImage').src = coverImagePath;
+        document.getElementById('modalCoverImage').src = `assets/projects/${this.getProjectId()}/screenshots/cover.jpg`;
         document.getElementById('modalCoverImage').alt = this.currentProject.name;
-
-        // Screenshots
-        this.populateScreenshots();
         
-        // Features
+        this.populateFeatures();
+        this.populateTechnologies();
+        this.populateScreenshots();
+    }
+
+    populateFeatures() {
         const featuresContainer = document.getElementById('modalProjectFeatures');
         featuresContainer.innerHTML = this.currentProject.features.map(feature => `
             <li class="flex items-start gap-2 text-gray-300">
@@ -412,8 +478,9 @@ class ProjectModal {
                 <span>${feature}</span>
             </li>
         `).join('');
+    }
 
-        // Technologies
+    populateTechnologies() {
         const techContainer = document.getElementById('modalProjectTechnologies');
         techContainer.innerHTML = this.currentProject.technologies.map(tech => `
             <span class="px-3 py-1 glass-orange rounded-full text-sm text-white">${tech}</span>
@@ -424,60 +491,131 @@ class ProjectModal {
         const carousel = document.getElementById('screenshotCarousel');
         const indicators = document.getElementById('carouselIndicators');
         
-        // Check what files actually exist for this project
         const projectId = this.getProjectId();
-        const existingScreenshots = [];
         
-        // Test each possible screenshot file
-        ['cover.jpg', 'section1.png', 'section2.png', 'section3.png'].forEach(filename => {
+        // Define all possible files to check
+        const possibleFiles = [
+            'cover.jpg',
+            'section1.png', 
+            'section2.png', 
+            'section3.png'
+        ];
+        
+        let loadedCount = 0;
+        const validScreenshots = [];
+        
+        // Check each file
+        possibleFiles.forEach((filename, index) => {
             const img = new Image();
             img.onload = () => {
-                existingScreenshots.push(filename.replace('.jpg', '').replace('.png', ''));
+                validScreenshots.push(filename);
+                loadedCount++;
+                
+                // When all images are checked, populate the carousel
+                if (loadedCount === possibleFiles.length) {
+                    this.populateCarousel(validScreenshots, projectId);
+                }
+            };
+            img.onerror = () => {
+                loadedCount++;
+                
+                // When all images are checked, populate the carousel
+                if (loadedCount === possibleFiles.length) {
+                    this.populateCarousel(validScreenshots, projectId);
+                }
             };
             img.src = `assets/projects/${projectId}/screenshots/${filename}`;
         });
+    }
+    
+    populateCarousel(screenshots, projectId) {
+        const carousel = document.getElementById('screenshotCarousel');
+        const indicators = document.getElementById('carouselIndicators');
         
-        // Wait a bit for images to load, then populate
-        setTimeout(() => {
-            if (existingScreenshots.length === 0) {
-                // Fallback to default list if no images found
-                existingScreenshots.push('cover', 'section1', 'section2', 'section3');
-            }
-            
-            carousel.innerHTML = existingScreenshots.map((screenshot, index) => `
+        if (screenshots.length === 0) {
+            console.log(`No screenshots found for ${projectId}`);
+            return;
+        }
+        
+        console.log(`Found ${screenshots.length} screenshots for ${projectId}:`, screenshots);
+        
+        // Populate carousel with found images
+        carousel.innerHTML = screenshots.map((filename, index) => {
+            const screenshotName = filename.replace('.jpg', '').replace('.png', '');
+            return `
                 <div class="w-full flex-shrink-0">
-                    <img src="assets/projects/${projectId}/screenshots/${screenshot}.jpg" 
-                         alt="${this.currentProject.name} - ${screenshot}" 
+                    <img src="assets/projects/${projectId}/screenshots/${filename}" 
+                         alt="${this.currentProject.name} - ${screenshotName}" 
                          class="w-full h-auto rounded-xl"
-                         loading="lazy"
-                         onerror="console.log('Image load error:', this.src); this.style.display='none';">
+                         loading="lazy">
                 </div>
-            `).join('');
+            `;
+        }).join('');
 
-            indicators.innerHTML = existingScreenshots.map((_, index) => `
-                <button data-screenshot-index="${index}" class="w-2 h-2 rounded-full transition-colors ${
-                    index === 0 ? 'bg-orange-500' : 'bg-gray-600 hover:bg-gray-500'
-                }"></button>
-            `).join('');
+        // Populate indicators
+        indicators.innerHTML = screenshots.map((_, index) => `
+            <button data-screenshot-index="${index}" class="w-2 h-2 rounded-full transition-colors ${
+                index === 0 ? 'bg-orange-500' : 'bg-gray-600 hover:bg-gray-500'
+            }"></button>
+        `).join('');
 
-            // Add click listeners to indicators
-            indicators.querySelectorAll('button').forEach(button => {
-                button.addEventListener('click', () => {
-                    const index = parseInt(button.getAttribute('data-screenshot-index'));
-                    this.goToScreenshot(index);
-                });
+        // Add click listeners to indicators
+        indicators.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', () => {
+                const index = parseInt(button.getAttribute('data-screenshot-index'));
+                this.goToScreenshot(index);
             });
+        });
 
-            this.updateCarouselPosition();
-        }, 100);
+        this.updateCarouselPosition();
     }
 
     getProjectId() {
-        return Object.keys(this.projects).find(key => this.projects[key] === this.currentProject);
+        return this.currentProject.id;
+    }
+
+    // Project navigation methods
+    nextProject() {
+        this.currentProjectIndex = (this.currentProjectIndex + 1) % this.projects.length;
+        this.currentProject = this.projects[this.currentProjectIndex];
+        this.currentScreenshotIndex = 0;
+        this.populateModal();
+    }
+
+    previousProject() {
+        this.currentProjectIndex = (this.currentProjectIndex - 1 + this.projects.length) % this.projects.length;
+        this.currentProject = this.projects[this.currentProjectIndex];
+        this.currentScreenshotIndex = 0;
+        this.populateModal();
+    }
+
+    // Swipe support for mobile
+    addSwipeSupport() {
+        if (typeof Hammer === 'undefined') return;
+        
+        const modalContent = this.modal.querySelector('.glass');
+        if (!modalContent) return;
+        
+        const hammer = new Hammer(modalContent);
+        
+        // Horizontal swipe for project navigation
+        hammer.on('swipeleft', () => {
+            this.nextProject();
+        });
+        
+        hammer.on('swiperight', () => {
+            this.previousProject();
+        });
     }
 
     showModal() {
         this.modal.classList.remove('hidden');
+        // Show project navigation buttons
+        const prevBtn = document.getElementById('prevProjectBtn');
+        const nextBtn = document.getElementById('nextProjectBtn');
+        if (prevBtn) prevBtn.classList.remove('hidden');
+        if (nextBtn) nextBtn.classList.remove('hidden');
+        
         // Force a reflow to ensure the transition works properly
         this.modal.offsetHeight;
         setTimeout(() => {
@@ -491,8 +629,15 @@ class ProjectModal {
         this.modal.classList.add('opacity-0');
         this.modal.querySelector('.transform').classList.remove('scale-100');
         this.modal.querySelector('.transform').classList.add('scale-95');
+        
+        // Hide project navigation buttons
+        const prevBtn = document.getElementById('prevProjectBtn');
+        const nextBtn = document.getElementById('nextProjectBtn');
+        
         setTimeout(() => {
             this.modal.classList.add('hidden');
+            if (prevBtn) prevBtn.classList.add('hidden');
+            if (nextBtn) nextBtn.classList.add('hidden');
         }, 300);
     }
 
@@ -500,7 +645,6 @@ class ProjectModal {
         const carousel = document.getElementById('screenshotCarousel');
         if (!carousel) return;
         
-        const actualScreenshots = ['cover', 'section1', 'section2', 'section3'];
         carousel.style.transform = `translateX(-${this.currentScreenshotIndex * 100}%)`;
         
         // Update indicators
@@ -520,14 +664,20 @@ class ProjectModal {
     }
 
     nextScreenshot() {
-        const actualScreenshots = ['cover', 'section1', 'section2', 'section3'];
-        this.currentScreenshotIndex = (this.currentScreenshotIndex + 1) % actualScreenshots.length;
+        const indicators = document.getElementById('carouselIndicators');
+        if (!indicators) return;
+        
+        const totalScreenshots = indicators.children.length;
+        this.currentScreenshotIndex = (this.currentScreenshotIndex + 1) % totalScreenshots;
         this.updateCarouselPosition();
     }
 
     previousScreenshot() {
-        const actualScreenshots = ['cover', 'section1', 'section2', 'section3'];
-        this.currentScreenshotIndex = (this.currentScreenshotIndex - 1 + actualScreenshots.length) % actualScreenshots.length;
+        const indicators = document.getElementById('carouselIndicators');
+        if (!indicators) return;
+        
+        const totalScreenshots = indicators.children.length;
+        this.currentScreenshotIndex = (this.currentScreenshotIndex - 1 + totalScreenshots) % totalScreenshots;
         this.updateCarouselPosition();
     }
 

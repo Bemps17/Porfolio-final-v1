@@ -1,0 +1,33 @@
+/* Modal Project Navigation Arrows */
+#prevProjectBtn,
+#nextProjectBtn {
+    /* Ensure they're visible outside the modal */
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+/* Hover effects */
+#prevProjectBtn:hover,
+#nextProjectBtn:hover {
+    box-shadow: 0 0 30px rgba(249, 115, 22, 0.6), 0 0 60px rgba(249, 115, 22, 0.3);
+}
+
+/* Active state */
+#prevProjectBtn:active,
+#nextProjectBtn:active {
+    transform: scale(0.95);
+}
+
+/* Mobile responsiveness - hide on small screens */
+@media (max-width: 640px) {
+    #prevProjectBtn,
+    #nextProjectBtn {
+        display: none !important;
+    }
+}
+
+/* Ensure buttons stay on top of modal backdrop */
+#projectModal #prevProjectBtn,
+#projectModal #nextProjectBtn {
+    z-index: 51;
+}
