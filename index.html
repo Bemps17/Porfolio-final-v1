@@ -354,101 +354,307 @@
           
           
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                <!-- ToolPools -->
-                <div class="glass rounded-xl sm:rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform group">
-                    <div class="h-40 sm:h-48 gradient-bg flex items-center justify-center">
-                        <i class="fas fa-bowling-ball text-5xl text-white opacity-80 group-hover:scale-110 transition-transform"></i>
+                <!-- CoursFull -->
+                <div class="glass rounded-xl sm:rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform group cursor-pointer" onclick="openProjectModal('coursfull')">
+                    <div class="h-40 sm:h-48 bg-gradient-to-r from-indigo-500 to-purple-500 flex items-center justify-center relative overflow-hidden">
+                        <img src="assets/projects/coursfull/screenshots/cover.jpg" alt="CoursFull" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/40"></div>
+                        <i class="fas fa-graduation-cap text-5xl text-white opacity-90 z-10"></i>
                     </div>
                     <div class="p-4 sm:p-6">
-                        <h3 class="text-lg sm:text-xl font-bold mb-2">ToolPools</h3>
-                        <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base">Application complète pour joueurs et arbitres de billard anglais</p>
+                        <h3 class="text-lg sm:text-xl font-bold mb-2">CoursFull</h3>
+                        <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base">Plateforme d'apprentissage en ligne</p>
                         <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">HTML5</span>
                             <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">JavaScript</span>
-                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Game Logic</span>
-                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">UI/UX</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Education</span>
                         </div>
-                        <p class="text-xs text-orange-400 mt-3">📝 Détails à venir</p>
+                        <p class="text-xs text-orange-400 mt-3">🖱️ Cliquez pour voir les détails</p>
                     </div>
                 </div>
-                
-                <!-- Pointeuse -->
-                <div class="glass rounded-xl sm:rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform group">
-                    <div class="h-40 sm:h-48 bg-gradient-to-r from-orange-600 to-orange-400 flex items-center justify-center">
-                        <i class="fas fa-clock text-5xl text-white opacity-80 group-hover:scale-110 transition-transform"></i>
+
+                <!-- SnippetBank -->
+                <div class="glass rounded-xl sm:rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform group cursor-pointer" onclick="openProjectModal('snippetbank')">
+                    <div class="h-40 sm:h-48 bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center relative overflow-hidden">
+                        <img src="assets/projects/snippetbank/screenshots/cover.jpg" alt="SnippetBank" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/40"></div>
+                        <i class="fas fa-code text-5xl text-white opacity-90 z-10"></i>
                     </div>
                     <div class="p-4 sm:p-6">
-                        <h3 class="text-lg sm:text-xl font-bold mb-2">Pointeuse Digitale</h3>
-                        <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base">Application de calcul et gestion du temps de travail</p>
+                        <h3 class="text-lg sm:text-xl font-bold mb-2">SnippetBank</h3>
+                        <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base">Banque de snippets pour développeurs</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">JavaScript</span>
-                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">LocalStorage</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Code</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Storage</span>
+                        </div>
+                        <p class="text-xs text-orange-400 mt-3">🖱️ Cliquez pour voir les détails</p>
+                    </div>
+                </div>
+
+                <!-- AHistory -->
+                <div class="glass rounded-xl sm:rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform group cursor-pointer" onclick="openProjectModal('ahistory')">
+                    <div class="h-40 sm:h-48 bg-gradient-to-r from-amber-500 to-orange-500 flex items-center justify-center relative overflow-hidden">
+                        <img src="assets/projects/ahistory/screenshots/cover.jpg" alt="AHistory" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/40"></div>
+                        <i class="fas fa-landmark text-5xl text-white opacity-90 z-10"></i>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-bold mb-2">AHistory</h3>
+                        <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base">Timeline historique interactive</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Timeline</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Maps</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Education</span>
+                        </div>
+                        <p class="text-xs text-orange-400 mt-3">🖱️ Cliquez pour voir les détails</p>
+                    </div>
+                </div>
+
+                <!-- PoolTimer -->
+                <div class="glass rounded-xl sm:rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform group cursor-pointer" onclick="openProjectModal('pooltimer')">
+                    <div class="h-40 sm:h-48 bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center relative overflow-hidden">
+                        <img src="assets/projects/pooltimer/screenshots/cover.jpg" alt="PoolTimer" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/40"></div>
+                        <i class="fas fa-stopwatch text-5xl text-white opacity-90 z-10"></i>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-bold mb-2">PoolTimer</h3>
+                        <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base">Chronomètre pour billard anglais</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Timer</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Stats</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Sports</span>
+                        </div>
+                        <p class="text-xs text-orange-400 mt-3">🖱️ Cliquez pour voir les détails</p>
+                    </div>
+                </div>
+
+                <!-- PoolTools -->
+                <div class="glass rounded-xl sm:rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform group cursor-pointer" onclick="openProjectModal('pooltools')">
+                    <div class="h-40 sm:h-48 bg-gradient-to-r from-teal-500 to-cyan-500 flex items-center justify-center relative overflow-hidden">
+                        <img src="assets/projects/pooltools/screenshots/cover.jpg" alt="PoolTools" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/40"></div>
+                        <i class="fas fa-toolbox text-5xl text-white opacity-90 z-10"></i>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-bold mb-2">PoolTools</h3>
+                        <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base">Suite d'outils pour billard</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Canvas</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Physics</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Simulation</span>
+                        </div>
+                        <p class="text-xs text-orange-400 mt-3">🖱️ Cliquez pour voir les détails</p>
+                    </div>
+                </div>
+
+                <!-- PoolScore -->
+                <div class="glass rounded-xl sm:rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform group cursor-pointer" onclick="openProjectModal('poolscore')">
+                    <div class="h-40 sm:h-48 bg-gradient-to-r from-blue-600 to-indigo-600 flex items-center justify-center relative overflow-hidden">
+                        <img src="assets/projects/poolscore/screenshots/cover.jpg" alt="PoolScore" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/40"></div>
+                        <i class="fas fa-trophy text-5xl text-white opacity-90 z-10"></i>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-bold mb-2">PoolScore</h3>
+                        <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base">Système de notation de tournois</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">WebSocket</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Charts</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Tournament</span>
+                        </div>
+                        <p class="text-xs text-orange-400 mt-3">🖱️ Cliquez pour voir les détails</p>
+                    </div>
+                </div>
+
+                <!-- MaPointeuse -->
+                <div class="glass rounded-xl sm:rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform group cursor-pointer" onclick="openProjectModal('mapointeuse')">
+                    <div class="h-40 sm:h-48 bg-gradient-to-r from-orange-600 to-red-600 flex items-center justify-center relative overflow-hidden">
+                        <img src="assets/projects/mapointeuse/screenshots/cover.jpg" alt="MaPointeuse" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/40"></div>
+                        <i class="fas fa-clock text-5xl text-white opacity-90 z-10"></i>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-bold mb-2">MaPointeuse</h3>
+                        <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base">Pointeuse digitale temps de travail</p>
+                        <div class="flex flex-wrap gap-2">
                             <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">PWA</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">PDF</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Reports</span>
                         </div>
-                        <p class="text-xs text-orange-400 mt-3">📝 Détails à venir</p>
+                        <p class="text-xs text-orange-400 mt-3">🖱️ Cliquez pour voir les détails</p>
                     </div>
                 </div>
-                
-                <!-- Organisateur Pomodoro -->
-                <div class="glass rounded-xl sm:rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform group">
-                    <div class="h-40 sm:h-48 bg-gradient-to-r from-orange-500 to-red-500 flex items-center justify-center">
-                        <i class="fas fa-tasks text-5xl text-white opacity-80 group-hover:scale-110 transition-transform"></i>
+
+                <!-- JuriAide -->
+                <div class="glass rounded-xl sm:rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform group cursor-pointer" onclick="openProjectModal('juriaide')">
+                    <div class="h-40 sm:h-48 bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center relative overflow-hidden">
+                        <img src="assets/projects/juriaide/screenshots/cover.jpg" alt="JuriAide" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/40"></div>
+                        <i class="fas fa-balance-scale text-5xl text-white opacity-90 z-10"></i>
                     </div>
                     <div class="p-4 sm:p-6">
-                        <h3 class="text-lg sm:text-xl font-bold mb-2">Task Manager & Pomodoro</h3>
-                        <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base">Gestionnaire de priorités avec timer Pomodoro intégré</p>
+                        <h3 class="text-lg sm:text-xl font-bold mb-2">JuriAide</h3>
+                        <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base">Assistant juridique numérique</p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">React</span>
-                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Timer API</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Legal</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Documents</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Guidance</span>
+                        </div>
+                        <p class="text-xs text-orange-400 mt-3">🖱️ Cliquez pour voir les détails</p>
+                    </div>
+                </div>
+
+                <!-- VacancesLR -->
+                <div class="glass rounded-xl sm:rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform group cursor-pointer" onclick="openProjectModal('vacanceslr')">
+                    <div class="h-40 sm:h-48 bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center relative overflow-hidden">
+                        <img src="assets/projects/vacanceslr/screenshots/cover.jpg" alt="VacancesLR" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/40"></div>
+                        <i class="fas fa-umbrella-beach text-5xl text-white opacity-90 z-10"></i>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-bold mb-2">VacancesLR</h3>
+                        <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base">Planificateur intelligent de vacances</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Weather API</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Maps</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Travel</span>
+                        </div>
+                        <p class="text-xs text-orange-400 mt-3">🖱️ Cliquez pour voir les détails</p>
+                    </div>
+                </div>
+
+                <!-- WorkFloow -->
+                <div class="glass rounded-xl sm:rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform group cursor-pointer" onclick="openProjectModal('workfloow')">
+                    <div class="h-40 sm:h-48 bg-gradient-to-r from-indigo-500 to-purple-500 flex items-center justify-center relative overflow-hidden">
+                        <img src="assets/projects/workfloow/screenshots/cover.jpg" alt="WorkFloow" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/40"></div>
+                        <i class="fas fa-project-diagram text-5xl text-white opacity-90 z-10"></i>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-bold mb-2">WorkFloow</h3>
+                        <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base">Gestion de flux de travail d'équipe</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Kanban</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">WebSocket</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Team</span>
+                        </div>
+                        <p class="text-xs text-orange-400 mt-3">🖱️ Cliquez pour voir les détails</p>
+                    </div>
+                </div>
+
+                <!-- ChronOrganizer -->
+                <div class="glass rounded-xl sm:rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform group cursor-pointer" onclick="openProjectModal('chronorganizer')">
+                    <div class="h-40 sm:h-48 bg-gradient-to-r from-orange-500 to-red-500 flex items-center justify-center relative overflow-hidden">
+                        <img src="assets/projects/chronorganizer/screenshots/cover.jpg" alt="ChronOrganizer" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/40"></div>
+                        <i class="fas fa-hourglass-half text-5xl text-white opacity-90 z-10"></i>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-bold mb-2">ChronOrganizer</h3>
+                        <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base">Organisateur avec Pomodoro intégré</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Timer</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Audio API</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Productivity</span>
+                        </div>
+                        <p class="text-xs text-orange-400 mt-3">🖱️ Cliquez pour voir les détails</p>
+                    </div>
+                </div>
+
+                <!-- Eisenhower Matrix -->
+                <div class="glass rounded-xl sm:rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform group cursor-pointer" onclick="openProjectModal('eisenhowermatrixv1')">
+                    <div class="h-40 sm:h-48 bg-gradient-to-r from-emerald-500 to-teal-500 flex items-center justify-center relative overflow-hidden">
+                        <img src="assets/projects/eisenhowermatrixv1/screenshots/cover.jpg" alt="Eisenhower Matrix" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/40"></div>
+                        <i class="fas fa-th text-5xl text-white opacity-90 z-10"></i>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-bold mb-2">Eisenhower Matrix</h3>
+                        <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base">Gestion des priorités efficace</p>
+                        <div class="flex flex-wrap gap-2">
                             <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Drag & Drop</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Matrix</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Priority</span>
                         </div>
+                        <p class="text-xs text-orange-400 mt-3">🖱️ Cliquez pour voir les détails</p>
                     </div>
                 </div>
-                
-                <!-- Planificateur Vacances -->
-                <div class="glass rounded-xl sm:rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform group">
-                    <div class="h-40 sm:h-48 bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center">
-                        <i class="fas fa-umbrella-beach text-5xl text-white opacity-80 group-hover:scale-110 transition-transform"></i>
+
+                <!-- SuiviJardin -->
+                <div class="glass rounded-xl sm:rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform group cursor-pointer" onclick="openProjectModal('suivijardin')">
+                    <div class="h-40 sm:h-48 bg-gradient-to-r from-green-600 to-emerald-600 flex items-center justify-center relative overflow-hidden">
+                        <img src="assets/projects/suivijardin/screenshots/cover.jpg" alt="SuiviJardin" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/40"></div>
+                        <i class="fas fa-seedling text-5xl text-white opacity-90 z-10"></i>
                     </div>
                     <div class="p-4 sm:p-6">
-                        <h3 class="text-lg sm:text-xl font-bold mb-2">Planificateur Vacances</h3>
-                        <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base">Organisateur avec API météo et suggestions d'activités</p>
+                        <h3 class="text-lg sm:text-xl font-bold mb-2">SuiviJardin</h3>
+                        <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base">Application de suivi de jardinage</p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">API Weather</span>
-                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">JavaScript</span>
-                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Maps API</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Nature</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Weather</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Garden</span>
                         </div>
+                        <p class="text-xs text-orange-400 mt-3">🖱️ Cliquez pour voir les détails</p>
                     </div>
                 </div>
-                
-                <!-- Site WordPress BTS -->
-                <div class="glass rounded-xl sm:rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform group">
-                    <div class="h-40 sm:h-48 bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
-                        <i class="fab fa-wordpress text-5xl text-white opacity-80 group-hover:scale-110 transition-transform"></i>
+
+                <!-- GuideStream -->
+                <div class="glass rounded-xl sm:rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform group cursor-pointer" onclick="openProjectModal('guidestream')">
+                    <div class="h-40 sm:h-48 bg-gradient-to-r from-red-600 to-pink-600 flex items-center justify-center relative overflow-hidden">
+                        <img src="assets/projects/guidestream/screenshots/cover.jpg" alt="GuideStream" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/40"></div>
+                        <i class="fas fa-play-circle text-5xl text-white opacity-90 z-10"></i>
                     </div>
                     <div class="p-4 sm:p-6">
-                        <h3 class="text-lg sm:text-xl font-bold mb-2">Site WordPress BTS</h3>
-                        <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base">Création complète d'un site pour examen BTS Blanc</p>
+                        <h3 class="text-lg sm:text-xl font-bold mb-2">GuideStream</h3>
+                        <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base">Streaming avec guides interactifs</p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">WordPress</span>
-                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Custom Theme</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Video API</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">WebRTC</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Interactive</span>
+                        </div>
+                        <p class="text-xs text-orange-400 mt-3">🖱️ Cliquez pour voir les détails</p>
+                    </div>
+                </div>
+
+                <!-- Flutterisation -->
+                <div class="glass rounded-xl sm:rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform group cursor-pointer" onclick="openProjectModal('flutterisation')">
+                    <div class="h-40 sm:h-48 bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center relative overflow-hidden">
+                        <img src="assets/projects/flutterisation/screenshots/cover.jpg" alt="Flutterisation" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/40"></div>
+                        <i class="fas fa-mobile-alt text-5xl text-white opacity-90 z-10"></i>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-bold mb-2">Flutterisation</h3>
+                        <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base">Outils pour développement Flutter</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Flutter</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Dart</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Mobile</span>
+                        </div>
+                        <p class="text-xs text-orange-400 mt-3">🖱️ Cliquez pour voir les détails</p>
+                    </div>
+                </div>
+
+                <!-- SEO Checking -->
+                <div class="glass rounded-xl sm:rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform group cursor-pointer" onclick="openProjectModal('seo-checking')">
+                    <div class="h-40 sm:h-48 bg-gradient-to-r from-purple-500 to-indigo-500 flex items-center justify-center relative overflow-hidden">
+                        <img src="assets/projects/seo-checking/screenshots/cover.jpg" alt="SEO Checking" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/40"></div>
+                        <i class="fas fa-search text-5xl text-white opacity-90 z-10"></i>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-bold mb-2">SEO Checking</h3>
+                        <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base">Outil d'analyse SEO complet</p>
+                        <div class="flex flex-wrap gap-2">
                             <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">SEO</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Analytics</span>
+                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Reports</span>
                         </div>
-                    </div>
-                </div>
-                
-                <!-- Identité Visuelle Hangar 8 -->
-                <div class="glass rounded-xl sm:rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform group">
-                    <div class="h-40 sm:h-48 bg-gradient-to-r from-green-500 to-teal-500 flex items-center justify-center">
-                        <i class="fas fa-warehouse text-5xl text-white opacity-80 group-hover:scale-110 transition-transform"></i>
-                    </div>
-                    <div class="p-4 sm:p-6">
-                        <h3 class="text-lg sm:text-xl font-bold mb-2">Identité Visuelle - Hangar 8</h3>
-                        <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base">Création complète de l'identité visuelle pour Le Hangar 8 à Puilboreau</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Logo Design</span>
-                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Charte Graphique</span>
-                            <span class="text-xs px-2 py-1 sm:px-3 glass-orange rounded-full">Illustrator</span>
-                        </div>
+                        <p class="text-xs text-orange-400 mt-3">🖱️ Cliquez pour voir les détails</p>
                     </div>
                 </div>
             </div>
@@ -929,5 +1135,6 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.min.js"></script>
     <script src="js/save.js" defer></script>
     <script src="js/main.js" defer></script>
+    <script src="js/project-modal.js" defer></script>
 </body>
 </html>
