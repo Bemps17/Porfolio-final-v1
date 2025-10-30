@@ -1,0 +1,116 @@
+/* Technology Filter Styles */
+
+#techFilterContainer {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.05) 0%, rgba(249, 115, 22, 0.02) 100%);
+    border-radius: 1rem;
+    border: 1px solid rgba(249, 115, 22, 0.1);
+    /* Hidden by default */
+    display: none;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.4s ease;
+}
+
+#techFilterContainer.visible {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.tech-filter-btn {
+    font-weight: 500;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.tech-filter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.2);
+}
+
+.tech-filter-btn.active {
+    background-color: #f97316;
+    color: white;
+    border-color: #f97316;
+}
+
+/* Skills Section - Clickable Items */
+#skills-grid > div.skill-clickable {
+    cursor: pointer;
+    position: relative;
+}
+
+#skills-grid > div.skill-clickable:hover {
+    transform: scale(1.15) translateY(-4px);
+    box-shadow: 0 8px 25px rgba(249, 115, 22, 0.3);
+    z-index: 10;
+}
+
+#skills-grid > div.skill-clickable::after {
+    content: '🔍';
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    font-size: 0.75rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#skills-grid > div.skill-clickable:hover::after {
+    opacity: 1;
+}
+
+/* Highlight state for selected skill */
+#skills-grid > div.ring-4 {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(249, 115, 22, 0);
+    }
+}
+
+/* Project card animations */
+[data-project-id] {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+[data-project-id].fade-in {
+    animation: fadeInScale 0.3s ease forwards;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #techFilterContainer {
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+
+    .tech-filter-btn {
+        font-size: 0.85rem;
+        padding: 0.5rem 1rem !important;
+    }
+
+    #skills-grid > div.skill-clickable::after {
+        display: none;
+    }
+}

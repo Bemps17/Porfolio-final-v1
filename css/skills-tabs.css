@@ -1,0 +1,253 @@
+/* Skills Tabs Styles */
+.skill-tab-btn {
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.skill-tab-btn:hover {
+    border-color: rgba(249, 115, 22, 0.5);
+    transform: translateY(-2px);
+}
+
+.skill-tab-btn.active {
+    background-color: #f97316;
+    color: white;
+    border-color: #f97316;
+    transform: scale(1.05);
+}
+
+/* Tab Content Transitions */
+.skill-tab-content {
+    animation: fadeInUp 0.4s ease forwards;
+}
+
+.skill-tab-content.hidden {
+    display: none;
+    animation: none;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Reset animation when tab becomes active */
+.skill-tab-content:not(.hidden) {
+    animation: fadeInUp 0.4s ease forwards;
+}
+
+/* Accordion Styles */
+.accordion {
+    border-radius: 1rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.accordion-header {
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(31, 41, 55, 0.8) 100%);
+    border: 1px solid rgba(249, 115, 22, 0.2);
+    border-radius: 1rem;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-header:hover {
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.2) 0%, rgba(31, 41, 55, 0.9) 100%);
+    border-color: rgba(249, 115, 22, 0.4);
+    transform: translateY(-2px);
+}
+
+.accordion-header.active {
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.3) 0%, rgba(31, 41, 55, 1) 100%);
+    border-color: #f97316;
+}
+
+.accordion-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.accordion-icon {
+    transition: transform 0.3s ease;
+    color: #f97316;
+}
+
+.accordion-header.active .accordion-icon {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 1.5rem;
+}
+
+.accordion-content.active {
+    max-height: 1000px;
+    padding: 1.5rem;
+}
+
+/* Bento Grid Styles */
+.bento-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.bento-item {
+    background: rgba(31, 41, 55, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.bento-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--category-color) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.bento-item:hover::before {
+    opacity: 1;
+}
+
+.bento-item:hover {
+    transform: translateY(-4px);
+    border-color: var(--category-color);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.bento-item.large {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.bento-item.wide {
+    grid-column: span 2;
+}
+
+.bento-item.tall {
+    grid-row: span 2;
+}
+
+.bento-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.bento-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.75rem;
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, var(--category-color) 0%, rgba(31, 41, 55, 0.8) 100%);
+    color: white;
+}
+
+.bento-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+}
+
+.bento-content {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.bento-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.bento-skill {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.9);
+    transition: all 0.2s ease;
+}
+
+.bento-skill:hover {
+    background: var(--category-color);
+    border-color: var(--category-color);
+    transform: scale(1.05);
+}
+
+/* Category Colors */
+.accordion[data-category="frontend"] { --category-color: #f97316; }
+.accordion[data-category="backend"] { --category-color: #10b981; }
+.accordion[data-category="design"] { --category-color: #a855f7; }
+.accordion[data-category="cms"] { --category-color: #3b82f6; }
+.accordion[data-category="data"] { --category-color: #14b8a6; }
+.accordion[data-category="ia"] { --category-color: #06b6d4; }
+.accordion[data-category="communication"] { --category-color: #6366f1; }
+.accordion[data-category="devops"] { --category-color: #ef4444; }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .bento-item.large,
+    .bento-item.wide {
+        grid-column: span 1;
+    }
+    
+    .accordion-header {
+        padding: 0.75rem 1rem;
+    }
+    
+    .accordion-content {
+        padding: 0 1rem;
+    }
+    
+    .accordion-content.active {
+        padding: 1rem;
+    }
+    
+    .bento-item {
+        padding: 1rem;
+    }
+    
+    .bento-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.25rem;
+    }
+}

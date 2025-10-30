@@ -210,40 +210,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 observer.observe(section);
             });
 
-            // === EASTER EGG FOR OBJECTIVES ===
-            const iaToolsBtn = document.getElementById('ia-tools-btn');
-            const objectifsSection = document.getElementById('objectifs-section');
-            const objectifsCloseBtn = document.getElementById('objectifs-close-btn');
-
-            const openObjectives = () => {
-                if (!objectifsSection) return;
-                objectifsSection.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-            };
-
-            const closeObjectives = () => {
-                if (!objectifsSection) return;
-                objectifsSection.classList.add('hidden');
-                document.body.style.overflow = '';
-            };
-
-            if (iaToolsBtn && objectifsSection && objectifsCloseBtn) {
-                iaToolsBtn.addEventListener('click', openObjectives);
-                objectifsCloseBtn.addEventListener('click', closeObjectives);
-                // Close on outside click
-                objectifsSection.addEventListener('click', (e) => {
-                    if (e.target === objectifsSection) {
-                        closeObjectives();
-                    }
-                });
-                // Close with Escape key
-                document.addEventListener('keydown', (e) => {
-                    if (e.key === 'Escape' && !objectifsSection.classList.contains('hidden')) {
-                        closeObjectives();
-                    }
-                });
-            }
-
             // === LINKEDIN BUTTON in skills ===
             const linkedinBtn = document.getElementById('linkedin-btn');
             if (linkedinBtn) {

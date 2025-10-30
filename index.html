@@ -49,6 +49,10 @@
     <link rel="stylesheet" href="css/quick-accessibility-fix.css">
     <!-- Modal Navigation Styles -->
     <link rel="stylesheet" href="css/modal-navigation.css">
+    <!-- Technology Filter Styles -->
+    <link rel="stylesheet" href="css/tech-filter.css">
+    <!-- Skills Tabs Styles -->
+    <link rel="stylesheet" href="css/skills-tabs.css">
     <style>
         /* Styles for the modal have been removed as it's no longer used. */
 </style>
@@ -341,6 +345,798 @@
             </div>
         </div>
     </section>
+    
+    <!-- Skills Grid - Mobile First -->
+    <section class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto max-w-6xl">
+            <div id="skills" class="text-center mb-12 sm:mb-16">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">
+                    Mon <span class="text-gradient-orange">Savoir-Faire</span>
+                </h2>
+                <p class="text-lg sm:text-xl text-gray-400 mb-8">Compétences techniques & comportementales</p>
+                
+                <!-- Tabs Navigation -->
+                <div class="flex justify-center mb-8">
+                    <div class="glass rounded-full p-1 flex gap-2">
+                        <button class="skill-tab-btn px-4 py-2 rounded-full text-sm font-medium transition-all bg-orange-500 text-white active" data-tab="technical-tab">
+                            Compétences Techniques
+                        </button>
+                        <button class="skill-tab-btn px-4 py-2 rounded-full text-sm font-medium transition-all text-gray-300 hover:text-white" data-tab="soft-tab">
+                            Soft Skills
+                        </button>
+                        <button class="skill-tab-btn px-4 py-2 rounded-full text-sm font-medium transition-all text-gray-300 hover:text-white" data-tab="objectives-tab">
+                            Objectifs
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Skills Content with Tabs -->
+            <div id="skills-content">
+                <!-- Technical Skills Tab -->
+                <div id="technical-tab" class="skill-tab-content">
+                    <!-- Frontend Accordion -->
+                    <div class="accordion" data-category="frontend">
+                        <div class="accordion-header">
+                            <div class="accordion-title">
+                                <i class="fas fa-code text-orange-400"></i>
+                                <span>Développement Frontend</span>
+                            </div>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="bento-grid">
+                                <div class="bento-item wide">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fab fa-html5"></i>
+                                        </div>
+                                        <div class="bento-title">Core Frontend</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        Les fondations du développement web moderne avec HTML5 sémantique, CSS3 avancé et JavaScript ES6+.
+                                    </div>
+                                    <div class="bento-skills">
+                                        <span class="bento-skill">HTML5</span>
+                                        <span class="bento-skill">CSS3</span>
+                                        <span class="bento-skill">JavaScript</span>
+                                    </div>
+                                </div>
+                                <div class="bento-item">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fab fa-react"></i>
+                                        </div>
+                                        <div class="bento-title">React</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        Hooks, Context API, Performance, Composants réutilisables
+                                    </div>
+                                </div>
+                                <div class="bento-item">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fab fa-vuejs"></i>
+                                        </div>
+                                        <div class="bento-title">Vue.js</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        Composition API, Vuex, Reactive programming
+                                    </div>
+                                </div>
+                                <div class="bento-item">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fas fa-bolt"></i>
+                                        </div>
+                                        <div class="bento-title">Vite</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        Build tool ultra-rapide pour développement moderne
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Backend Accordion -->
+                    <div class="accordion" data-category="backend">
+                        <div class="accordion-header">
+                            <div class="accordion-title">
+                                <i class="fas fa-server text-green-400"></i>
+                                <span>Développement Backend</span>
+                            </div>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="bento-grid">
+                                <div class="bento-item wide">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fab fa-node"></i>
+                                        </div>
+                                        <div class="bento-title">Node.js</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        Runtime JavaScript côté serveur avec écosystème npm complet
+                                    </div>
+                                    <div class="bento-skills">
+                                        <span class="bento-skill">Express</span>
+                                        <span class="bento-skill">APIs REST</span>
+                                        <span class="bento-skill">Middleware</span>
+                                    </div>
+                                </div>
+                                <div class="bento-item">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fab fa-php"></i>
+                                        </div>
+                                        <div class="bento-title">PHP</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        WordPress, Symfony, Laravel, développement backend robuste
+                                    </div>
+                                </div>
+                                <div class="bento-item">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fab fa-python"></i>
+                                        </div>
+                                        <div class="bento-title">Python</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        Django, Flask, APIs, Data Science, Automatisation
+                                    </div>
+                                </div>
+                                <div class="bento-item tall">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fas fa-database"></i>
+                                        </div>
+                                        <div class="bento-title">Bases de données</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        Gestion et optimisation des données pour applications scalables
+                                    </div>
+                                    <div class="bento-skills">
+                                        <span class="bento-skill">MySQL</span>
+                                        <span class="bento-skill">PostgreSQL</span>
+                                        <span class="bento-skill">MongoDB</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Design Accordion -->
+                    <div class="accordion" data-category="design">
+                        <div class="accordion-header">
+                            <div class="accordion-title">
+                                <i class="fas fa-palette text-purple-400"></i>
+                                <span>Design & Création</span>
+                            </div>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="bento-grid">
+                                <div class="bento-item large">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fab fa-figma"></i>
+                                        </div>
+                                        <div class="bento-title">Figma</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        Design collaboratif, prototypage interactif, design systems, UI/UX moderne. Création d'interfaces complètes avec composants réutilisables et animations.
+                                    </div>
+                                    <div class="bento-skills">
+                                        <span class="bento-skill">UI/UX</span>
+                                        <span class="bento-skill">Prototypes</span>
+                                        <span class="bento-skill">Design Systems</span>
+                                        <span class="bento-skill">Wireframing</span>
+                                    </div>
+                                </div>
+                                <div class="bento-item">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fas fa-palette"></i>
+                                        </div>
+                                        <div class="bento-title">Photoshop</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        Retouche photo, web design, bannières publicitaires
+                                    </div>
+                                </div>
+                                <div class="bento-item">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fas fa-vector-square"></i>
+                                        </div>
+                                        <div class="bento-title">Illustrator</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        Logos, illustrations, design vectoriel professionnel
+                                    </div>
+                                </div>
+                                <div class="bento-item">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fas fa-pen"></i>
+                                        </div>
+                                        <div class="bento-title">Canva</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        Templates, social media, design rapide et efficace
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CMS & E-commerce Accordion -->
+                    <div class="accordion" data-category="cms">
+                        <div class="accordion-header">
+                            <div class="accordion-title">
+                                <i class="fas fa-wordpress text-blue-400"></i>
+                                <span>CMS & E-commerce</span>
+                            </div>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="bento-grid">
+                                <div class="bento-item wide">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fab fa-wordpress"></i>
+                                        </div>
+                                        <div class="bento-title">WordPress</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        Système de gestion de contenu flexible et puissant
+                                    </div>
+                                    <div class="bento-skills">
+                                        <span class="bento-skill">Thèmes</span>
+                                        <span class="bento-skill">Plugins</span>
+                                        <span class="bento-skill">WooCommerce</span>
+                                    </div>
+                                </div>
+                                <div class="bento-item">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fab fa-shopify"></i>
+                                        </div>
+                                        <div class="bento-title">Shopify</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        E-commerce professionnel avec Liquid et Apps
+                                    </div>
+                                </div>
+                                <div class="bento-item">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fas fa-cube"></i>
+                                        </div>
+                                        <div class="bento-title">Webflow</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        Design visuel avancé et interactions complexes
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data & Productivité Accordion -->
+                    <div class="accordion" data-category="data">
+                        <div class="accordion-header">
+                            <div class="accordion-title">
+                                <i class="fas fa-chart-line text-teal-400"></i>
+                                <span>Data & Productivité</span>
+                            </div>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="bento-grid">
+                                <div class="bento-item wide">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fas fa-file-excel"></i>
+                                        </div>
+                                        <div class="bento-title">Excel</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        Analyse de données, automatisation avec VBA, reporting avancé
+                                    </div>
+                                    <div class="bento-skills">
+                                        <span class="bento-skill">Formules</span>
+                                        <span class="bento-skill">Tableaux croisés</span>
+                                        <span class="bento-skill">VBA</span>
+                                    </div>
+                                </div>
+                                <div class="bento-item">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fas fa-database"></i>
+                                        </div>
+                                        <div class="bento-title">CRM</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        Salesforce, HubSpot, gestion client personnalisée
+                                    </div>
+                                </div>
+                                <div class="bento-item">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fas fa-file-csv"></i>
+                                        </div>
+                                        <div class="bento-title">Google Sheets</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        Scripts, automatisation, collaboration en temps réel
+                                    </div>
+                                </div>
+                                <div class="bento-item">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fas fa-table"></i>
+                                        </div>
+                                        <div class="bento-title">Airtable</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        Base de données collaborative, workflows, automatisation
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- IA & Automation Accordion -->
+                    <div class="accordion" data-category="ia">
+                        <div class="accordion-header">
+                            <div class="accordion-title">
+                                <i class="fas fa-robot text-cyan-400"></i>
+                                <span>IA & Automation</span>
+                            </div>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="bento-grid">
+                                <div class="bento-item wide">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fas fa-robot"></i>
+                                        </div>
+                                        <div class="bento-title">IA Tools ✨</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        Intelligence artificielle pour développement, design et productivité
+                                    </div>
+                                    <div class="bento-skills">
+                                        <span class="bento-skill">ChatGPT</span>
+                                        <span class="bento-skill">Midjourney</span>
+                                        <span class="bento-skill">Claude</span>
+                                        <span class="bento-skill">Gemini</span>
+                                        <span class="bento-skill">Perplexity AI</span>
+                                    </div>
+                                </div>
+                                <div class="bento-item wide">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fas fa-laptop-code"></i>
+                                        </div>
+                                        <div class="bento-title">LLM & IDE IA</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        Environnements de développement assistés par intelligence artificielle
+                                    </div>
+                                    <div class="bento-skills">
+                                        <span class="bento-skill">GitHub Copilot</span>
+                                        <span class="bento-skill">Windsurf</span>
+                                        <span class="bento-skill">Cursor</span>
+                                        <span class="bento-skill">Codeium</span>
+                                        <span class="bento-skill">Tabnine</span>
+                                    </div>
+                                </div>
+                                <div class="bento-item">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fas fa-project-diagram"></i>
+                                        </div>
+                                        <div class="bento-title">n8n</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        Workflows, intégrations, automatisation sans code
+                                    </div>
+                                </div>
+                                <div class="bento-item">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fas fa-bolt"></i>
+                                        </div>
+                                        <div class="bento-title">Zapier</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        Automatisation, connecteurs, intégrations multi-apps
+                                    </div>
+                                </div>
+                                <div class="bento-item">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fas fa-brain"></i>
+                                        </div>
+                                        <div class="bento-title">Notion AI</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        Rédaction assistée, résumés, brainstorming, organisation
+                                    </div>
+                                </div>
+                                <div class="bento-item">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fas fa-language"></i>
+                                        </div>
+                                        <div class="bento-title">DeepL</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        Traduction IA ultra-précise, contexte professionnel, multilingue
+                                    </div>
+                                </div>
+                                <div class="bento-item">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fas fa-microphone"></i>
+                                        </div>
+                                        <div class="bento-title">Whisper</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        Transcription audio IA, sous-titres, analyse vocale
+                                    </div>
+                                </div>
+                                <div class="bento-item">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fas fa-video"></i>
+                                        </div>
+                                        <div class="bento-title">RunwayML</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        Génération vidéo IA, effets spéciaux, montage intelligent
+                                    </div>
+                                </div>
+                                <div class="bento-item">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fas fa-music"></i>
+                                        </div>
+                                        <div class="bento-title">Suno AI</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        Génération musicale IA, compositions, soundtracks
+                                    </div>
+                                </div>
+                                <div class="bento-item">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fas fa-chart-line"></i>
+                                        </div>
+                                        <div class="bento-title">Jasper AI</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        Marketing content IA, SEO, copywriting, campagnes
+                                    </div>
+                                </div>
+                                <div class="bento-item">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fas fa-palette"></i>
+                                        </div>
+                                        <div class="bento-title">DALL-E 3</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        Génération d'images IA, design graphique, illustrations
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Veille & Communication Accordion -->
+                    <div class="accordion" data-category="communication">
+                        <div class="accordion-header">
+                            <div class="accordion-title">
+                                <i class="fas fa-rss text-indigo-400"></i>
+                                <span>Veille & Communication</span>
+                            </div>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="bento-grid">
+                                <div class="bento-item">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fab fa-linkedin"></i>
+                                        </div>
+                                        <div class="bento-title">LinkedIn</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        Personal branding, networking professionnel, développement carrière
+                                    </div>
+                                </div>
+                                <div class="bento-item">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fas fa-rss"></i>
+                                        </div>
+                                        <div class="bento-title">Veille Tech</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        RSS, newsletters, podcasts, veille technologique active
+                                    </div>
+                                </div>
+                                <div class="bento-item">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fas fa-search"></i>
+                                        </div>
+                                        <div class="bento-title">SEO</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        Analyse, optimisation, outils de référencement naturel
+                                    </div>
+                                </div>
+                                <div class="bento-item wide">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fas fa-users"></i>
+                                        </div>
+                                        <div class="bento-title">Community Management</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        Gestion des communautés, stratégie social media, création de contenu engageant
+                                    </div>
+                                    <div class="bento-skills">
+                                        <span class="bento-skill">Social Media</span>
+                                        <span class="bento-skill">Content Strategy</span>
+                                        <span class="bento-skill">Engagement</span>
+                                    </div>
+                                </div>
+                                <div class="bento-item">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fas fa-share-alt"></i>
+                                        </div>
+                                        <div class="bento-title">Buffer</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        Planification et automatisation des publications réseaux sociaux
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DevOps & Outils Accordion -->
+                    <div class="accordion" data-category="devops">
+                        <div class="accordion-header">
+                            <div class="accordion-title">
+                                <i class="fas fa-cogs text-red-400"></i>
+                                <span>DevOps & Outils</span>
+                            </div>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="bento-grid">
+                                <div class="bento-item wide">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fab fa-git-alt"></i>
+                                        </div>
+                                        <div class="bento-title">Git</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        Version control, collaboration, gestion de code source
+                                    </div>
+                                    <div class="bento-skills">
+                                        <span class="bento-skill">GitHub</span>
+                                        <span class="bento-skill">GitLab</span>
+                                        <span class="bento-skill">Branching</span>
+                                    </div>
+                                </div>
+                                <div class="bento-item">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fab fa-docker"></i>
+                                        </div>
+                                        <div class="bento-title">Docker</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        Containers, déploiement, environnement isolé
+                                    </div>
+                                </div>
+                                <div class="bento-item">
+                                    <div class="bento-header">
+                                        <div class="bento-icon">
+                                            <i class="fas fa-infinity"></i>
+                                        </div>
+                                        <div class="bento-title">CI/CD</div>
+                                    </div>
+                                    <div class="bento-content">
+                                        Intégration continue, déploiement continu, automatisation
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Soft Skills Tab -->
+                <div id="soft-tab" class="skill-tab-content hidden">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                        <!-- Compétences Comportementales -->
+                        <div class="glass rounded-xl p-6 text-center">
+                            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center">
+                                <i class="fas fa-brain text-2xl text-white"></i>
+                            </div>
+                            <h3 class="text-lg font-bold mb-3 text-blue-400">Compétences Comportementales</h3>
+                            <ul class="text-sm text-gray-300 space-y-2 text-left">
+                                <li><i class="fas fa-check text-orange-400 mr-2"></i>Adaptabilité</li>
+                                <li><i class="fas fa-check text-orange-400 mr-2"></i>Résolution de problèmes</li>
+                                <li><i class="fas fa-check text-orange-400 mr-2"></i>Pensée critique</li>
+                                <li><i class="fas fa-check text-orange-400 mr-2"></i>Prise d'initiative</li>
+                            </ul>
+                        </div>
+
+                        <!-- Compétences Relationnelles -->
+                        <div class="glass rounded-xl p-6 text-center">
+                            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-green-500 to-teal-500 rounded-xl flex items-center justify-center">
+                                <i class="fas fa-users text-2xl text-white"></i>
+                            </div>
+                            <h3 class="text-lg font-bold mb-3 text-green-400">Compétences Relationnelles</h3>
+                            <ul class="text-sm text-gray-300 space-y-2 text-left">
+                                <li><i class="fas fa-check text-orange-400 mr-2"></i>Communication</li>
+                                <li><i class="fas fa-check text-orange-400 mr-2"></i>Collaboration</li>
+                                <li><i class="fas fa-check text-orange-400 mr-2"></i>Leadership</li>
+                                <li><i class="fas fa-check text-orange-400 mr-2"></i>Intelligence émotionnelle</li>
+                            </ul>
+                        </div>
+
+                        <!-- Compétences Non Techniques -->
+                        <div class="glass rounded-xl p-6 text-center">
+                            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center">
+                                <i class="fas fa-chart-line text-2xl text-white"></i>
+                            </div>
+                            <h3 class="text-lg font-bold mb-3 text-orange-400">Compétences Non Techniques</h3>
+                            <ul class="text-sm text-gray-300 space-y-2 text-left">
+                                <li><i class="fas fa-check text-orange-400 mr-2"></i>Gestion de projet</li>
+                                <li><i class="fas fa-check text-orange-400 mr-2"></i>Planification</li>
+                                <li><i class="fas fa-check text-orange-400 mr-2"></i>Organisation</li>
+                                <li><i class="fas fa-check text-orange-400 mr-2"></i>Time management</li>
+                            </ul>
+                        </div>
+
+                        <!-- Compétences Générales -->
+                        <div class="glass rounded-xl p-6 text-center">
+                            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
+                                <i class="fas fa-lightbulb text-2xl text-white"></i>
+                            </div>
+                            <h3 class="text-lg font-bold mb-3 text-purple-400">Compétences Générales</h3>
+                            <ul class="text-sm text-gray-300 space-y-2 text-left">
+                                <li><i class="fas fa-check text-orange-400 mr-2"></i>Créativité</li>
+                                <li><i class="fas fa-check text-orange-400 mr-2"></i>Curiosité</li>
+                                <li><i class="fas fa-check text-orange-400 mr-2"></i>Apprentissage continu</li>
+                                <li><i class="fas fa-check text-orange-400 mr-2"></i>Orientation résultat</li>
+                            </ul>
+                        </div>
+
+                        <!-- Compétences Commerciales -->
+                        <div class="glass rounded-xl p-6 text-center">
+                            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center">
+                                <i class="fas fa-handshake text-2xl text-white"></i>
+                            </div>
+                            <h3 class="text-lg font-bold mb-3 text-yellow-400">Compétences Commerciales</h3>
+                            <ul class="text-sm text-gray-300 space-y-2 text-left">
+                                <li><i class="fas fa-check text-orange-400 mr-2"></i>Négociation</li>
+                                <li><i class="fas fa-check text-orange-400 mr-2"></i>Prospection</li>
+                                <li><i class="fas fa-check text-orange-400 mr-2"></i>Relation client</li>
+                                <li><i class="fas fa-check text-orange-400 mr-2"></i>Vente conseil</li>
+                            </ul>
+                        </div>
+
+                        <!-- Compétences Digitales -->
+                        <div class="glass rounded-xl p-6 text-center">
+                            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl flex items-center justify-center">
+                                <i class="fas fa-laptop-code text-2xl text-white"></i>
+                            </div>
+                            <h3 class="text-lg font-bold mb-3 text-cyan-400">Compétences Digitales</h3>
+                            <ul class="text-sm text-gray-300 space-y-2 text-left">
+                                <li><i class="fas fa-check text-orange-400 mr-2"></i>Culture digitale</li>
+                                <li><i class="fas fa-check text-orange-400 mr-2"></i>Veille technologique</li>
+                                <li><i class="fas fa-check text-orange-400 mr-2"></i>Transformation digitale</li>
+                                <li><i class="fas fa-check text-orange-400 mr-2"></i>Innovation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Objectives Tab -->
+                <div id="objectives-tab" class="skill-tab-content hidden">
+                    <div class="max-w-3xl mx-auto">
+                        <div class="bg-[#1a1a1a] glass rounded-2xl shadow-2xl w-full relative p-6 sm:p-8">
+                            <div class="text-center mb-6">
+                                <h2 class="text-3xl sm:text-4xl font-bold mb-3">
+                                    Mes <span class="text-gradient-orange">Objectifs</span>
+                                </h2>
+                                <p class="text-lg text-gray-400">Ma vision pour un futur professionnel épanouissant</p>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- Épanouissement Créatif -->
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-lightbulb"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-lg">Épanouissement Créatif</h3>
+                                        <p class="text-gray-400 text-sm">Exprimer son art, innover et collaborer pour des créations uniques et inspirantes.</p>
+                                    </div>
+                                </div>
+                                <!-- Autonomie et Liberté -->
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-feather-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-lg">Autonomie et Liberté</h3>
+                                        <p class="text-gray-400 text-sm">Travailler à son rythme et choisir des projets en toute indépendance.</p>
+                                    </div>
+                                </div>
+                                <!-- Objectifs Financiers -->
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-piggy-bank"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-lg">Sécurité Financière</h3>
+                                        <p class="text-gray-400 text-sm">Assurer une stabilité financière en bâtissant une base de clients fidèles.</p>
+                                    </div>
+                                </div>
+                                <!-- Apprentissage -->
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-brain"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-lg">Apprentissage & Adaptabilité</h3>
+                                        <p class="text-gray-400 text-sm">Rester à jour et diversifier ses compétences pour s'adapter au marché.</p>
+                                    </div>
+                                </div>
+                                <!-- Marque Personnelle -->
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-bullhorn"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-lg">Marque Personnelle</h3>
+                                        <p class="text-gray-400 text-sm">Construire une identité forte et visible pour renforcer sa notoriété.</p>
+                                    </div>
+                                </div>
+                                <!-- Équilibre Vie Pro-Perso -->
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-balance-scale"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-lg">Équilibre Vie Pro-Perso</h3>
+                                        <p class="text-gray-400 text-sm">Préserver un équilibre entre travail, passions et bien-être personnel.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
       <!-- Projects Section - Mobile First -->
     <section id="projets" class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div class="container mx-auto max-w-6xl">
@@ -355,6 +1151,9 @@
           
           
           
+            <!-- Technology Filter -->
+            <div id="techFilterContainer" class="mb-8"></div>
+
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                 <!-- CoursFull -->
                 <div class="glass rounded-xl sm:rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform group cursor-pointer" data-project-id="coursfull">
@@ -959,70 +1758,6 @@
         </div>
     </section>
     
-  
-    <!-- Skills Grid - Mobile First -->
-    <section class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
-        <div class="container mx-auto max-w-6xl">
-            <div id="skills" class="text-center mb-12 sm:mb-16">
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">
-                    Stack <span class="text-gradient-orange">Technique</span>
-                </h2>
-            </div>
-            
-            <!-- Skills Grid - Responsive -->
-            <div id="skills-grid" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 sm:gap-4">
-                <div class="glass rounded-lg sm:rounded-xl p-3 sm:p-4 text-center hover:scale-110 transition">
-                    <i class="fab fa-html5 text-xl sm:text-3xl mb-1 sm:mb-2 text-orange-500"></i>
-                    <p class="text-xs sm:text-sm">HTML5</p>
-                </div>
-                <div class="glass rounded-lg sm:rounded-xl p-3 sm:p-4 text-center hover:scale-110 transition">
-                    <i class="fab fa-css3-alt text-xl sm:text-3xl mb-1 sm:mb-2 text-blue-500"></i>
-                    <p class="text-xs sm:text-sm">CSS3</p>
-                </div>
-                <div class="glass rounded-lg sm:rounded-xl p-3 sm:p-4 text-center hover:scale-110 transition">
-                    <i class="fab fa-js text-xl sm:text-3xl mb-1 sm:mb-2 text-yellow-500"></i>
-                    <p class="text-xs sm:text-sm">JavaScript</p>
-                </div>
-                <div class="glass rounded-lg sm:rounded-xl p-3 sm:p-4 text-center hover:scale-110 transition">
-                    <i class="fab fa-wordpress text-xl sm:text-3xl mb-1 sm:mb-2 text-blue-600"></i>
-                    <p class="text-xs sm:text-sm">WordPress</p>
-                </div>
-                <div class="glass rounded-lg sm:rounded-xl p-3 sm:p-4 text-center hover:scale-110 transition">
-                    <i class="fab fa-figma text-xl sm:text-3xl mb-1 sm:mb-2 text-purple-500"></i>
-                    <p class="text-xs sm:text-sm">Figma</p>
-                </div>
-                <div class="glass rounded-lg sm:rounded-xl p-3 sm:p-4 text-center hover:scale-110 transition">
-                    <i class="fas fa-palette text-xl sm:text-3xl mb-1 sm:mb-2 text-pink-500"></i>
-                    <p class="text-xs sm:text-sm">Photoshop</p>
-                </div>
-                <div class="glass rounded-lg sm:rounded-xl p-3 sm:p-4 text-center hover:scale-110 transition">
-                    <i class="fas fa-vector-square text-xl sm:text-3xl mb-1 sm:mb-2 text-orange-600"></i>
-                    <p class="text-xs sm:text-sm">Illustrator</p>
-                </div>
-                <div class="glass rounded-lg sm:rounded-xl p-3 sm:p-4 text-center hover:scale-110 transition">
-                    <i class="fas fa-file-excel text-xl sm:text-3xl mb-1 sm:mb-2 text-green-600"></i>
-                    <p class="text-xs sm:text-sm">Excel</p>
-                </div>
-                <div class="glass rounded-lg sm:rounded-xl p-3 sm:p-4 text-center hover:scale-110 transition">
-                    <i class="fas fa-database text-xl sm:text-3xl mb-1 sm:mb-2 text-red-500"></i>
-                    <p class="text-xs sm:text-sm">CRM</p>
-                </div>
-                <div id="ia-tools-btn" class="glass rounded-lg sm:rounded-xl p-3 sm:p-4 text-center hover:scale-110 transition ">
-                    <i class="fas fa-robot text-xl sm:text-3xl mb-1 sm:mb-2 text-orange-500"></i>
-                    <p class="text-xs sm:text-sm">IA Tools ✨</p>
-                </div>
-                <div id="linkedin-btn" class="glass rounded-lg sm:rounded-xl p-3 sm:p-4 text-center hover:scale-110 transition cursor-pointer">
-                    <i class="fab fa-linkedin text-xl sm:text-3xl mb-1 sm:mb-2 text-blue-700"></i>
-                    <p class="text-xs sm:text-sm">LinkedIn</p>
-                </div>
-                <div class="glass rounded-lg sm:rounded-xl p-3 sm:p-4 text-center hover:scale-110 transition">
-                    <i class="fas fa-code text-xl sm:text-3xl mb-1 sm:mb-2 text-orange-400"></i>
-                    <p class="text-xs sm:text-sm">Dev Web</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
     <!-- Footer - Mobile First -->
     <footer class="py-8 sm:py-12 px-4 sm:px-6 border-t border-orange-500/20">
         <div class="container mx-auto max-w-6xl">
@@ -1066,71 +1801,6 @@
         </div>
     </footer>
 
-    <!-- Easter Egg Section for Objectives -->
-    <div id="objectifs-section" class="fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-4 sm:p-6 md:p-8 hidden overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="objectifs-title">
-        <div class="bg-[#1a1a1a] glass rounded-2xl shadow-2xl w-full max-w-3xl relative p-6 sm:p-8">
-            <button id="objectifs-close-btn" class="absolute top-3 right-3 h-10 w-10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 rounded-full transition-colors" aria-label="Fermer la fenêtre">
-                <i class="fas fa-times text-xl"></i>
-            </button>
-            <div class="text-center mb-6">
-                <h2 id="objectifs-title" class="text-3xl sm:text-4xl font-bold mb-3">
-                    Mes <span class="text-gradient-orange">Objectifs</span>
-                </h2>
-                <p class="text-lg text-gray-400">Ma vision pour un futur professionnel épanouissant</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Épanouissement Créatif -->
-                <div class="flex items-start gap-4">
-                    <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center flex-shrink-0"><i class="fas fa-lightbulb"></i></div>
-                    <div>
-                        <h3 class="font-bold text-lg">Épanouissement Créatif</h3>
-                        <p class="text-gray-400 text-sm">Exprimer son art, innover et collaborer pour des créations uniques et inspirantes.</p>
-                    </div>
-                </div>
-                <!-- Autonomie et Liberté -->
-                <div class="flex items-start gap-4">
-                    <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center flex-shrink-0"><i class="fas fa-feather-alt"></i></div>
-                    <div>
-                        <h3 class="font-bold text-lg">Autonomie et Liberté</h3>
-                        <p class="text-gray-400 text-sm">Travailler à son rythme et choisir des projets en toute indépendance.</p>
-                    </div>
-                </div>
-                <!-- Objectifs Financiers -->
-                <div class="flex items-start gap-4">
-                    <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center flex-shrink-0"><i class="fas fa-piggy-bank"></i></div>
-                    <div>
-                        <h3 class="font-bold text-lg">Sécurité Financière</h3>
-                        <p class="text-gray-400 text-sm">Assurer une stabilité financière en bâtissant une base de clients fidèles.</p>
-                    </div>
-                </div>
-                <!-- Apprentissage -->
-                <div class="flex items-start gap-4">
-                    <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center flex-shrink-0"><i class="fas fa-brain"></i></div>
-                    <div>
-                        <h3 class="font-bold text-lg">Apprentissage & Adaptabilité</h3>
-                        <p class="text-gray-400 text-sm">Rester à jour et diversifier ses compétences pour s'adapter au marché.</p>
-                    </div>
-                </div>
-                <!-- Marque Personnelle -->
-                <div class="flex items-start gap-4">
-                    <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center flex-shrink-0"><i class="fas fa-bullhorn"></i></div>
-                    <div>
-                        <h3 class="font-bold text-lg">Marque Personnelle</h3>
-                        <p class="text-gray-400 text-sm">Construire une identité forte et visible pour renforcer sa notoriété.</p>
-                    </div>
-                </div>
-                <!-- Équilibre Vie Pro-Perso -->
-                <div class="flex items-start gap-4">
-                    <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center flex-shrink-0"><i class="fas fa-balance-scale"></i></div>
-                    <div>
-                        <h3 class="font-bold text-lg">Équilibre Vie Pro-Perso</h3>
-                        <p class="text-gray-400 text-sm">Préserver un équilibre entre travail, passions et bien-être personnel.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Back to Top - Mobile Optimized -->
     <button id="back-to-top" class="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 w-10 h-10 sm:w-12 sm:h-12 gradient-bg rounded-full flex items-center justify-center opacity-0 pointer-events-none transition hover:scale-110 shadow-lg">
         <i class="fas fa-arrow-up text-white"></i>
@@ -1141,6 +1811,8 @@
     <script src="js/save.js" defer></script>
     <script src="js/main.js" defer></script>
     <script src="js/debug-modal.js" defer></script>
+    <script src="js/skills-tabs.js" defer></script>
+    <script src="js/tech-filter.js" defer></script>
     <script src="js/project-cards.js" defer></script>
     <script src="js/project-modal.js" defer></script>
 </body>
