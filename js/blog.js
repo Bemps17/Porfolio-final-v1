@@ -17,7 +17,7 @@ class BlogManager {
                 { name: 'Numerama', url: 'https://www.numerama.com/feed/', category: 'tech', language: 'fr' },
                 { name: 'ZDNet', url: 'https://www.zdnet.com/news/rss.xml', category: 'tech', language: 'en' },
                 { name: 'Le Journal du Geek', url: 'https://www.journaldugeek.com/feed/', category: 'tech', language: 'fr' },
-                { name: 'Clubic', url: 'https://www.clubic.com/rss.xml', category: 'tech', language: 'fr' },
+                // Clubic removed - CORS issues
                 { name: "Tom's Hardware", url: 'https://www.tomshardware.com/feeds/all', category: 'tech', language: 'en' },
                 { name: 'Gizmodo', url: 'https://gizmodo.com/rss', category: 'tech', language: 'en' },
                 { name: 'Mashable', url: 'https://mashable.com/feed/', category: 'tech', language: 'en' },

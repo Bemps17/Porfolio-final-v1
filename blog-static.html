@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="corporate">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Veille Technologique | Bertrand Fouquet</title>
+    <meta name="description" content="Veille technologique quotidienne avec les dernières actualités tech, design UI/UX et développement web. Articles issus des meilleures sources TechCrunch, Wired, Smashing Magazine et plus.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="icons/bfbg-orange.svg">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/quick-accessibility-fix.css">
+    <link rel="stylesheet" href="css/blog.css">
+    
+    <style>
+        /* Styles spécifiques au blog */
+        .blog-card {
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--color-accent);
+        }
+        
+        .category-badge {
+            transition: all 0.2s ease;
+        }
+        
+        .category-badge:hover {
+            transform: scale(1.05);
+        }
+        
+        .loading-skeleton {
+            background: linear-gradient(90deg, var(--color-surface) 25%, var(--color-bg-secondary) 50%, var(--color-surface) 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+        
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        
+        .filter-btn {
+            transition: all 0.2s ease;
+        }
+        
+        .filter-btn.active {
+            background-color: var(--color-accent);
+            color: var(--color-accent-text);
+        }
+        
+        .article-meta {
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+        
+        .source-icon {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .filter-btn {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            background-color: var(--bg-secondary, #111827) !important;
+        }
+
+        .filter-btn:hover {
+            transform: scale(1.05);
+            border-color: #3b82f6 !important;
+        }
+
+        .filter-btn.active {
+            border-color: #3b82f6;
+            background-color: transparent !important;
+            color: #3b82f6 !important;
+        }
+
+        .source-btn {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            background-color: var(--bg-secondary, #111827) !important;
+        }
+
+        .source-btn:hover {
+            transform: scale(1.05);
+            border-color: #3b82f6 !important;
+        }
+
+        .source-btn.active {
+            border-color: #3b82f6;
+            background-color: transparent !important;
+            color: #3b82f6 !important;
+        }
+
+        .line-clamp-3 {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Settings Panel Styles */
+        #settings-panel {
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 320px;
+            background-color: #111827;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+            z-index: 50;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        #settings-panel.open {
+            transform: translateX(0);
+        }
+
+        /* Overlay for settings panel */
+        .settings-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 40;
+            display: none;
+        }
+
+        .settings-overlay.active {
+            display: block;
+        }
+
+        /* Theme Styles */
+        :root[data-theme="dark"] {
+            --bg-primary: #000000;
+            --bg-secondary: #111827;
+            --bg-tertiary: #1f2937;
+            --text-primary: #ffffff;
+            --text-secondary: #d1d5db;
+            --border-color: #374151;
+        }
+
+                :root[data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-tertiary: #e9ecef;
+            --text-primary: #000000;
+            --text-secondary: #000000;
+            --border-color: #dee2e6;
+        }
+
+        /* Apply theme to body and main elements */
+        body {
+            background-color: var(--bg-primary, #000000);
+            color: var(--text-primary, #ffffff);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        main {
+            background-color: var(--bg-primary, #000000);
+        }
+
+        .bg-gray-800 {
+            background-color: var(--bg-secondary, #111827) !important;
+        }
+
+        .bg-gray-900 {
+            background-color: var(--bg-tertiary, #1f2937) !important;
+        }
+
+        .text-white {
+            color: var(--text-primary, #ffffff) !important;
+        }
+
+        .text-gray-400 {
+            color: var(--text-secondary, #d1d5db) !important;
+        }
+
+        .border-gray-800 {
+            border-color: var(--border-color, #374151) !important;
+        }
+
+        #settings-panel {
+            background-color: var(--bg-secondary, #111827);
+        }
+
+        .settings-overlay {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        :root[data-theme="light"] .settings-overlay {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo + Title -->
+                <div class="flex items-center space-x-3">
+                    <a href="index.html" target="_blank" class="flex items-center space-x-3">
+                        <img src="icons/bfbg-orange.svg" alt="Logo de Bertrand Fouquet" class="w-10 h-10">
+                        <div class="hidden sm:block">
+                            <span class="font-bold text-lg">Bertrand Fouquet</span>
+                            <span class="text-gray-400 text-sm ml-2">| Blog Tech</span>
+                        </div>
+                        <div class="sm:hidden">
+                            <span class="font-bold text-sm">Blog Tech</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Right Actions -->
+                <div class="flex items-center space-x-4">
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-800 transition-colors">
+                        <i class="fas fa-moon text-gray-400"></i>
+                    </button>
+                    
+                    <!-- Settings -->
+                    <button id="settings-toggle" class="p-2 rounded-lg hover:bg-gray-800 transition-colors">
+                        <i class="fas fa-cog text-gray-400"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-20 pb-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Blog Header -->
+            <section class="text-center mb-12">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 text-black dark:text-gray-100">
+                    Blog Veille Technologique
+                </h1>
+                <p class="text-black dark:text-gray-400 text-lg max-w-3xl mx-auto">
+                    Suivez les dernières actualités tech, design UI/UX et développement web. 
+                    Articles en temps réel des meilleures sources technologiques.
+                </p>
+                
+                <!-- Stats Bar -->
+                <div class="flex flex-wrap justify-center gap-4 mt-8 text-sm">
+                    <div class="bg-gray-200 dark:bg-gray-800 px-4 py-2 rounded-full text-black dark:text-gray-300">
+                        <i class="fas fa-newspaper mr-2 text-gray-600 dark:text-gray-400"></i>
+                        <span id="sources-count">14</span> sources
+                    </div>
+                    <div class="bg-gray-200 dark:bg-gray-800 px-4 py-2 rounded-full text-black dark:text-gray-300">
+                        <i class="fas fa-layer-group mr-2 text-blue-400"></i>
+                        <span id="categories-count">5</span> catégories
+                    </div>
+                    <div class="bg-gray-200 dark:bg-gray-800 px-4 py-2 rounded-full text-black dark:text-gray-300">
+                        <i class="fas fa-file-alt mr-2 text-green-400"></i>
+                        <span id="articles-count">268</span> articles
+                    </div>
+                    <div class="bg-gray-200 dark:bg-gray-800 px-4 py-2 rounded-full text-black dark:text-gray-300">
+                        <i class="fas fa-sync mr-2 text-purple-400"></i>
+                        <span id="last-sync">Prêt</span>
+                    </div>
+            <!-- Category Filters -->
+            <section class="mb-6">
+                <h3 class="text-lg font-semibold mb-4 text-center text-black dark:text-gray-300">
+                    <i class="fas fa-filter mr-2"></i>Filtrer par catégorie
+                </h3>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <button class="filter-btn active text-blue-600 dark:text-blue-500 px-4 py-2 rounded-full border-2 border-blue-500" data-category="all">
+                        <i class="fas fa-globe mr-2"></i>Toutes
+                        <span class="category-count ml-2 px-2 py-1 rounded-full text-xs">268</span>
+                    </button>
+                    <button class="filter-btn bg-gray-200 dark:bg-gray-800 text-black dark:text-gray-300 px-4 py-2 rounded-full" data-category="tech">
+                        <i class="fas fa-microchip mr-2"></i>Tech
+                        <span class="category-count ml-2 bg-gray-300 dark:bg-gray-700 px-2 py-1 rounded-full text-xs">104</span>
+                    </button>
+                    <button class="filter-btn bg-gray-200 dark:bg-gray-800 text-black dark:text-gray-300 px-4 py-2 rounded-full" data-category="design">
+                        <i class="fas fa-palette mr-2"></i>Design
+                        <span class="category-count ml-2 bg-gray-300 dark:bg-gray-700 px-2 py-1 rounded-full text-xs">65</span>
+                    </button>
+                    <button class="filter-btn bg-gray-200 dark:bg-gray-800 text-black dark:text-gray-300 px-4 py-2 rounded-full" data-category="dev">
+                        <i class="fas fa-code mr-2"></i>Dev
+                        <span class="category-count ml-2 bg-gray-300 dark:bg-gray-700 px-2 py-1 rounded-full text-xs">61</span>
+                    </button>
+                    <button class="filter-btn bg-gray-200 dark:bg-gray-800 text-black dark:text-gray-300 px-4 py-2 rounded-full" data-category="social">
+                        <i class="fas fa-users mr-2"></i>Social
+                        <span class="category-count ml-2 bg-gray-300 dark:bg-gray-700 px-2 py-1 rounded-full text-xs">28</span>
+                    </button>
+                    <button class="filter-btn bg-gray-200 dark:bg-gray-800 text-black dark:text-gray-300 px-4 py-2 rounded-full" data-category="podcasts">
+                        <i class="fas fa-podcast mr-2"></i>Podcasts
+                        <span class="category-count ml-2 bg-gray-300 dark:bg-gray-700 px-2 py-1 rounded-full text-xs">10</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Source Filters -->
+            <section class="mb-8">
+                <h3 class="text-lg font-semibold mb-4 text-center text-black dark:text-gray-300">
+                    <i class="fas fa-rss mr-2"></i>Filtrer par source
+                </h3>
+                <div class="flex flex-wrap justify-center gap-2 max-h-32 overflow-y-auto p-2 bg-gray-200 dark:bg-gray-800 rounded-lg">
+                    <button class="source-btn active bg-transparent text-blue-600 dark:text-blue-500 px-3 py-1 rounded-full text-sm border-2 border-blue-500" data-source="all">
+                        <i class="fas fa-globe mr-1"></i>Toutes
+                        <span class="source-count ml-1 px-1 py-0.5 rounded-full text-xs">268</span>
+                    </button>
+                    <button class="source-btn bg-gray-300 dark:bg-gray-700 text-black dark:text-gray-300 px-3 py-1 rounded-full text-sm" data-source="github-trending">
+                        <i class="fab fa-github mr-1"></i>GitHub
+                        <span class="source-count ml-1 bg-gray-400 dark:bg-gray-600 px-1 py-0.5 rounded-full text-xs">0</span>
+                    </button>
+                    <button class="source-btn bg-gray-300 dark:bg-gray-700 text-black dark:text-gray-300 px-3 py-1 rounded-full text-sm" data-source="the-verge">
+                        <i class="fas fa-laptop mr-1"></i>The Verge
+                        <span class="source-count ml-1 bg-gray-400 dark:bg-gray-600 px-1 py-0.5 rounded-full text-xs">0</span>
+                    </button>
+                    <button class="source-btn bg-gray-300 dark:bg-gray-700 text-black dark:text-gray-300 px-3 py-1 rounded-full text-sm" data-source="wired">
+                        <i class="fas fa-wifi mr-1"></i>Wired
+                        <span class="source-count ml-1 bg-gray-400 dark:bg-gray-600 px-1 py-0.5 rounded-full text-xs">0</span>
+                    </button>
+                    <button class="source-btn bg-gray-300 dark:bg-gray-700 text-black dark:text-gray-300 px-3 py-1 rounded-full text-sm" data-source="techcrunch">
+                        <i class="fas fa-rocket mr-1"></i>TechCrunch
+                        <span class="source-count ml-1 bg-gray-400 dark:bg-gray-600 px-1 py-0.5 rounded-full text-xs">0</span>
+                    </button>
+                    <button class="source-btn bg-gray-300 dark:bg-gray-700 text-black dark:text-gray-300 px-3 py-1 rounded-full text-sm" data-source="numerama">
+                        <i class="fas fa-robot mr-1"></i>Numerama
+                        <span class="source-count ml-1 bg-gray-400 dark:bg-gray-600 px-1 py-0.5 rounded-full text-xs">0</span>
+                    </button>
+                    <button class="source-btn bg-gray-300 dark:bg-gray-700 text-black dark:text-gray-300 px-3 py-1 rounded-full text-sm" data-source="zdnet">
+                        <i class="fas fa-server mr-1"></i>ZDNet
+                        <span class="source-count ml-1 bg-gray-400 dark:bg-gray-600 px-1 py-0.5 rounded-full text-xs">0</span>
+                    </button>
+                    <button class="source-btn bg-gray-300 dark:bg-gray-700 text-black dark:text-gray-300 px-3 py-1 rounded-full text-sm" data-source="le-journal-du-geek">
+                        <i class="fas fa-gamepad mr-1"></i>Journal du Geek
+                        <span class="source-count ml-1 bg-gray-400 dark:bg-gray-600 px-1 py-0.5 rounded-full text-xs">0</span>
+                    </button>
+                    <button class="source-btn bg-gray-300 dark:bg-gray-700 text-black dark:text-gray-300 px-3 py-1 rounded-full text-sm" data-source="les-numeriques">
+                        <i class="fas fa-mobile-alt mr-1"></i>Les Numériques
+                        <span class="source-count ml-1 bg-gray-400 dark:bg-gray-600 px-1 py-0.5 rounded-full text-xs">0</span>
+                    </button>
+                    <button class="source-btn bg-gray-300 dark:bg-gray-700 text-black dark:text-gray-300 px-3 py-1 rounded-full text-sm" data-source="engadget">
+                        <i class="fas fa-camera mr-1"></i>Engadget
+                        <span class="source-count ml-1 bg-gray-400 dark:bg-gray-600 px-1 py-0.5 rounded-full text-xs">0</span>
+                    </button>
+                    <button class="source-btn bg-gray-300 dark:bg-gray-700 text-black dark:text-gray-300 px-3 py-1 rounded-full text-sm" data-source="dev-to">
+                        <i class="fab fa-dev mr-1"></i>Dev.to
+                        <span class="source-count ml-1 bg-gray-400 dark:bg-gray-600 px-1 py-0.5 rounded-full text-xs">0</span>
+                    </button>
+                    <button class="source-btn bg-gray-300 dark:bg-gray-700 text-black dark:text-gray-300 px-3 py-1 rounded-full text-sm" data-source="hacker-news">
+                        <i class="fab fa-hacker-news mr-1"></i>Hacker News
+                        <span class="source-count ml-1 bg-gray-400 dark:bg-gray-600 px-1 py-0.5 rounded-full text-xs">0</span>
+                    </button>
+                    <button class="source-btn bg-gray-300 dark:bg-gray-700 text-black dark:text-gray-300 px-3 py-1 rounded-full text-sm" data-source="reddit-programming">
+                        <i class="fab fa-reddit mr-1"></i>Reddit
+                        <span class="source-count ml-1 bg-gray-400 dark:bg-gray-600 px-1 py-0.5 rounded-full text-xs">0</span>
+                    </button>
+                    <button class="source-btn bg-gray-300 dark:bg-gray-700 text-black dark:text-gray-300 px-3 py-1 rounded-full text-sm" data-source="smashing-magazine">
+                        <i class="fas fa-code mr-1"></i>Smashing
+                        <span class="source-count ml-1 bg-gray-400 dark:bg-gray-600 px-1 py-0.5 rounded-full text-xs">0</span>
+                    </button>
+                    <button class="source-btn bg-gray-300 dark:bg-gray-700 text-black dark:text-gray-300 px-3 py-1 rounded-full text-sm" data-source="css-tricks">
+                        <i class="fas fa-code mr-1"></i>CSS-Tricks
+                        <span class="source-count ml-1 bg-gray-400 dark:bg-gray-600 px-1 py-0.5 rounded-full text-xs">0</span>
+                    </button>
+                    <button class="source-btn bg-gray-300 dark:bg-gray-700 text-black dark:text-gray-300 px-3 py-1 rounded-full text-sm" data-source="freecodecamp">
+                        <i class="fab fa-free-code-camp mr-1"></i>freeCodeCamp
+                        <span class="source-count ml-1 bg-gray-400 dark:bg-gray-600 px-1 py-0.5 rounded-full text-xs">0</span>
+                    </button>
+                </div>
+                <p class="text-center text-gray-500 dark:text-gray-400 text-xs mt-2">Sources principales • Scroll pour voir plus</p>
+            </section>
+
+            <!-- Articles Grid -->
+            <section class="mb-8">
+                <div id="articles-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Loading state -->
+                    <div class="col-span-full text-center py-12">
+                        <i class="fas fa-spinner fa-spin text-4xl text-blue-400 mb-4"></i>
+                        <p class="text-gray-400">Chargement des articles...</p>
+                        <p class="text-gray-500 text-sm mt-2">Chargement des données pré-générées...</p>
+                    </div>
+                </div>
+                
+                <!-- Load More Button -->
+                <div class="text-center mt-8">
+                    <button id="load-more" class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors hidden">
+                        <i class="fas fa-plus mr-2"></i>Charger plus d'articles
+                    </button>
+                </div>
+            </section>
+
+            <!-- Refresh Section -->
+            <section class="text-center">
+                <button id="refresh-articles" class="bg-gray-800 text-gray-300 px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors">
+                    <i class="fas fa-sync-alt mr-2"></i>Actualiser les articles
+                </button>
+            </section>
+        </div>
+    </main>
+
+    <!-- Settings Overlay -->
+    <div id="settings-overlay" class="settings-overlay"></div>
+
+    <!-- Settings Panel -->
+    <div id="settings-panel" class="fixed right-0 top-0 h-full w-80 bg-gray-900 shadow-xl z-50">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-lg font-semibold">Paramètres du Blog</h3>
+                <button id="close-settings" class="text-gray-400 hover:text-white">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium mb-2">Articles par page</label>
+                    <select id="articles-per-page" class="w-full bg-gray-800 text-white rounded-lg px-3 py-2">
+                        <option value="6">6 articles</option>
+                        <option value="12" selected>12 articles</option>
+                        <option value="24">24 articles</option>
+                        <option value="48">48 articles</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium mb-2">Sources RSS</label>
+                    <div class="text-sm text-gray-400">
+                        <p>✅ TechCrunch, Wired, The Verge</p>
+                        <p>✅ Ars Technica, Numerama, ZDNet</p>
+                        <p>✅ Smashing Magazine, CSS-Tricks</p>
+                        <p>✅ Dev.to, Hacker News, Reddit</p>
+                        <p>📊 268+ articles importés</p>
+                    </div>
+                </div>
+                
+                <div class="pt-4 border-t border-gray-700">
+                    <button id="reset-filters" class="w-full bg-blue-500 text-white rounded-lg px-4 py-2 hover:bg-blue-600 transition-colors mb-2">
+                        <i class="fas fa-redo mr-2"></i>Réinitialiser les filtres
+                    </button>
+                    <button id="clear-source-filter" class="w-full bg-blue-500 text-white rounded-lg px-4 py-2 hover:bg-blue-600 transition-colors">
+                        <i class="fas fa-rss mr-2"></i>Effacer filtre source
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog JavaScript - Version Statique -->
+    <script src="js/blog-static.js"></script>
+    
+    <!-- Script de test pour les filtres -->
+    <script src="js/test-filters.js"></script>
+</body>
+</html>
