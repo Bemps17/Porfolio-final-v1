@@ -424,30 +424,52 @@ class ProjectModal {
         const carousel = document.getElementById('screenshotCarousel');
         const indicators = document.getElementById('carouselIndicators');
         
-        carousel.innerHTML = this.currentProject.screenshots.map((screenshot, index) => `
-            <div class="w-full flex-shrink-0">
-                <img src="assets/projects/${this.getProjectId()}/screenshots/${screenshot}.png" 
-                     alt="${this.currentProject.name} - ${screenshot}" 
-                     class="w-full h-auto rounded-xl"
-                     onerror="this.src='assets/projects/${this.getProjectId()}/screenshots/${screenshot}.jpg'">
-            </div>
-        `).join('');
-
-        indicators.innerHTML = this.currentProject.screenshots.map((_, index) => `
-            <button data-screenshot-index="${index}" class="w-2 h-2 rounded-full transition-colors ${
-                index === 0 ? 'bg-orange-500' : 'bg-gray-600 hover:bg-gray-500'
-            }"></button>
-        `).join('');
-
-        // Add click listeners to indicators
-        indicators.querySelectorAll('button').forEach(button => {
-            button.addEventListener('click', () => {
-                const index = parseInt(button.getAttribute('data-screenshot-index'));
-                this.goToScreenshot(index);
-            });
+        // Check what files actually exist for this project
+        const projectId = this.getProjectId();
+        const existingScreenshots = [];
+        
+        // Test each possible screenshot file
+        ['cover.jpg', 'section1.png', 'section2.png', 'section3.png'].forEach(filename => {
+            const img = new Image();
+            img.onload = () => {
+                existingScreenshots.push(filename.replace('.jpg', '').replace('.png', ''));
+            };
+            img.src = `assets/projects/${projectId}/screenshots/${filename}`;
         });
+        
+        // Wait a bit for images to load, then populate
+        setTimeout(() => {
+            if (existingScreenshots.length === 0) {
+                // Fallback to default list if no images found
+                existingScreenshots.push('cover', 'section1', 'section2', 'section3');
+            }
+            
+            carousel.innerHTML = existingScreenshots.map((screenshot, index) => `
+                <div class="w-full flex-shrink-0">
+                    <img src="assets/projects/${projectId}/screenshots/${screenshot}.jpg" 
+                         alt="${this.currentProject.name} - ${screenshot}" 
+                         class="w-full h-auto rounded-xl"
+                         loading="lazy"
+                         onerror="console.log('Image load error:', this.src); this.style.display='none';">
+                </div>
+            `).join('');
 
-        this.updateCarouselPosition();
+            indicators.innerHTML = existingScreenshots.map((_, index) => `
+                <button data-screenshot-index="${index}" class="w-2 h-2 rounded-full transition-colors ${
+                    index === 0 ? 'bg-orange-500' : 'bg-gray-600 hover:bg-gray-500'
+                }"></button>
+            `).join('');
+
+            // Add click listeners to indicators
+            indicators.querySelectorAll('button').forEach(button => {
+                button.addEventListener('click', () => {
+                    const index = parseInt(button.getAttribute('data-screenshot-index'));
+                    this.goToScreenshot(index);
+                });
+            });
+
+            this.updateCarouselPosition();
+        }, 100);
     }
 
     getProjectId() {
@@ -456,11 +478,13 @@ class ProjectModal {
 
     showModal() {
         this.modal.classList.remove('hidden');
+        // Force a reflow to ensure the transition works properly
+        this.modal.offsetHeight;
         setTimeout(() => {
             this.modal.classList.remove('opacity-0');
             this.modal.querySelector('.transform').classList.remove('scale-95');
             this.modal.querySelector('.transform').classList.add('scale-100');
-        }, 10);
+        }, 50);
     }
 
     hideModal() {
@@ -474,11 +498,17 @@ class ProjectModal {
 
     updateCarouselPosition() {
         const carousel = document.getElementById('screenshotCarousel');
+        if (!carousel) return;
+        
+        const actualScreenshots = ['cover', 'section1', 'section2', 'section3'];
         carousel.style.transform = `translateX(-${this.currentScreenshotIndex * 100}%)`;
         
         // Update indicators
-        const indicators = document.getElementById('carouselIndicators').children;
-        Array.from(indicators).forEach((indicator, index) => {
+        const indicators = document.getElementById('carouselIndicators');
+        if (!indicators) return;
+        
+        const indicatorButtons = indicators.children;
+        Array.from(indicatorButtons).forEach((indicator, index) => {
             if (index === this.currentScreenshotIndex) {
                 indicator.classList.remove('bg-gray-600', 'hover:bg-gray-500');
                 indicator.classList.add('bg-orange-500');
@@ -490,12 +520,14 @@ class ProjectModal {
     }
 
     nextScreenshot() {
-        this.currentScreenshotIndex = (this.currentScreenshotIndex + 1) % this.currentProject.screenshots.length;
+        const actualScreenshots = ['cover', 'section1', 'section2', 'section3'];
+        this.currentScreenshotIndex = (this.currentScreenshotIndex + 1) % actualScreenshots.length;
         this.updateCarouselPosition();
     }
 
     previousScreenshot() {
-        this.currentScreenshotIndex = (this.currentScreenshotIndex - 1 + this.currentProject.screenshots.length) % this.currentProject.screenshots.length;
+        const actualScreenshots = ['cover', 'section1', 'section2', 'section3'];
+        this.currentScreenshotIndex = (this.currentScreenshotIndex - 1 + actualScreenshots.length) % actualScreenshots.length;
         this.updateCarouselPosition();
     }
 
