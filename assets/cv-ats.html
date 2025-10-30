@@ -24,20 +24,89 @@
     <link rel="stylesheet" href="../css/quick-accessibility-fix.css">
 
     <style>
+        /* Dark mode (défaut) */
         body { 
             font-family: Arial, sans-serif; 
             line-height: 1.5; 
             max-width: 800px; 
             margin: 20px auto; 
             padding: 20px; 
-            color: #333;
+            color: #ffffff;
+            background-color: #0a0a0a;
         }
-        h1, h2, h3 { color: #000; }
+        h1, h2, h3 { color: #ffffff; }
         h1 { font-size: 2.2em; }
-        h2 { font-size: 1.5em; margin-top: 1.5em; border-bottom: 1px solid #ccc; padding-bottom: 4px; }
+        h2 { font-size: 1.5em; margin-top: 1.5em; border-bottom: 1px solid #444; padding-bottom: 4px; }
         h3 { font-size: 1.2em; margin-top: 1.2em; }
         ul { padding-left: 20px; }
         li { margin-bottom: 5px; }
+        p { color: #ffffff; }
+        a { color: #ff6600; }
+        
+        /* Light mode */
+        body[data-theme="light"] { 
+            color: #000000;
+            background-color: #ffffff;
+        }
+        body[data-theme="light"] h1, 
+        body[data-theme="light"] h2, 
+        body[data-theme="light"] h3 { 
+            color: #000000; 
+        }
+        body[data-theme="light"] h2 { 
+            border-bottom-color: #cccccc; 
+        }
+        body[data-theme="light"] p { 
+            color: #000000; 
+        }
+        body[data-theme="light"] a { 
+            color: #ff6600; 
+        }
+        
+        /* Responsive mobile */
+        @media (max-width: 768px) {
+            body { 
+                margin: 10px auto; 
+                padding: 15px; 
+                line-height: 1.6;
+            }
+            h1 { font-size: 1.8em; }
+            h2 { font-size: 1.3em; margin-top: 1.2em; }
+            h3 { font-size: 1.1em; margin-top: 1em; }
+            ul { padding-left: 15px; }
+            li { margin-bottom: 6px; }
+            
+            /* Bouton retour mobile */
+            .back-to-portfolio-btn {
+                position: fixed !important;
+                top: 15px !important;
+                left: 15px !important;
+                width: 45px !important;
+                height: 45px !important;
+                background: rgba(255, 102, 0, 0.9) !important;
+                border-radius: 50% !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                z-index: 1000 !important;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.3) !important;
+            }
+            .back-to-portfolio-btn i {
+                color: white !important;
+                font-size: 18px !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body { 
+                margin: 5px auto; 
+                padding: 10px; 
+            }
+            h1 { font-size: 1.6em; }
+            h2 { font-size: 1.2em; }
+            h3 { font-size: 1em; }
+            ul { padding-left: 12px; }
+        }
     </style>
 </head>
 <body>
@@ -45,116 +114,110 @@
         <i class="fas fa-arrow-left"></i>
     </a>
     <h1>BERTRAND FOUQUET</h1>
-    <p><strong>Designer-Développeur Hybride | Créateur Digital Polyvalent</strong></p>
-    <p>40 ans | RQTH</p>
-    <p>12 rue de Champagne, 17138 Puilboreau (La Rochelle)</p>
-    <p>06 66 93 82 35</p>
-    <p>bertrandwebdesigner@proton.me</p>
-   
-
-    <h2>Profil Unique : La Polyvalence au Service de vos Projets</h2>
-    <p>Designer-développeur avec 20 ans d'expérience transversale, je combine créativité visuelle, compétences techniques et sens commercial. Expert en prototypage rapide et création d'applications web assistée par IA ("vibe coding"), je recherche un poste où ma polyvalence sera un véritable atout pour votre équipe, dans un environnement privilégiant la qualité et l'équilibre de vie.</p>
-
-    <h2>Compétences Clés - Votre Couteau Suisse Digital</h2>
-    <h3>Design & Création</h3>
+    <p><strong>Dynamique - Convivial - Organisé</strong></p>
+    
+    <h2>CONTACT</h2>
     <ul>
-        <li>Suite Adobe CC : Photoshop, Illustrator, InDesign (niveau expert)</li>
-        <li>UI/UX Design : Figma, création d'interfaces intuitives</li>
-        <li>Identité visuelle : Logos, chartes graphiques, supports print/web</li>
-    </ul>
-    <h3>Développement & Technique</h3>
-    <ul>
-        <li>Front-End : HTML5/CSS3, JavaScript, responsive design</li>
-        <li>CMS & Frameworks : WordPress (expert), WooCommerce</li>
-        <li>Innovation : PWA (Progressive Web Apps), IA assistée (GitHub Copilot, ChatGPT)</li>
-        <li>Méthodes : Agilité, prototypage rapide, versionning Git</li>
-    </ul>
-    <h3>Commercial & Relationnel</h3>
-    <ul>
-        <li>Gestion client : De la prospection à la fidélisation</li>
-        <li>Pédagogie : Formation utilisateurs, vulgarisation technique</li>
-        <li>Management : Coordination d'équipes (4+ personnes), gestion de projets</li>
+        <li>Téléphone : 06 66 93 82 35</li>
+        <li>Email : bertrandwebdesigner@proton.me</li>
+        <li>Âge : 40 ans</li>
+        <li>Adresse : 17138 Puilboreau</li>
     </ul>
 
-    <h2>Expériences - Une Trajectoire Riche et Variée</h2>
-    <h3>Commercial Sédentaire BtoB | Téléprospection | 2025 (en cours)</h3>
+    <h2>PROFIL</h2>
+    <p>Designer-développeur avec 20 ans d'expérience transversale, je combine créativité visuelle, compétences techniques et sens commercial. Expert en prototypage rapide et création d'applications web assistée par IA ("vibe coding"), je recherche un poste où ma polyvalence sera un véritable atout pour votre équipe.</p>
+
+    <h2>COMPÉTENCES</h2>
     <ul>
-        <li>Prospection téléphonique qualifiée, développement de portefeuille client</li>
-        <li>Compétences transférables : relation client, négociation, persévérance</li>
-    </ul>
-    <h3>Designer Web & Chargé de Projet Digital | Freelance & Missions | 2023</h3>
-    <p>Clients : La Casquette Distrale, Transports Hautier</p>
-    <ul>
-        <li>Conception complète site e-commerce WordPress/WooCommerce</li>
-        <li>Design d'interfaces et supports digitaux (Figma, Suite Adobe)</li>
-        <li>Déploiement informatique embarquée, formation du personnel</li>
-        <li>Création de documentation technique et supports pédagogiques</li>
-        <li>Résultats : Sites livrés dans les délais, équipes formées et autonomes</li>
-    </ul>
-    <h3>Responsable de Tournée | Couleur Marché | 2017-2021</h3>
-    <ul>
-        <li>Management opérationnel d'une équipe de 4 personnes</li>
-        <li>Optimisation des processus et amélioration continue</li>
-        <li>Analyse d'indicateurs, reporting et propositions d'actions</li>
-        <li>Impact : +15% de productivité, équipe soudée et performante</li>
-    </ul>
-    <h3>Attaché Commercial BtoB | Multi-secteurs | 2006-2012</h3>
-    <ul>
-        <li>Développement commercial grands comptes</li>
-        <li>Négociation et suivi de contrats</li>
-        <li>Portfolio : 150+ clients actifs, CA généré significatif</li>
+        <li>Design : Suite Adobe, Figma, UI/UX</li>
+        <li>Dev : HTML/CSS, JS, WordPress, PWA</li>
+        <li>Commercial : Prospection, gestion client</li>
+        <li>Méthodes : Agile, Git, prototypage</li>
     </ul>
 
-    <h2>Projets Personnels - L'Innovation par la Passion</h2>
-    <h3>Applications PWA Personnelles (2023-2025)</h3>
+    <h2>EXPÉRIENCES PROFESSIONNELLES</h2>
+    
+    <h3>Assistant logistique</h3>
+    <p><strong>PAPREC La Rochelle</strong> | Oct. 2023 — Juin 2024</p>
     <ul>
-        <li>Développement d'applications web progressives pour mes passions (billard, musique, cinéma)</li>
-        <li>Utilisation quotidienne de l'IA pour accélérer le développement ("vibe coding")</li>
-        <li>Stack : HTML5, CSS3, JavaScript, APIs modernes</li>
-        <li>Démonstration disponible sur demande</li>
-    </ul>
-    <h3>Veille Technologique Active</h3>
-    <ul>
-        <li>Exploration continue des outils low-code/no-code</li>
-        <li>Expérimentation IA générative appliquée au développement</li>
-        <li>Suivi des tendances UX/UI et développement front-end</li>
+        <li>Planification des tournées J+1 et J+0, coordination de 15 conducteurs.</li>
+        <li>Saisie des commandes, suivi des bons d'enlèvements (outil propriétaire / Excel).</li>
+        <li>Relation clients et communication opérationnelle avec les chauffeurs.</li>
     </ul>
 
-    <h2>Formation - Base Solide, Apprentissage Continu</h2>
+    <h3>Chargé de projet — Informatique embarquée</h3>
+    <p><strong>Transports Hautié</strong> | Juin — Sept. 2023</p>
     <ul>
-        <li>2023 : Certification Infographiste Designer Web - AP Formation Toulouse</li>
-        <li>2006-2007 : Titre Professionnel Attaché Commercial (Niveau IV) - AFPA Poitiers</li>
-        <li>2004-2005 : DEUG Géographie - Université La Rochelle</li>
-        <li>2003 : Baccalauréat Économique et Social</li>
+        <li>Paramétrage logiciel, formation du personnel et accompagnement à l'usage.</li>
+        <li>Suivi et supervision des équipements embarqués.</li>
+        <li>Création de supports techniques (PDF / PowerPoint).</li>
     </ul>
 
-    <h2>Pourquoi Moi pour votre Équipe ?</h2>
+    <h3>Infographiste Designer Web</h3>
+    <p><strong>La Casquette Digital</strong> | Févr. — Mars 2023</p>
     <ul>
-        <li>Polyvalence prouvée : Je couvre plusieurs besoins en une personne</li>
-        <li>Autonomie totale : De l'idée au produit fini, je gère l'ensemble</li>
-        <li>Vision 360° : Je comprends les enjeux techniques ET business</li>
-        <li>Adaptabilité : 20 ans d'expériences variées = capacité d'adaptation rapide</li>
-        <li>Innovation : J'utilise l'IA pour être plus productif et créatif</li>
-        <li>Fiabilité : Respect des délais, communication transparente</li>
+        <li>Création de supports digitaux pour réseaux sociaux et évènementiel (Figma, Adobe).</li>
+        <li>Création d'un site vitrine (WordPress + CSS) et d'une boutique (WooCommerce, HTML/CSS).</li>
+        <li>Organisation du projet en méthode Agile (Trello, ateliers de co-création).</li>
     </ul>
 
-    <h2>Ce que je Recherche</h2>
-    <p>Un poste où ma polyvalence sera valorisée, dans une structure qui privilégie :</p>
+    <h3>Responsable de tournée sur les marchés</h3>
+    <p><strong>Couleur March</strong> | 2017 — 2021</p>
     <ul>
-        <li>La qualité du travail plutôt que l'urgence permanente</li>
-        <li>L'équilibre vie professionnelle/personnelle</li>
-        <li>L'innovation et l'expérimentation</li>
-        <li>Le travail d'équipe et l'entraide</li>
+        <li>Pilotage achats, stocks, pricing, veille concurrentielle.</li>
+        <li>Management d'une équipe de 4 personnes, planning & congés.</li>
+        <li>Suivi CA, marge, qualité / hygiène / sécurité.</li>
     </ul>
-    <p>Disponibilité : Immédiate</p>
-    <p>Mobilité : La Rochelle et agglomération (télétravail partiel apprécié)</p>
 
-    <h2>Centres d'Intérêt</h2>
+    <h3>Freelance — Infographiste multimédia</h3>
+    <p><strong>Auto-entrepreneur</strong> | 2016 — 2017</p>
     <ul>
-        <li>Billard (black ball) - Stratégie et précision</li>
-        <li>Développement d'applications PWA - Créativité technique</li>
-        <li>Expérimentation IA - Innovation permanente</li>
-        <li>Cinéma & Musique - Culture et inspiration</li>
+        <li>Créations visuelles multi-supports, du brief à la livraison.</li>
+        <li>Partenariats imprimeurs, respect de chartes grandes enseignes.</li>
+        <li>Veille design & montée en compétences continues.</li>
+    </ul>
+
+    <h3>VRP & Attaché commercial B2B</h3>
+    <p><strong>Telenet Services - SAS DJM - Espace Média - Paritel - Berner - Artyl Bureau</strong> | 2006 — 2012</p>
+    <ul>
+        <li>Prospection, prise de rendez-vous, négociation et fidélisation.</li>
+        <li>Suivi des livraisons, SAV et back-office.</li>
+        <li>Atteinte des objectifs de chiffre d'affaires et de marge.</li>
+    </ul>
+
+    <h2>PROJETS PERSONNELS</h2>
+    
+    <h3>Applications PWA personnelles (2023–2025)</h3>
+    <ul>
+        <li>Développement d'apps pour billard, musique, cinéma. Utilisation d'IA pour accélérer le dev ("vibe coding").</li>
+    </ul>
+
+    <h3>Veille technologique</h3>
+    <ul>
+        <li>Low-code, IA générative, tendances UX/UI.</li>
+    </ul>
+
+    <h2>DIPLÔMES</h2>
+    <ul>
+        <li>Infographiste Designer Web — Niveau 5 / BTS | AP FORMATION Toulouse | 2023</li>
+        <li>Attaché commercial — Niveau 4 / BAC | AFPA Poitiers | 2007</li>
+        <li>BAC ES | 2003</li>
+    </ul>
+
+    <h2>POURQUOI MOI ?</h2>
+    <ul>
+        <li>Polyvalence prouvée — autonomie totale</li>
+        <li>Vision 360° : technique & business</li>
+        <li>Innovation & fiabilité</li>
+        <li>Disponibilité : Immédiate - Mobilité : La Rochelle & agglo.</li>
+    </ul>
+
+    <h2>CENTRES D'INTÉRÊT</h2>
+    <ul>
+        <li>🎱 Billard (black ball)</li>
+        <li>💻 PWA & projets perso</li>
+        <li>🤖 IA & expérimentation</li>
+        <li>🎬 Cinéma & musique</li>
     </ul>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>

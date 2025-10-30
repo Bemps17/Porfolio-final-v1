@@ -145,7 +145,7 @@
                 </div>
                 
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="hamburger lg:hidden p-2 focus:outline-none relative z-[51]">
+                <button id="mobile-menu-btn" class="hamburger lg:hidden p-2 focus:outline-none relative z-[51] min-w-[44px] min-h-[44px]">
                     <div class="space-y-1.5">
                         <span class="hamburger-line block w-6 h-0.5 bg-orange-500"></span>
                         <span class="hamburger-line block w-6 h-0.5 bg-orange-500"></span>
@@ -156,7 +156,7 @@
         </nav>
         
         <!-- Mobile Navigation Menu -->
-        <div id="mobile-menu" class="lg:hidden fixed top-0 right-0 h-full w-72 bg-black-secondary transform translate-x-full transition-transform duration-300 z-50">
+        <div id="mobile-menu" class="lg:hidden fixed top-0 right-0 h-full w-72 sm:w-80 bg-black-secondary transform translate-x-full transition-transform duration-300 z-50">
             <div class="p-6 pt-20">
                 <nav class="space-y-4">
                     <a href="#home" class="block py-3 px-4 text-lg hover:bg-orange-500/20 hover:text-orange-500 rounded-lg transition-colors">
@@ -252,9 +252,9 @@
                         <span class="text-green-400">●</span> Disponible immédiatement
                     </a>
                     
-                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6">
+                    <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6">
                         Je suis <span class="text-gradient-orange">Bertrand</span>,<br>
-                        <span class="typing block mt-2 lg:text-4xl xl:text-5xl">Votre Expert Polyvalent</span>
+                        <span class="typing block mt-2 sm:text-3xl lg:text-4xl xl:text-5xl">Votre Expert Polyvalent</span>
                     </h1>
                     
                     <p class="text-base sm:text-lg md:text-xl text-gray-300 mb-6 sm:mb-8 leading-relaxed px-4 sm:px-0">
@@ -291,7 +291,7 @@
                             <div class="absolute inset-0 rounded-full gradient-bg opacity-50 blur-xl"></div>
                             <div class="absolute inset-4 rounded-full glass flex items-center justify-center">
                                 <div class="text-center">
-                                    <div class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-2 sm:mb-4 text-orange-500">3</div>
+                                    <div class="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-4 text-orange-500">3</div>
                                     <div class="text-sm sm:text-base lg:text-lg">Domaines d'expertise</div>
                                     <div class="text-2xl sm:text-3xl font-bold mt-2 sm:mt-4 text-orange-400">10+</div>
                                     <div class="text-xs sm:text-sm">Années d'expérience</div>
@@ -308,14 +308,14 @@
     <section id="expertise" class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div class="container mx-auto max-w-6xl">
             <div class="text-center mb-12 sm:mb-16">
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
                     Mes <span class="text-gradient-orange">3 Expertises Clés</span>
                 </h2>
                 <p class="text-lg sm:text-xl text-gray-400 px-4 sm:px-0">Un profil unique qui connecte Business, Créativité et Organisation</p>
             </div>
             
             <!-- Cards Grid - Stack on mobile -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
                 <!-- Commercial Card -->
                 <div class="skill-card glass rounded-xl sm:rounded-2xl p-6 sm:p-8 text-center">
                     <div class="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 sm:mb-6 gradient-bg rounded-xl sm:rounded-2xl flex items-center justify-center text-2xl sm:text-3xl">
@@ -380,7 +380,7 @@
     <section class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div class="container mx-auto max-w-6xl">
             <div id="skills" class="text-center mb-12 sm:mb-16">
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
                     Mon <span class="text-gradient-orange">Savoir-Faire</span>
                 </h2>
                 <p class="text-lg sm:text-xl text-gray-400 mb-8">Compétences techniques & comportementales</p>
@@ -1171,7 +1171,7 @@
     <section id="projets" class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div class="container mx-auto max-w-6xl">
             <div class="text-center mb-12 sm:mb-16">
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
                     Projets & <span class="text-gradient-orange">Réalisations</span>
                 </h2>
                 <p class="text-lg sm:text-xl text-gray-400">Applications web, design et solutions digitales</p>
@@ -1184,13 +1184,13 @@
             <!-- Technology Filter -->
             <div id="techFilterContainer" class="mb-8"></div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
                 <!-- CoursFull -->
                 <div class="glass rounded-xl sm:rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform group cursor-pointer" data-project-id="coursfull">
-                    <div class="h-40 sm:h-48 bg-gradient-to-r from-indigo-500 to-purple-500 flex items-center justify-center relative overflow-hidden">
+                    <div class="h-32 sm:h-40 md:h-48 bg-gradient-to-r from-indigo-500 to-purple-500 flex items-center justify-center relative overflow-hidden">
                         <img src="assets/projects/coursfull/screenshots/cover.jpg" alt="CoursFull" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-300">
                         <div class="absolute inset-0 bg-black/40"></div>
-                        <i class="fas fa-graduation-cap text-5xl text-white opacity-90 z-10 absolute bottom-4 right-4"></i>
+                        <i class="fas fa-graduation-cap text-3xl sm:text-4xl md:text-5xl text-white opacity-90 z-10 absolute bottom-2 sm:bottom-4 right-2 sm:right-4"></i>
                     </div>
                     <div class="p-4 sm:p-6">
                         <h3 class="text-lg sm:text-xl font-bold mb-2">CoursFull</h3>
@@ -1358,7 +1358,7 @@
 
                 <!-- WorkFloow -->
                 <div class="glass rounded-xl sm:rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform group cursor-pointer" data-project-id="workfloow">
-                    <div class="h-40 sm:h-48 bg-gradient-to-r from-indigo-500 to-purple-500 flex items-center justify-center relative overflow-hidden">
+                    <div class="h-32 sm:h-40 md:h-48 bg-gradient-to-r from-indigo-500 to-purple-500 flex items-center justify-center relative overflow-hidden">
                         <img src="assets/projects/workfloow/screenshots/cover.jpg" alt="WorkFloow" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-300">
                         <div class="absolute inset-0 bg-black/40"></div>
                         <i class="fas fa-project-diagram text-5xl text-white opacity-90 z-10 absolute bottom-4 right-4"></i>
@@ -1508,7 +1508,7 @@
     <section id="parcours" class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div class="container mx-auto max-w-4xl">
             <div class="text-center mb-12 sm:mb-16">
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
                     Mon <span class="text-gradient-orange">Parcours</span>
                 </h2>
                 <p class="text-lg sm:text-xl text-gray-400 px-4 sm:px-0">Une évolution constante vers la polyvalence</p>
@@ -1681,14 +1681,14 @@
     <section id="contact" class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div class="container mx-auto max-w-4xl">
             <div class="text-center mb-12 sm:mb-16">
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
                     Prêt à <span class="text-gradient-orange">Collaborer ?</span>
                 </h2>
                 <p class="text-lg sm:text-xl text-gray-400">Je suis disponible immédiatement pour vos projets</p>
             </div>
             
             <div class="glass rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-12">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-6 sm:mb-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mb-4 sm:mb-6 md:mb-8">
                     <!-- Contact Info -->
                     <div>
                         <h3 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Contactez-moi directement</h3>
@@ -1738,19 +1738,19 @@
                                 </p>
                                 <input type="text" name="name" placeholder="Votre nom" required 
                                        autocomplete="name"
-                                       class="w-full p-3 sm:p-4 glass rounded-lg sm:rounded-xl bg-white/5 focus:bg-white/10 outline-none transition text-sm sm:text-base">
+                                       class="w-full p-3 sm:p-4 glass rounded-lg sm:rounded-xl bg-white/5 focus:bg-white/10 outline-none transition text-sm sm:text-base min-h-[44px]">
                                 <input type="email" name="email" placeholder="Votre email" required 
                                        autocomplete="email"
-                                       class="w-full p-3 sm:p-4 glass rounded-lg sm:rounded-xl bg-white/5 focus:bg-white/10 outline-none transition text-sm sm:text-base">
+                                       class="w-full p-3 sm:p-4 glass rounded-lg sm:rounded-xl bg-white/5 focus:bg-white/10 outline-none transition text-sm sm:text-base min-h-[44px]">
                                 <textarea name="message" placeholder="Votre message" rows="4" required 
                                           autocomplete="off"
-                                          class="w-full p-3 sm:p-4 glass rounded-lg sm:rounded-xl bg-white/5 focus:bg-white/10 outline-none transition text-sm sm:text-base"></textarea>
-                                <label id="file-input-label" class="w-full p-3 sm:p-4 glass rounded-lg sm:rounded-xl bg-white/5 focus-within:bg-white/10 outline-none transition text-sm sm:text-base flex items-center cursor-pointer text-gray-400 hidden">
+                                          class="w-full p-3 sm:p-4 glass rounded-lg sm:rounded-xl bg-white/5 focus:bg-white/10 outline-none transition text-sm sm:text-base min-h-[44px]"></textarea>
+                                <label id="file-input-label" class="w-full p-3 sm:p-4 glass rounded-lg sm:rounded-xl bg-white/5 focus-within:bg-white/10 outline-none transition text-sm sm:text-base flex items-center cursor-pointer text-gray-400 hidden min-h-[44px]">
                                     <i class="fas fa-paperclip mr-3"></i>
                                     <span id="file-name" class="truncate">Joindre un fichier (optionnel)</span>
                                     <input type="file" name="file" id="file-input" class="hidden">
                                 </label>
-                                <button type="submit" class="w-full p-3 sm:p-4 gradient-bg text-white rounded-lg sm:rounded-xl font-semibold hover:shadow-xl transition transform hover:scale-[1.02] text-sm sm:text-base">
+                                <button type="submit" class="w-full p-3 sm:p-4 gradient-bg text-white rounded-lg sm:rounded-xl font-semibold hover:shadow-xl transition transform hover:scale-[1.02] text-sm sm:text-base min-h-[44px]">
                                     <i class="fas fa-paper-plane mr-2"></i>Envoyer le message
                                 </button>
                             </form>

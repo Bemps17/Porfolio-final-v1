@@ -236,6 +236,68 @@
             }
         }
 
+        /* Mobile optimisations - Petits écrans */
+        @media (max-width: 480px) {
+            /* Menu mobile plus compact */
+            #mobile-menu {
+                width: 85vw;
+                max-width: 280px;
+            }
+            
+            /* Espacements réduits */
+            .gap-6 { gap: 1rem; }
+            .px-4 { padding-left: 0.75rem; padding-right: 0.75rem; }
+            .py-16 { padding-top: 3rem; padding-bottom: 3rem; }
+            .py-20 { padding-top: 4rem; padding-bottom: 4rem; }
+            
+            /* Texte plus petit */
+            .text-lg { font-size: 1rem; }
+            .text-xl { font-size: 1.125rem; }
+        }
+
+        /* Très petits écrans */
+        @media (max-width: 375px) {
+            /* Menu mobile ultra-compact */
+            #mobile-menu {
+                width: 80vw;
+                max-width: 260px;
+            }
+            
+            /* Espacements encore plus réduits */
+            .gap-6 { gap: 0.75rem; }
+            .px-4 { padding-left: 0.5rem; padding-right: 0.5rem; }
+            .py-16 { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+            .py-20 { padding-top: 3rem; padding-bottom: 3rem; }
+            
+            /* Tailles de texte optimisées */
+            .text-lg { font-size: 0.875rem; }
+            .text-xl { font-size: 1rem; }
+            
+            /* Cartes de projets plus petites */
+            .h-40 { height: 120px; }
+            .h-48 { height: 140px; }
+        }
+
+        /* Optimisations iOS */
+        @media (max-width: 480px) {
+            /* Éviter le zoom sur les inputs */
+            input, textarea, select {
+                font-size: 16px !important;
+            }
+            
+            /* Zones de touchable optimisées */
+            button, a {
+                min-height: 44px;
+                -webkit-tap-highlight-color: transparent;
+            }
+            
+            /* Hamburger menu plus grand */
+            #mobile-menu-btn {
+                min-width: 44px;
+                min-height: 44px;
+            }
+        }
+
         /* --- DÉFINITION DES 3 THÈMES --- */
 
         /* THÈME 1 : CORPORATE (Sombre Orange) */
